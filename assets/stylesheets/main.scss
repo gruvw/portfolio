@@ -5,6 +5,6 @@
 @charset "utf-8";
 
 // Theme skin
-@import "../../_sass/basically-basic/themes/{{ site.data.theme.skin | default: 'default' }}";
+@import "basically-basic/themes/{{ site.data.theme.skin | default: 'default' }}";
 
-@import "../../_sass/basically-basic";
+@import "basically-basic";
