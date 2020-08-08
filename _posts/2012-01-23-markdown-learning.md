@@ -1,7 +1,9 @@
 ---
-title: "Edge Case: Nested and Mixed Lists"
+title: "Markdown learning"
+categories:
+  - Markdown
 tags:
-  - python
+  - markdown
 last_modified_at: 2017-03-09T14:25:52-05:00
 ---
 

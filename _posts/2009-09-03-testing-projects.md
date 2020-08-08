@@ -1,5 +1,7 @@
 ---
-title: "Edge Case: Nested and Mixed Lists"
+title: "Testing projects"
+categories:
+  - Python
 tags:
   - python
 last_modified_at: 2017-03-09T14:25:52-05:00

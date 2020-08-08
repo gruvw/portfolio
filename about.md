@@ -1,4 +1,4 @@
 ---
 layout: about
-title: Test page
+title: About me
 ---

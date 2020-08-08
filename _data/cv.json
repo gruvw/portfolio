@@ -4,9 +4,8 @@
         "label": "Developer",
         "picture": "https://avatars1.githubusercontent.com/u/63407038?s=460&u=58879e919dd2613767be454455528db0e469f89b&v=4",
         "email": "lucasjung.pro@gmail.com",
-        "phone": "+41 (0)79 294 68 24",
         "website": "http://gruvw.com",
-        "summary": "Insert summary here XXXXXXXXX",
+        "summary": "XXXXXXXXXXX",
         "location": {
             "countryCode": "Switzerland",
             "region": "Vaud"
@@ -27,7 +26,7 @@
             "endDate": "2020-08-23",
             "summary": "Programmation of a custom software: projected a target on which you can shoot with a laser.",
             "highlights": [
-                "Building a project from the ground up",
+                "Building a full project from the ground up",
                 "Software and hardware compatibility",
                 "Video recognition with OpenCv",
                 "First 'real' job dealing with programming - Confirmed my motivation in this domain"
