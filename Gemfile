@@ -20,6 +20,9 @@ gem "github-pages", group: :jekyll_plugins
 group :jekyll_plugins do
     gem "jekyll-feed", "~> 0.12"
     gem "jekyll-paginate"
+    gem "jekyll-seo-tag"
+    gem "jekyll-sitemap"
+    gem "jekyll-algolia"
   end
 
 # Performance-booster for watching directories on Windows
