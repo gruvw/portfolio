@@ -5,7 +5,7 @@
         "picture": "https://avatars1.githubusercontent.com/u/63407038?s=460&u=58879e919dd2613767be454455528db0e469f89b&v=4",
         "email": "lucasjung.pro@gmail.com",
         "website": "http://gruvw.com",
-        "summary": "XXXXXXXXXXX",
+        "summary": "Also know as Gruvw, I was born in 2002 in Switzerland. I started to learn how to code at the age of 10. Since then, I have fallen in love with programming and Computer Science in general. I learned almost everything that I know about programmation by myself and I have had, since the beginning, a 'practice to learn' policy. Therefore I make lots of projects here and there in order to put theory into practice.  I also try to have as much professional experiences as I can in order to know if I really want to do this as a job and for now the answer has always been yes. All of this led me to where I am today, still passionate and curious about everything and never missing out an opportunity to learn.",
         "location": {
             "countryCode": "Switzerland",
             "region": "Vaud"
@@ -120,8 +120,9 @@
             "keywords": [
                 "Python",
                 "Arduino (C)",
-                "PHP",
                 "Java",
+                "PHP",
+                "SQL",
                 "LaTeX"
             ]
         },
@@ -139,7 +140,8 @@
             "level": "Good level",
             "keywords": [
                 "HTML",
-                "CSS"
+                "CSS",
+                "Javascript"
             ]
         }
     ],
@@ -150,7 +152,7 @@
         },
         {
             "language": "English",
-            "fluency": "Good Level"
+            "fluency": "Good Level (B2)"
         },
         {
             "language": "German",
