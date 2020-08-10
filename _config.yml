@@ -16,7 +16,7 @@
 lang: en-US
 title: Gruvw
 email: gruvw.dev@gmail.com
-description: This is the website where I expose my projects.
+# description: This is the website where I expose my projects.
 baseurl: "" # the optional subpath of your site, e.g. "/blog"
 url: "https://gruvw.com" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 author:
