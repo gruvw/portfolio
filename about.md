@@ -29,6 +29,4 @@ As I said it many time, I am very curious. I always want to know how something w
 
 ## Contact me
 
-Developer professional e-mail: gruw.dev@gmail.com
-
-Other professional e-mail: lucasjung.pro@gmail.com
+Developer professional e-mail: <a href="mailto:gruvw.dev@gmail.com" target="_blank">gruvw.dev@gmail.com</a>
