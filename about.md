@@ -2,8 +2,15 @@
 layout: about
 title: About me
 ---
-
-<img style="border-radius:50px" width="300" src="assets/images/author/lucas_jung_profile.jpg" alt="Lucas Jung Image">
+<style>
+    .luc-img {
+        width: 100px;
+        border-radius: 50%;
+    }
+    /* make responsive! */
+</style>
+<img class="luc-img" src="assets/images/author/lucas_jung_profile.jpg" alt="Lucas Jung Image">
+<img class="luc-img" width="300" src="assets/images/main/gruvw_logo.png" alt="Lucas Jung Image">
 
 ## My journey
 
