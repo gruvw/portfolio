@@ -26,3 +26,18 @@ I was still facing two issues:
 2. When I restart my program, I am not able to get back the previous console feed. This way I only had the currently running console feed and no history of the previous runs.
 
 This is when I had the idea of creating a python package which could print out statements directly with a prefix containing the currently day and time. The package could also save the console feed inside a log file. I would then be able to see the console feed after closing the program and access any past run output.
+
+## The Old Way
+
+Before the creation of this package, I was printing out a statement this way:
+
+```python
+import time  # one time only
+
+hour = time.strftime("%d.%m %H:%M:%S |  ")
+statement = "-> Data sent successfully"
+print(hour + statement)
+```
+
+Every time I needed to print out something I was creating a prefix using the [_strftime_](https://docs.python.org/fr/3/library/time.html#time.strftime) method of the [_time_](https://docs.python.org/fr/3/library/time.html) package (line 3).
+After that I concatenated the prefix with the statement before printing the result (line 5).
