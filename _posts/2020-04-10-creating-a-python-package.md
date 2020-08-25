@@ -41,3 +41,20 @@ print(hour + statement)
 
 Every time I needed to print out something I was creating a prefix using the [_strftime_](https://docs.python.org/fr/3/library/time.html#time.strftime) method of the [_time_](https://docs.python.org/fr/3/library/time.html) package (line 3).
 After that I concatenated the prefix with the statement before printing the result (line 5).
+
+Doing it like that let me have the prefix before the statement but didn't store anything in a log file.
+
+## The Creation
+
+### Introduction
+
+Although I coded a lot in Python, I never wrote a package or anything close to it. I took it like a good opportunity to learn a new skill in this language.
+I wanted my package to be easily install on any computer with a [pip](https://packaging.python.org/key_projects/#pip) command like the other packages I installed in the past.
+This is where I stared.
+
+### PyPi
+
+I needed to first understand where and how to make my futur package available to anyone using the pip command. That led me to search where the different python packages are stored. I found that they are stored on [PyPi](https://pypi.org/), the **Python Package Index**.
+Once I knew that I searched a way to publish any package on PyPi. I found [this](https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56) tutorial on [Medium](https://medium.com/) wrote by [joelbarmettlerUZH](https://medium.com/@joel.barmettler).
+It was really helpful and it was covering everything from the point where you finished writing your code to the `pip install your_package` command.
+I read this article so that I knew how to write my code in order to make it easier to publish on PyPi once I would have finished coding my package.
