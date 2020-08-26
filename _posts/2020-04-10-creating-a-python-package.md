@@ -58,3 +58,37 @@ I needed to first understand where and how to make my futur package available to
 Once I knew that I searched a way to publish any package on PyPi. I found [this](https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56) tutorial on [Medium](https://medium.com/) wrote by [joelbarmettlerUZH](https://medium.com/@joel.barmettler).
 It was really helpful and it was covering everything from the point where you finished writing your code to the `pip install your_package` command.
 I read this article so that I knew how to write my code in order to make it easier to publish on PyPi once I would have finished coding my package.
+
+### Coding
+
+Now that I knew how to write my package in a way to make it accessible to anyone, I needed to actually code it.
+I started my réflexion by asking myself which categories of statements I wanted my package to be able to display. I found 3 main categories:
+
+1. An information
+2. A warning
+3. An error
+
+I did some research about log files in python and this is where I found the [logging](https://docs.python.org/3/library/logging.html) package. This discovery made my work a lot simpler because it matched almost perfectly my goal of keeping track of what I was printing inside a log file.
+I learned a bit about how to use this package and ran some tests. I was pretty satisfied about it and I started implementing it inside my own package.
+It wasn't an issue to use it inside my package because it is part of the [Python Standard Library](https://docs.python.org/3/library/index.html). That meant that I didn't need to mess with requirements or anything like that because (almost) everyone already had the logging package installed on their machines.
+
+I coded the main methods of my package which were:
+
+* The initialisation method, `init`
+* The exit method, `exit`
+* The info method, `info`
+* The warning method, `warn`
+* The error method, `err`
+* I also added a new category which was the debug method, `debug`
+
+I am not going to describe each method in details here but you can read more about them in the documentation of the project that you can found on the [project's GitHub repository](https://github.com/gruvw/printbetter).
+
+### Customisation
+
+### Documentation
+
+### The name
+
+## Publishing
+
+## Conclusion
