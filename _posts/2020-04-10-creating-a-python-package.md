@@ -81,14 +81,26 @@ I coded the main methods of my package which were:
 * The error method, `err`
 * I also added a new category which was the debug method, `debug`
 
-I am not going to describe each method in details here but you can read more about them in the documentation of the project that you can found on the [project's GitHub repository](https://github.com/gruvw/printbetter).
+(I am not going to describe each method here but you can read more about them in the documentation of the project that you can found on the [project's GitHub repository](https://github.com/gruvw/printbetter).)
 
 ### Customisation
+
+I wanted my package to be as customizable as possible. In order to let the users customise the package, I created the following methods:
+
+1. Customise the printing prefix the way they want, `custom_PRINTPREFIXFORMAT`
+2. Customise the logging prefix the way they want, `custom_LOGFORMAT`
+3. Disabling or enabling the printing on the console, `disable_PRINTOUT` `enable_PRINTOUT`
+4. Disabling or enabling the record of the statements on a log file, `disable_LOGFILE` `enable_LOGFILE`
+5. Modify the directory where the log files will be save, `custom_LOGPATH`
+
+(I am not going to describe each method here but you can read more about them in the documentation of the project that you can found on the [project's GitHub repository](https://github.com/gruvw/printbetter).)
 
 ### Documentation
 
 ### The name
 
 ## Publishing
+
+Even thought I read all the explanations detail in the article (see [PyPi](#pypi)) about publishing my package to PyPi I ran into multiple difficulties durning this process.
 
 ## Conclusion
