@@ -35,6 +35,11 @@ pre {
   font-family: $monospace-font-family;
 }
 
+code.highlighter-rouge{
+  background-color: rgb(233, 233, 233);
+  border: 2px solid rgb(233, 233, 233)
+}
+
 kbd {
   display: inline-block;
   margin: 0 0.125em;
