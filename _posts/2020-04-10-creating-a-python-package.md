@@ -97,7 +97,16 @@ I wanted my package to be as customizable as possible. In order to let the users
 
 ### Documentation
 
+At this time the coding part was pretty much done but I still needed to write an understandable documentation for futur users.
+I didn't want something perfect just something useful and that was capable of explaining how my package works and how to use it.
+I stared by writing some comments inside my code in order to explain different parts of each method.
+After that I wrote a docstring for each method describing its purpose and it use.
+Then I wrote some basic examples of usages and how to initialise the package.
+I also styled everything using [Markdown](https://fr.wikipedia.org/wiki/Markdown). This way, the documentation is nicely displayed in [Visual Studio Code](https://code.visualstudio.com/) or any other text editor which support Markdown documentation rendering.
+
 ### The name
+
+## The New Way
 
 ## Publishing
 
