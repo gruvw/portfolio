@@ -106,10 +106,34 @@ I also styled everything using [Markdown](https://fr.wikipedia.org/wiki/Markdown
 
 ### The name
 
+
+
 ## The New Way
+
+When I finished my package, I was pretty satisfied by the final result.
+My initial issue was fixed and I am definitely going to use this package in a large number of futur projects.
+The new way of printing things to the console is now like this:
+
+```python
+import printbetter as pb
+
+pb.init()  # initializes
+
+pb.info("information")
+pb.debug("variable debug")
+pb.warn("warning")
+pb.err("error")
+
+pb.exit()  # terminates
+```
+
+The first line is where my package is imported in my python script.
+On the third line I am initializing the module with the default parameters (no additional informations).
+After this comes a series of method calls which each has their own purpose. They already have been described in the [Coding](#coding) paragraph.
+At the end, at line 10, I am terminating the module.
 
 ## Publishing
 
-Even thought I read all the explanations detail in the article (see [PyPi](#pypi)) about publishing my package to PyPi I ran into multiple difficulties durning this process.
+Even thought I read all the explanations in the article (see [PyPi](#pypi) paragraph) about publishing my package to PyPi I ran into multiple difficulties durning this process.
 
 ## Conclusion
