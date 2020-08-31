@@ -104,9 +104,36 @@ After that I wrote a docstring for each method describing its purpose and it use
 Then I wrote some basic examples of usages and how to initialise the package.
 I also styled everything using [Markdown](https://fr.wikipedia.org/wiki/Markdown). This way, the documentation is nicely displayed in [Visual Studio Code](https://code.visualstudio.com/) or any other text editor which support Markdown documentation rendering.
 
+After the documentation was written in the code, I still needed to write a _README.md_ file for the GitHub repository.
+I wrote it pretty fast just including:
+
+* A description of my package
+* The features it brings
+* A detailed documentation
+* Examples for every methods
+
 ### The name
 
+I had a really cool name inside my head back since the beginning of the project which was **BetterPrint**.
+It represented pretty well what I was trying to achieve but unfortunately, it was already taken by another package.
+I could take another name for the package installation and still be able to import my module with the name BetterPrint but I was not really convinced by this idea.
+I don't really like when other packages are doing that. For example the well known computer vision package called [OpenCV](https://pypi.org/project/opencv-python/) needs to be install with the following command: `pip install opencv-python`. However it needs to be imported inside a python script like this: `import opencv`.
+It is a small detail but I like the fact that when you look at someone's code and there's a package you don't have you can simply run the `pip install package_name` command in order to get it.
 
+This is why I wrote an email to the person who has his package called BetterPrint in order to see with him if he was ok to change his package name so I could use his.
+I thought that he would say yes because his package has not been updated since many years but he answered no :disappointed_relieved:.
+
+At this time I needed to find another name to my package. There were many candidates like:
+
+* SimplePrint
+* EasyPrint
+* LogPrint
+* BestPrint
+* ...
+
+I was not fully satisfied by any of this names. At some point I realized that I could just invert the and _Better_ and the _Print_ in the name and it was not already taken!
+That gave me the final name which is **PrintBetter**.
+It was the most convincing name to me so I went with that one.
 
 ## The New Way
 
@@ -135,5 +162,22 @@ At the end, at line 10, I am terminating the module.
 ## Publishing
 
 Even thought I read all the explanations in the article (see [PyPi](#pypi) paragraph) about publishing my package to PyPi I ran into multiple difficulties durning this process.
+
+I needed to create many different files in order to publish my packages:
+
+* LICENCE.txt
+* MANIFEST
+* description.rst
+* setup.cfg
+* setup.py
+
+I was a bit confused when I wrote each of this files.
+The _LICENCE.txt_ was the easiest file because I just choose one of the basic license for my package and everything just ran smoothly with it.
+The _MANIFEST_ was automatically generated so it was not an issue either.
+The _description.rst_ file was slightly more difficult but nothing crazy. It is the file used by PyPi to display a small description of the project on their website. It used the [reStructuredText](https://fr.wikipedia.org/wiki/ReStructuredText) file formatting which is a bit like Markdown but using a different syntax.
+The _setup.cfg_ was a very small file so it was not hard to setup.
+
+The only file which gave me lots of issues was the _setup.py_ file. I needed to modify it many times and my package became a mess because every time that I made a change to this file I needed to release my package and then upload it to PyPi in order to see if my changes worked.
+This is why there was six [releases](https://github.com/gruvw/printbetter/releases) of my package till it was finally fully published like I wanted.
 
 ## Conclusion
