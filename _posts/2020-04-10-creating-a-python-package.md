@@ -181,3 +181,12 @@ The only file which gave me lots of issues was the _setup.py_ file. I needed to 
 This is why there was six [releases](https://github.com/gruvw/printbetter/releases) of my package till it was finally fully published like I wanted.
 
 ## Conclusion
+
+In the end, I am really happy with what I have done with this package.
+I use it in a lot of projects now as it is pretty helpful.
+I am also happy about the documentation that I wrote because even if I knew that probably no one will ever read it or even use my package I wanted to build it as if there would be.
+This gave me the full experience behind building and publishing a python package and I learned a lot thought this process.
+The final result is clean enough for me so maybe I will update it in the futur if I have any additional ideas but not for the moment.
+
+This was a fun and useful project and I would recommend to any python developer to do the same thing if they have any package idea as it is another side of coding we do not always think of.
+We often use lots of packages at the beginning of any python file but this was the first time I really saw the "behind the scenes" of those and it was very interesting.
