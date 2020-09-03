@@ -14,7 +14,7 @@ tags:
 
 I created a Python package which keeps track of what I am printing to the console in a log file along with the possibility to add a prefix to what I am printing.
 
-## The Idea
+## 💡 The Idea
 
 As I coded multiple python programs that were running on a [Raspberry Pi](https://www.raspberrypi.org/) all day long, I always wanted to keep track of what my program was doing and when it was doing it. In order to do so, every time that my program received a piece of information or was actually doing something, I printed a text to the console explaining what was going on.
 This way, it was easy to debug after a problem occurred on some part of a project as I knew if the server received the information or not and if it took the correct actions based on it.
@@ -28,7 +28,7 @@ I was still facing two issues:
 
 This is when I had the idea of creating a python package which could print out statements directly with a prefix containing the current date and time. The package could also save the console feed inside a log file. I would then be able to see the console feed after closing the program and access any past run output.
 
-## The Old Way
+## 💽 The Old Way
 
 Before the creation of this package, I was printing out statements this way:
 
@@ -45,7 +45,7 @@ After that I concatenated the prefix with the statement before printing the resu
 
 Doing it in that way let me to have the prefix before the statement but didn't store anything in a log file.
 
-## The Creation
+## 🛠 The Creation
 
 ### Introduction
 
@@ -122,7 +122,7 @@ I don't really like when other packages do that. For example the well known comp
 It is a small detail but I like the fact that when you look at someone's code and there's a package you don't have, you can simply run the `pip install package_name` command in order to get it.
 
 This is why I wrote an email to the person who has the package called BetterPrint in order to see with him if he was ok to change his package name so I could use his.
-I thought that he would say yes because his package has not been updated for years but his answer was negative :disappointed_relieved:.
+I thought that he would say yes because his package has not been updated for years but his answer was negative 😥.
 
 At this time I needed to find another name to my package. There were many candidates such as:
 
@@ -136,7 +136,7 @@ I was not fully satisfied by any of this names. At some point I realized that I 
 That gave me the final name which is **PrintBetter**.
 It was the most convincing name to me so I went with that one.
 
-## The New Way
+## 🎉 The New Way
 
 When I finished my package, I was pretty satisfied with the final result.
 My initial issue is fixed and I am definitely going to use this package in a large number of futur projects.
@@ -160,7 +160,7 @@ On the third line I am initializing the module with the default parameters (no a
 After that comes a series of method calls which each has their own purpose. They already have been described in the [Coding](#coding) paragraph.
 At the end, at line 10, I am terminating the module.
 
-## Publishing
+## 📤 Publishing
 
 Even thought I read all the explanations in the article (see [PyPi](#pypi) paragraph) about publishing my package to PyPi I ran into multiple difficulties durning this process.
 
@@ -181,7 +181,7 @@ The _setup.cfg_ was a very small file so it was not hard to setup.
 The only file which gave me lots of issues was the _setup.py_ file. I needed to modify it many times and my package became a mess because every time that I made a change to the file I needed to release my package and then upload it to PyPi in order to see if my changes worked.
 This is why there was six [releases](https://github.com/gruvw/printbetter/releases) of my package till it was finally fully published like I wanted.
 
-## Conclusion
+## 📄 Conclusion
 
 In the end, I am really happy with what I have done with this package.
 I use it in a lot of projects now as it is pretty helpful.
