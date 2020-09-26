@@ -38,14 +38,38 @@ Even if there is a bit of [json](https://fr.wikipedia.org/wiki/JavaScript_Object
 I wanted to use the wellknown Adobe PhotoShop editor but it was too expensive for my simple use so it looked for an alternative.
 After some quick researches, I found [Paint.NET](https://www.getpaint.net/): a very easy to use, PhotoShop like image editor. It was fine for what I wanted to do.
 
-This is where I started to design my different elements. I started with the numbers (big and small ones). I drew then pixel by pixel but as the screen of the band is small, it did not took that long.
-Once I finished with the numbers, I started to design the background. I wanted something colorful and funny so this is what I tried to achieve.
+This is where I started to design my different elements. I started with the numbers (big and small ones) and date. I drew then pixel by pixel but as the screen of the band is small, it did not took that long.
+Once I finished with the numbers and date, I started to design the background. I wanted something colorful and funny so this is what I tried to achieve.
 After that, I designed the daily steps goal progress bar. Unfortunately we cannot see it in action in the generated images (white jauge filled with black) but as you get closer to your daily steps goal, the bar is filling itself with some blue to green gradient.
 I finished the designing part with the small icons (lock, bluetooth, ...) that I wanted as simple as possible.
 
 ### Export
 
-Formatting and telling the program what were my images using json, Using the .exe program to generate the .bin (and the images ?)
+At this point, I was pretty satisfied by the design. I renamed every images (there were 101 images) with a number going from 0 to 100.
+
+I was now ready for writing the json file. This is just a file that will tell the program that "compiles" the watch face where each image is and what is its purpose.
+
+This is an example taken from the json file:
+
+```json
+"Background": {
+  "Image": {
+    "X": 0,
+    "Y": 0,
+    "ImageIndex": 0
+  }
+}
+```
+
+In the example, we can see that I indicate to the program that the background image has the Index (file name) 0 and that it need to be placed on the top left corner of the screen (x=0, y=0).
+
+I did the exact same thing for each image (Image index and position). Hopefully you can sometime define the index by ranges: for example the numbers from 0 to 9 are indexes 59 to 68.
+
+When I designed the different images, I also made some weather related ones (temperature, ...) but I finally decided not to put them into the watch face because it would make things too much close to each other and I preferred to have more room between each elements.
+
+After that I filled the entier json file, I executed the program (AmazfitBipTools_Mi4_1.0.3) in charge to convert all my work into a .bin  file that can be read by my watch.
+
+I highly encourage you to take a look into the (project's GitHub repository) if you are interested in learning more about the files I described.
 
 ### How it looks
 
