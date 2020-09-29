@@ -73,14 +73,20 @@ I highly encourage you to take a look into the (project's GitHub repository) if 
 
 ### How it looks
 
-like that
+This is a gif of the final result of my watch face:
 
 ![Watch face animated gif](https://raw.githubusercontent.com/gruvw/rainbow-watch-face/master/Gruvw_en_wf_packed_animated.gif)
 
+It rotates between random hours and dates etc in order to show multiple configuration. The only problem in this gif is that the steps progress bar does not fill up and stays black.
+
 ## 🚀 Publication
 
-named it «Gruvw Rainbow», published my face where I found the one I tried in the beginning, <https://amazfitwatchfaces.com/mi-band-4/view/3018>, > 800 views and > 280 downloads, very happy about it, bit wired thinking someone could be looking to his watch with my face on it right now
+Before publishing this watch face to make it available to anyone worldwide, I wanted to give it a simple name. I chose _Gruvw Rainbow_ because it has some kind of rainbow colors and I wanted my name in it.
+
+I decided to publish my work on the same platform/site I was using in the beginning where I was downloading and testing watch faces done by other users: <https://amazfitwatchfaces.com/mi-band-4/view/3018>
+
+It has (at the time I am writing this) over 800 views and over 280 downloads. I am very happy about that and it is pretty fun to think that someone could literally be looking at his watch right now and see the time on the watch face I designed.
 
 ## 📄 Conclusion
 
-Satisfied about what I have done, not a big project, side project, still about one full time weekend xD, not wearing my mi band anymore but still happy to learned a way to customise a watch face, more design thant coding, still interesting tho
+In the end, I am very satisfied about what I have done in this project. Even though it is not a project that took me weeks to realise (it took me about 3 days), I am still very happy to had learned a way to customize my smart watch. On top of that, it is very satisfying to look at my wrist and see the design I created.
