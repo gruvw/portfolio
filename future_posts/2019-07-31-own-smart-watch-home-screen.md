@@ -14,7 +14,7 @@ tags:
 
 I designed my own smart watch home screen and customized it the way I wanted it to be.
 
-## 💎 The envy
+## 💎 The Envy
 
 I just bought the [Xiaomi Band 4](https://www.mi.com/en/mi-smart-band-4/) which was the very new smart watch model from Xiaomi at the time. As I already had bought the Xiaomi Band 2 and I was really happy about it, I already knew that I would not be disappointed by the new one.
 
