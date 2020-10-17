@@ -30,7 +30,43 @@ I will not detail everything in this article because I already wrote a whole doc
 
 ## The Result
 
+<style>
+.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+</style>
+
+There are three videos below that show the results that I achieved.
+
+### Dots AI
+
 This is a video of my first program in action:
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-AbSTfHwl3o" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-responsive">
+<iframe  src="https://www.youtube-nocookie.com/embed/-AbSTfHwl3o" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
 
+### Snake AI
+
+#### Snake learning
+
+blablabal
+
+<div class="video-responsive">
+<iframe src="https://www.youtube-nocookie.com/embed/QtNxrumyY-E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
+
+#### Snake score 81
+
+blablabal
+
+<div class="video-responsive">
+<iframe src="https://www.youtube-nocookie.com/embed/mH_wvQgb-_o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
