@@ -51,7 +51,7 @@ I was now ready for writing the json file. This is just a file that will tell th
 
 This is an example taken from the json file:
 
-```json
+{% highlight json linenos %}
 "Background": {
   "Image": {
     "X": 0,
@@ -59,7 +59,7 @@ This is an example taken from the json file:
     "ImageIndex": 0
   }
 }
-```
+{% endhighlight %}
 
 In the example, we can see that I indicate to the program that the background image has the Index (file name) 0 and that it need to be placed on the top left corner of the screen (x=0, y=0).
 

@@ -32,13 +32,13 @@ This is when I had the idea of creating a python package which could print out s
 
 Before the creation of this package, I was printing out statements this way:
 
-```python
+{% highlight python linenos %}
 import time  # one time only
 
 hour = time.strftime("%d.%m %H:%M:%S |  ")
 statement = "-> Data sent successfully"
 print(hour + statement)
-```
+{% endhighlight %}
 
 Every time I needed to print out something I was creating a prefix using the [strftime](https://docs.python.org/fr/3/library/time.html#time.strftime){:target="_blank"} method of the [time](https://docs.python.org/fr/3/library/time.html){:target="_blank"} package (line 3).
 After that I concatenated the prefix with the statement before printing the result (line 5).
@@ -142,7 +142,7 @@ When I finished my package, I was pretty satisfied with the final result.
 My initial issue is fixed and I am definitely going to use this package in a large number of futur projects.
 This is the new way of printing things to the console:
 
-```python
+{% highlight python linenos %}
 import printbetter as pb
 
 pb.init()  # initializes
@@ -153,7 +153,7 @@ pb.warn("warning")
 pb.err("error")
 
 pb.exit()  # terminates
-```
+{% endhighlight %}
 
 The first line is where my package is imported in my python script.
 On the third line I am initializing the module with the default parameters (no additional information).
