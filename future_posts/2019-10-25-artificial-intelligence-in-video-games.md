@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AI in video games"
-sub_title: "My first artificial intelligence project involving artificial neural networks."
+sub_title: "My first artificial intelligence project involving artificial neural networks: computer learns how to play Snake."
 introduction: "You can access the files and the videos regarding this project on the following GitHub repository:"
 actions:
   - label: "Project's GitHub repository"
@@ -14,12 +14,12 @@ tags:
 
 I programmed a computer to learn how to play the game Snake on its own.
 
-## A High-School Project
+## ⭐ A High-School Project
 
 In my high school, I needed to create a rated project that I will submit on my last year. We could choose any project we want but I already knew that I wanted something related to programming.
 I was watching the videos of a youtuber called [CodeBullet](https://www.youtube.com/channel/UC0e3QhIYukixgh5VVpKHH9Q){:target="_blank"}. He is programming small artificial intelligence projects and that inspired me to program something similar for my project.
 
-## The Concept
+## 📝 The Concept
 
 I decided to recreated two programs that CodeBullet did on his channel:
 
@@ -28,7 +28,7 @@ I decided to recreated two programs that CodeBullet did on his channel:
 
 I will not detail everything in this article because I already wrote a whole document (the one I needed to write in order to submit my project in my school) explaining everything about how I did it.
 
-## Full document
+## 📃 Full document
 
 If you find this project interesting, I highly encourage you to read this document that I wrote about it.
 I didn't want to write everything again here because there is too much for a web page and because I already wrote a clean document that explains the whole project in details.
@@ -44,7 +44,7 @@ As I knew nothing about LaTeX before writing this document, a part of my project
 It was pretty hard when I began but I got used to it and I can write in LaTeX now.
 It is very usefully when writing professional looking documents integrating maths and code.
 
-## The Result
+## 📽️ The Result
 
 <style>
 .video-responsive{
@@ -126,3 +126,13 @@ There are 3 informations displayed at the bottom of the screen:
 3. KB: means Killed By. Indicates what killed the snake: either the wall, its tail or the maximum number of steps allowed
 
 It is really interesting to watch the snake pushed to hit the wall because it got stuck by its tale. It could not avoid that due to the limitation of its vision (see the [Full document](#full-document)).
+
+## ✅ Conclusion
+
+I am very happy about this project.
+It is one of the most technical project I have done so far and I am proud of myself for managing to achieve something like this considering I am only 17 (at this time).
+I finished my project by giving a live presentation in front of my teacher and an expert along with a small public of interested people (mostly my friends that were here to encourage me ^^).
+I finally received the highest grade.
+I read and learned so much about AI, machine learning and genetic algorithm by doing this project and that is probably why I am most happy to have done this project.
+I highly encourage you to take a look at the [full document](#full-document) that I have written about it if you want to know more.
+<!-- go further, further understand, ... -->
