@@ -1,6 +1,7 @@
 ---
 layout: about
 title: About me
+description: If you want to learn more about me.
 ---
 <style>
     .luc-img {
