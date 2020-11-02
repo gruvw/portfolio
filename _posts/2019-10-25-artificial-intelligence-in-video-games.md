@@ -39,7 +39,7 @@ It contains **everything**, from the creation to the machine learning algorithm 
 > <a href="https://drive.google.com/viewerng/viewer?url=https://github.com/gruvw/TM-AI-video-games/raw/main/TM_Jung_Lucas_3M6.pdf&time=0&embedded=true" target="_blank">Full document (web viewer)</a> _reload the page if needed_  
 > [Full document (github)](https://github.com/gruvw/TM-AI-video-games/blob/main/TM_Jung_Lucas_3M6.pdf){:target="_blank"}
 
-The pdf is written in [LaTeX](https://www.latex-project.org/) which is a programming language that is used to write documents (like Microsoft Office word).
+The pdf is written in [LaTeX](https://www.latex-project.org/){:target="_blank"} which is a programming language that is used to write documents (like Microsoft Office word).
 As I knew nothing about LaTeX before writing this document, a part of my project was to learn how to code in that language.
 It was pretty hard when I began but I got used to it and I can write in LaTeX now.
 I am happy to have learned it because it is a very useful language that I will definitely use again when writing professional looking documents integrating maths and code.
@@ -116,7 +116,7 @@ This is a video of a game of Snake played by the computer after about 700 genera
 <div class="video-responsive">
 <iframe src="https://www.youtube-nocookie.com/embed/mH_wvQgb-_o?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
 
-At this point we can see that the computer has really understood the rules of the game and is limited by its vision (see the [Full document](#full-document)).
+At this point we can see that the computer has really understood the rules of the game and is limited by its vision (see the [Full document](#-full-document)).
 It is even able to dodge its tail multiple times!
 
 There are 3 informations displayed at the bottom of the screen:
@@ -125,7 +125,7 @@ There are 3 informations displayed at the bottom of the screen:
 2. Score: the number of fruits eaten.
 3. KB: means Killed By. Indicates what killed the snake. It could either be the wall, its tail or the maximum number of steps allowed.
 
-It is really interesting to watch the snake forced to hit the wall because it got stuck by its tail. It could not avoid that due to the limitation of its vision (see the [Full document](#full-document)).
+It is really interesting to watch the snake forced to hit the wall because it got stuck by its tail. It could not avoid that due to the limitation of its vision (see the [Full document](#-full-document)).
 
 ## ✅ Conclusion
 
@@ -134,4 +134,4 @@ It is one of the most technical projects I have done so far and I am proud of my
 I finished my project by giving a live presentation in front of my teacher, an expert along with a small public of interested people (mostly my friends that were here to encourage me ^^).
 I finally received the highest grade possible.
 I read and learned so much about AI, machine learning and genetic algorithms by doing this project and that is probably why I am most happy to have done it.
-I highly encourage you to take a look at the [full document](#full-document) that I have written about it if you want to further understand theses programs.
+I highly encourage you to take a look at the [full document](#-full-document) that I have written about it if you want to further understand theses programs.

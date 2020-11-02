@@ -83,7 +83,7 @@ It rotates between random hours and dates etc in order to show multiple configur
 
 Before publishing this watch face to make it available to anyone worldwide, I wanted to give it a simple name. I chose _Gruvw Rainbow_ because it has some kind of rainbow colors and I wanted my name in it.
 
-I decided to publish my work on the same platform/site I used in the beginning when I was downloading and testing watch faces done by other users: <https://amazfitwatchfaces.com/mi-band-4/view/3018>
+I decided to publish my work on the same platform/site I used in the beginning when I was downloading and testing watch faces done by other users: <https://amazfitwatchfaces.com/mi-band-4/view/3018>{:target="_blank"}
 
 It has (at the time I am writing this) over 810 views and over 290 downloads. I am very happy about that and it is pretty fun to think that someone could literally be looking at his watch right now and see the time on the watch face I designed.
 
