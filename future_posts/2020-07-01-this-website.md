@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "This website"
+title: "This website 💻"
 sub_title: "The creation of a website used to share and keep track of my coding projects."
-introduction: "You can access the source code regarding this project on the following GitHub repository:"
+introduction: "You can access the source code and all the files regarding my website on the following GitHub repository where it is hosted:"
 actions:
   - label: "Project's GitHub repository"
     icon: github
@@ -47,12 +47,39 @@ I was often thinking about it but I was too lazy to do everything and I preferre
 
 ### Solution
 
+Someday I decided to find an alternative.
+As I wasn't motivated enough to build my very own website from scratch, I decided to learn a bit more about [GitHub Pages](https://pages.github.com/).
+I had heard of it before but I never interested myself about it that much.
+When I read about how easy it was to setup a repository to become a GitHub Pages website I was blown away.
+I immediately found motivation to build the whole website and this is when I started this project.
+This was perfect for what I wanted: you just need to push any new article that you wrote to the GitHub repository and your site would be automatically updated.
+
+What really put the cherry on top was when I find out about [Jekyll](https://jekyllrb.com/) integration in GitHub pages.
+I had never heard about Jekyll before but this was the exact thing I needed, already built for me.
+It is basically a way to convert markdown files directly into static blogs and websites.
+
+In one day I found the solutions to all the things that were keeping me from doing this website that I wanted so much.
+The only thing about Jekyll and GitHub Pages was that my website will not be the most dynamic website out there with tones of javascript animations etc...
+But in reality, this wasn't so bad because this was not what I was looking for.
+I just wanted a place to publish and keep track of my work so why bothering myself about to having the fanciest website if this wasn't the purpose at all.
+
 ## Setting up
+
+Even if I found the solutions I needed to build this website easaly, I still needed to acctualy do it.
+I never used either of GitHub Pages or Jekyll before.
+I also needed to buy a domain name and redirect it to GitHub Pages.
+So it was far from done yet.
 
 ### Hosting
 
+domain name, github, github pages
+
 ### Jekyll
 
+configuration, gemfiles, plugins, serach etc, include confiurations snippets?
+
 ## Publishing projects
+
+how I write a new project etc, layouts, include code snippets
 
 ## Conclusion
