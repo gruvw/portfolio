@@ -12,7 +12,7 @@ tags:
   - Web
 ---
 
-In july 2020, I decided to build a website where I would be able to publish my different projects related to programming. That led to this website hosted on GitHub (powered by [GitHub pages](https://pages.github.com/) and [Jekyll](https://jekyllrb.com/)).
+In july 2020, I decided to build a website where I would be able to publish my different projects related to programming. That led to this website hosted on GitHub (powered by [GitHub Pages](https://pages.github.com/) and [Jekyll](https://jekyllrb.com/)).
 
 ## The concept
 
@@ -65,21 +65,42 @@ I just wanted a place to publish and keep track of my work so why bothering myse
 
 ## Setting up
 
-Even if I found the solutions I needed to build this website easaly, I still needed to acctualy do it.
+Even if I found the solutions I needed to build this website easily, I still needed to actually do it.
 I never used either of GitHub Pages or Jekyll before.
 I also needed to buy a domain name and redirect it to GitHub Pages.
 So it was far from done yet.
 
 ### Hosting
 
-domain name, github, github pages
+I needed to do three different things about hosting my website:
+
+1. Creating the github repository
+2. Setting up GitHub Pages
+3. Buy a domain name and connect it with GitHub pages
+
+The first one was pretty easy: I just created a repository and named it _portfolio_.
+On the moment I thought I would do a website that would be more similar to a real portfolio and a more professional like website.
+But once I really got into the creation I chose to change a bit the purpose to just be a way to keep track of what projects I was doing when and share it with whoever I want.
+In the end it is a bit in between a portfolio and a blog but I am pretty happy about it.
+
+The second thing was to actually transform the freshly created repository in an actual website.
+For that I used GitHub pages which is a really easy way to host a static website for free.
+In order to set it up I just went into the repository settings tab and scrolled down to the GitHub Pages section.
+Then I just needed to select the branch and the root directory and I was good to go.
+
+The last thing I wanted to change about the hosting part was the url that GitHub generated for the repository website which was something like _gruvw.github.io/portfolio_.
+I looked to see if the domain gruvw.com was still available and it was so I bought it.
+Luckily my username is not really a common english word so it was pretty cheap (about 10$ a year).
+After buying the domain I set up the DNS records to point on my GitHub repository as explained in the [GitHub Pages documentation](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain).
+
+At this point the hosting part was finished and I was ready to start creating my website.
 
 ### Jekyll
 
-configuration, gemfiles, plugins, serach etc, include confiurations snippets?
+configuration, gemfiles, plugins, search etc, include configurations snippets?
 
 ## Publishing projects
 
-how I write a new project etc, layouts, include code snippets
+how I write a new project motivation etc, layouts, include code snippets
 
 ## Conclusion
