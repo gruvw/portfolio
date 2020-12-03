@@ -97,7 +97,52 @@ At this point the hosting part was finished and I was ready to start creating my
 
 ### Jekyll
 
-configuration, gemfiles, plugins, search etc, include configurations snippets?
+Jekyll allowed me to build and update my static website with the theme I wanted.
+I stared by looking for a theme I liked on a [theme collection website](http://jekyllthemes.org/).
+There are a tons of them and I was surprised when I discovered that the [Read The Docs theme](https://github.com/rundocs/jekyll-rtd-theme) was available (i might use that if I need to create a documentation for a futur project).
+I went with the [Basically Basic theme](https://github.com/mmistakes/jekyll-theme-basically-basic) because I wanted something simple and straight forward.
+
+Jekyll is though in order to build blog websites but I wanted something a bit different so I modify the template to interpret a blog post as a projet.
+
+Once I set up the theme in the repository and got the local ruby server running I was ready to configure the website.
+There were few things to configure in order to have everything like I wanted:
+
+* Title
+* Description
+* Links to GitHub and socials
+* Contact email
+* Domain name and url
+* Pictures
+* Search
+* Plugins
+* SEO
+
+When I finally got the technical aspect of jekyll configured, I needed slightly adust the css and html templates in order to fix little details thant I wanted (open links in new tabs, lines number in codes fences, ...).
+
+I finished by writing the default pages:
+
+#### 404 Not found
+
+A simple page that will inform a user that the page he is trying to access do not exists.
+
+#### The index
+
+The landing page of the website which was a bit wired to write: I needed to write it in markdown but name the file with a `.html` extension and the markdown file needed to be written in a strange way...
+
+#### About page
+
+Just wrote a text about me and my life.
+
+I needed to modify the template in order to have my images to render correctly side by side and the page to still be responsive.
+
+#### JSON Resume
+
+With this project I discovered [JSON resume](https://jsonresume.org/) which is a very cool way to make and update your resume.
+So I made my resume in json and integrated it in my website automatically, very easy.
+
+#### Projects list
+
+The page where all my project are listed by tags.
 
 ## Publishing projects
 
