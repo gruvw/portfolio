@@ -14,7 +14,7 @@ tags:
 
 In july 2020, I decided to build a website where I would be able to publish my different projects related to programming. That led to this website hosted on GitHub (powered by [GitHub Pages](https://pages.github.com/) and [Jekyll](https://jekyllrb.com/)).
 
-## The concept
+## 📡 The concept
 
 I had the idea of creating this kind of website a while ago.
 I wanted something in between a portfolio website that is here to show of my work and amaze people and a medium blog where I would just publish my work in case someone was interested.
@@ -63,7 +63,7 @@ The only thing about Jekyll and GitHub Pages was that my website will not be the
 But in reality, this wasn't so bad because this was not what I was looking for.
 I just wanted a place to publish and keep track of my work so why bothering myself about to having the fanciest website if this wasn't the purpose at all.
 
-## Setting up
+## 🚧 Setting up
 
 Even if I found the solutions I needed to build this website easily, I still needed to actually do it.
 I never used either of GitHub Pages or Jekyll before.
@@ -144,8 +144,8 @@ So I made my resume in json and integrated it in my website automatically, very 
 
 The page where all my project are listed by tags.
 
-## Publishing projects
+## 📝 Publishing projects
 
 how I write a new project motivation etc, layouts, include code snippets
 
-## Conclusion
+## ⚖️ Conclusion
