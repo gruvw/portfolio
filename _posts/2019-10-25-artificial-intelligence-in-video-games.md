@@ -28,7 +28,7 @@ I decided to recreate two programs that CodeBullet did on his channel:
 
 I will not detail everything in this article because I already wrote a whole document (the one I needed to write in order to submit my project for school) explaining everything about how I did it.
 
-## 📃 Full document
+## 📃 Full Document
 
 If you find this project interesting, I highly encourage you to read this document that I wrote about it.
 I didn't want to write everything again here because there is too much for a web page and because I already wrote a clean document that explains the whole project in detail.
