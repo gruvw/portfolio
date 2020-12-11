@@ -179,4 +179,14 @@ It turned out that doing it daily was hard but I managed to write 2 to 3 times a
 
 ## ⚖️ Conclusion
 
-Perfect that I can write any new project that easily, still very motivated to see the evolution of the website with the new articles: track my work and progress along with sharing with others
+In the end I am very happy that I took time to set up this website because it is really useful.
+Wether for showing my work and what I do with people or to track my progression along with sharing with others: I now have all my important projects listed and summarized in one single place.
+<!-- track my work and progress along with sharing with others -->
+
+The main goal was to be able to publish new articles and projects very easily by writing markdown files and I think that it is 100% achieved thanks to Jekyll.
+I recommend anyone that wants to build something similar to try it out.
+The best thing is that it integrates perfectly with GitHub and GitHub Pages which does not even requiers any maintenance on my side as the website is stored on a repository.
+The main downside is about the website template which is fine but it is not the exact website that I would have had created on my own and it lacks a bit of personality.
+I tried to fill this blank by writing good content and overall it is not really that big of an issue.
+
+It took me a lot of time to write all the projects I wanted to include (projects that I had already made) but once that was done the site looked perfect and I am very happy about it!
