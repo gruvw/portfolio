@@ -99,14 +99,14 @@ At this point the hosting part was finished and I was ready to start creating my
 ### Jekyll
 
 Jekyll allowed me to build and update my static website with the theme I wanted.
-I stared by looking for a theme I liked on a [theme collection website](http://jekyllthemes.org/){:target="_blank"}.
-There are a tons of them and I was surprised when I discovered that the [Read The Docs theme](https://github.com/rundocs/jekyll-rtd-theme){:target="_blank"} was available (i might use that if I need to create a documentation for a futur project).
-I went with the [Basically Basic theme](https://github.com/mmistakes/jekyll-theme-basically-basic){:target="_blank"} because I wanted something simple and straight forward.
+I stared with looking for a theme I liked on a [theme collection website](http://jekyllthemes.org/){:target="_blank"}.
+There are a ton of them and I was surprised when I discovered that the [Read The Docs theme](https://github.com/rundocs/jekyll-rtd-theme){:target="_blank"} was available (I might use it if I need to create a documentation for a futur project).
+I went with the [Basically Basic theme](https://github.com/mmistakes/jekyll-theme-basically-basic){:target="_blank"} because I wanted something simple and straightforward.
 
-Jekyll is though in order to build blog websites but I wanted something a bit different so I modify the template to interpret a blog post as a projet.
+Jekyll was designed for building blog websites but I wanted something a bit different so I modified the template to interpret a blog post as a projet.
 
-Once I set up the theme in the repository and got the local ruby server running I was ready to configure the website.
-There were few things to configure in order to have everything like I wanted:
+Once I set up the theme in the repository and got the local [Ruby](https://www.ruby-lang.org/fr/){:target="_blank"} server running I was ready to configure the website.
+There were a few things to configure in order for everything to be the way I wanted:
 
 * Title
 * Description
@@ -118,43 +118,44 @@ There were few things to configure in order to have everything like I wanted:
 * Plugins
 * SEO
 
-When I finally got the technical aspect of jekyll configured, I needed slightly adust the css and html templates in order to fix little details thant I wanted (open links in new tabs, lines number in codes fences, ...).
+When I finally got the technical aspect of Jekyll configured, I needed to slightly adust the [CSS](https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade){:target="_blank"} and HTML templates in order to fix little details (open links in new tabs, lines number in code fences, ...).
 
 I finished by writing the default pages:
 
 #### 404 Not found
 
-A simple page that will inform a user that the page he is trying to access do not exists.
+A simple page that will inform a user that the page he is trying to access does not exist.
 
 #### The index
 
-The landing page of the website which was a bit wired to write: I needed to write it in markdown but name the file with a `.html` extension and the markdown file needed to be written in a strange way...
+The landing page of the website which was a bit weird to write: I needed to write it in markdown but name the file with a `.html` extension and the markdown file needed to be written in a strange way...
 
 #### About page
 
 Just wrote a text about me and my life.
 
-I needed to modify the template in order to have my images to render correctly side by side and the page to still be responsive.
+I needed to modify the template in order to make my images render correctly side by side and the page to still be responsive.
 
 #### JSON Resume
 
-With this project I discovered [JSON resume](https://jsonresume.org/){:target="_blank"} which is a very cool way to make and update your resume.
-So I made my resume in json and integrated it in my website automatically, very easy.
+With this project I discovered [JSON resume](https://jsonresume.org/){:target="_blank"} which is a very cool way to write and update your resume.
+So I wrote my resume in JSON and integrated it in my website automatically.
+It was very easy.
 
-If you are interested into seeing my resume you can find it there:
+If you are interested in seeing my resume you can find it here:
 
 * On this website: [Resume Page](https://gruvw.com/resume.html){:target="_blank"}
 * The raw JSON data on [this GitHub Gist](https://gist.github.com/gruvw/510ea6adf8679429e6078282a87f782e){:target="_blank"}
 * On the JSON resume registry: [Gruvw](https://registry.jsonresume.org/gruvw){:target="_blank"}
 
-#### Projects list
+#### Project list
 
 The page where all my projects are listed by tags.
 
 ## 📝 Publishing Projects
 
 Once the site was finally ready, I just needed to actually write an article for each of my past projects.
-I create a new article by adding a markdown file and providing basic informations in the preamble.
+I created a new article by adding a markdown file and providing basic informations in the preamble.
 This is what this project's preamble looks like:
 
 ```m
@@ -175,19 +176,20 @@ tags:
 Just after that I started writing the article like I would write any classic markdown file.
 
 The only thing that remained to be done and that took **a lot** of time was to write all the previous projects that I wanted to list on the website.
-I chose to try to write a few lines every day even if I was not writing a lot I wanted to do it daily.
+I chose to try to write a few lines every day even if I was not writing a lot.
 It turned out that doing it daily was hard but I managed to write 2 to 3 times a week in my free time.
 
 ## ⚖️ Conclusion
 
-In the end I am very happy that I took time to set up this website because it is really useful.
-Wether for showing my work and what I do with people or to track my progression along with sharing with others: I now have all my important projects listed and summarized in one single place.
-<!-- track my work and progress along with sharing with others -->
+In the end I am very happy that I took the time to set up this website because it is really useful.
+I now have a way to track my work and progress along with sharing it with others.
+All my important projects are listed and summarized in one single place.
 
-The main goal was to be able to publish new articles and projects very easily by writing markdown files and I think that it is 100% achieved thanks to Jekyll.
-I recommend anyone that wants to build something similar to try it out.
-The best thing is that it integrates perfectly with GitHub and GitHub Pages which does not even requiers any maintenance on my side as the website is stored on a repository.
-The main downside is about the website template which is fine but it is not the exact website that I would have had created on my own and it lacks a bit of personality.
-I tried to fill this blank by writing good content and overall it is not really that big of an issue.
+The main goal was to be able to publish new articles and projects very easily by writing markdown files and I think that it was 100% achieved thanks to Jekyll.
+I recommend for anyone wanting to build something similar to try it out.
+The best thing is that it integrates perfectly with GitHub and GitHub Pages which does not even require any maintenance on my side as the website is stored on a repository.
+On top of that the hosting is totally free.
+The main downside is the website template which is fine but it is not the exact website that I would have created on my own and it lacks a bit of personality.
+I tried to fill this lack by writing good content and overall it is not really that big of an issue for me.
 
 It took me a lot of time to write all the projects I wanted to include (projects that I had already made) but once that was done the site looked perfect and I am very happy about it!
