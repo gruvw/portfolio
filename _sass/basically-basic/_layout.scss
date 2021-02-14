@@ -56,8 +56,11 @@ main {
   }
 }
 
-.inner {
-  max-width: $large;
+// .inner {
+//   max-width: $large;
+// }
+.inner-max-w, .entries-grid {
+  max-width: 966px;
 }
 
 /*

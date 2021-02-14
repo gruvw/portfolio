@@ -36,7 +36,7 @@ It contains **everything**, from the creation to the machine learning algorithm 
 
 <!-- > <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://github.com/gruvw/TM-AI-video-games/raw/main/TM_Jung_Lucas_3M6.pdf" width="500" height="375"> -->
 
-> <a href="https://drive.google.com/viewerng/viewer?url=https://github.com/gruvw/TM-AI-video-games/raw/main/TM_Jung_Lucas_3M6.pdf&time=0&embedded=true" target="_blank">Full document (web viewer)</a> _reload the page if needed_  
+> [Full document (web viewer)](https://drive.google.com/file/d/18cwXNYcJRHXCFUsAlBJro7pRDsxV4ysZ/preview){:target="_blank"} _reload the page if needed_  
 > [Full document (github)](https://github.com/gruvw/TM-AI-video-games/blob/main/TM_Jung_Lucas_3M6.pdf){:target="_blank"}
 
 The pdf is written in [LaTeX](https://www.latex-project.org/){:target="_blank"} which is a programming language that is used to write documents (like Microsoft Office word).

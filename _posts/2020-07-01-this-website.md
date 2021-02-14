@@ -158,7 +158,7 @@ Once the site was finally ready, I just needed to actually write an article for 
 I created a new article by adding a markdown file and providing basic informations in the preamble.
 This is what this project's preamble looks like:
 
-```m
+{% highlight markdown linenos %}
 ---
 layout: post
 title: "This website 💻"
@@ -171,7 +171,7 @@ actions:
 tags:
   - Web
 ---
-```
+{% endhighlight %}
 
 Just after that I started writing the article like I would write any classic markdown file.
 

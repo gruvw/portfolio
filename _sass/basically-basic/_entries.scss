@@ -84,7 +84,7 @@
 
   .entry-excerpt {
     @include breakpoint($medium) {
-      width: span(11 of 16);
+      width: span(13 of 17);
     }
 
     /* normalize font sizes */
@@ -112,7 +112,8 @@
   .entry-meta {
     @include breakpoint($medium) {
       float: right;
-      width: span(5 of 16 last);
+      // width: span(5 of 16 last);
+      margin-right: 1.5rem;
       padding-left: gutter(1 of 16);
     }
   }
