@@ -8,3 +8,22 @@
 @import "basically-basic/themes/{{ site.data.theme.skin | default: 'default' }}";
 
 @import "basically-basic";
+
+// Custom css gruvw
+
+.video-responsive{
+    overflow:hidden;
+    /* padding-bottom:56.25%; */
+    position:relative;
+    height: 57vw;
+    max-width: 900px;
+    max-height: 500px;
+    margin-bottom: 1.5rem;
+}
+.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}

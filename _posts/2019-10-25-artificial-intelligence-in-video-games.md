@@ -46,22 +46,6 @@ I am happy to have learned it because it is a very useful language that I will d
 
 ## 📽️ The Result
 
-<style>
-.video-responsive{
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
-}
-.video-responsive iframe{
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
-}
-</style>
-
 There are three videos below that show the results that I achieved.
 
 ### Dots AI
@@ -69,7 +53,7 @@ There are three videos below that show the results that I achieved.
 This is a video of my first program in action. It shows the dots learning how to get around an obstacle:
 
 <div class="video-responsive">
-<iframe  src="https://www.youtube-nocookie.com/embed/-AbSTfHwl3o?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
+<iframe src="https://www.youtube-nocookie.com/embed/-AbSTfHwl3o?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 This video shows the learning of the dots.
 In the beginning they don't know where to go and they explore the word randomly.
@@ -93,7 +77,7 @@ The two following videos are about my second program.
 This video shows the computer learning how to play Snake:
 
 <div class="video-responsive">
-<iframe src="https://www.youtube-nocookie.com/embed/QtNxrumyY-E?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
+<iframe src="https://www.youtube-nocookie.com/embed/QtNxrumyY-E?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 As you can see, it takes more time to learn how to play snake well than how to get around an obstacle.
 In this video, I don't display the whole population of snakes learning at the same time (like with the dots) because they would take the whole window and we would not be able to see what is going on.
@@ -114,7 +98,7 @@ These informations help to understand the evolution of the computer a little bit
 This is a video of a game of Snake played by the computer after about 700 generations:
 
 <div class="video-responsive">
-<iframe src="https://www.youtube-nocookie.com/embed/mH_wvQgb-_o?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><br>
+<iframe src="https://www.youtube-nocookie.com/embed/mH_wvQgb-_o?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 At this point we can see that the computer has really understood the rules of the game and is limited by its vision (see the [Full document](#-full-document)).
 It is even able to dodge its tail multiple times!
