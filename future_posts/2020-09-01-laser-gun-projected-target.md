@@ -7,15 +7,45 @@ tags:
   - Python
 ---
 
-no code to see as it was payed but I will explain the project below
+There is sadly no code that I will share for this project as I was payed to build the software.
+I will however describe and explain my work as best as I can below.
 
 ## My first coding job
 
-recommended after my TM by my teacher, freelance kind, not first money from coding -> robotic competition, first coding job, talking with a client, making what he wants, comptes rendus, confirmed my will to work as a dev
+I already had a job planned for the summer 2020 but the COVID19 pandemic made it not happening finally.
+I was left without anyway to work and gain money that summer till the day that I receive an email from a person.
+It was in fact a friend of the teacher that was following me for my high school project [AI in video games](/2019/10/25/artificial-intelligence-in-video-games.html){:target="_blank"} that had an idea and needed someone that knew how to build it.
+My teacher recommended him me as he knew my coding level form the hight school project.
+
+It was a bit like a freelance type of work as he was not a corporation and he just wanted a particular program form me.
+It was not the first time that I made money from coding as when I was about 13 years old, I arrived at the second place in the Grip-It robotic competition at the Leman Make and the price was some money.
+However it was my first coding job where I would get payed for doing something that someone requested.
+
+It made me learn how to talk to a client and understand what he wanted.
+I regularly made some reports containing the avancement of the project.
+It ultimately confirmed my will to work as a developper.
 
 ## The idea
 
-shooting costs a lot of money and time during déplacements, train to shoot from home with a laser in the gun shooting at a projected target and place an impact where you shot after, custom targets with custom emulated distances, access the menu with the buttons you can shoot on, see your stats after
+The project that I needed to build was about training to shoot.
+Shooting casts a lot of money: you need to pay the location where you train and all the bullets that you use.
+It also takes a lot of time to go to this location and therefore you do not train really often.
+
+The solution that I needed to build was a way to train in a room of your house but not using real bullets but a laser gun.
+That way, you are not spending a lot of money on bullets and you can train anytime you want as it only takes a few minutes (even seconds) to set up the system.
+If you have a 20 minutes break you could now practice in your room.
+
+In order to do so, there is a little laser bullet that you can insert into your usual gun and when you press on the trigger, it turns the laser on for an instant and you can repeat the operation.
+
+My work was to build a target to shoot on with the laser bullet.
+The target was projected on a wall with a video projector.
+That way I could chose what to show and build a user interface to change what target to use or to emulate the distance by reducing the size of the projected image.
+I also used a camera to detect the laser impact and to place an impact image on the projected target precisely where the shot hit.
+Shooting on the button shown on the user interface would trigger them.
+That way navigating through the menus and changing the settings could also be done using the laser weapon.
+I also made a system to see your statistics afterwards and therefore track your progress.
+
+It was a big project but I was very motivated by this cool idea even thought there was a lot of difficulties that I did not knew how to solve in the beginning.
 
 ## Program and challenges
 
