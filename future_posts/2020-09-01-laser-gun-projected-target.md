@@ -45,6 +45,8 @@ Shooting on the button shown on the user interface would trigger them.
 That way navigating through the menus and changing the settings could also be done using the laser weapon.
 I also made a system to see your statistics afterwards and therefore track your progress.
 
+![Hardware project architecture](/assets/images/posts/laser_gun_projected_target/documentation/Architecture_Hardware_en.jpg)
+
 It was a big project but I was very motivated by this cool idea even thought there was a lot of difficulties that I did not knew how to solve in the beginning.
 
 ## Program and challenges
@@ -55,9 +57,17 @@ python program ,many challenges and things that I had never done
 
 Feedback after the shot, camera looking at the projected user interface, camera initialisation and detection, not easy as the projecteur emmets a lot of light, plan transformation in order to go from a trapeze to a rectangle, establishing an axis, laser detection and getting the coordinates on the axis, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, started here as it was proving if I was capable of achieving the requested idea, built a small laser pointer and try it out
 
+![Circles detection demo](/assets/images/posts/laser_gun_projected_target/documentation/Marks_Tracking_Cricles1.gif)
+
+![Rectangle detection demo](/assets/images/posts/laser_gun_projected_target/documentation/Marks_Tracking_Rectangles.gif)
+
 <div class="video-responsive">
   <iframe src="https://www.youtube-nocookie.com/embed/RavyzJ8D4Is?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+
+![Home made laser bullet](/assets/images/posts/laser_gun_projected_target/documentation/simulateur_cartouche_laser.jpg)
+
+![Laser tracking demo](/assets/images/posts/laser_gun_projected_target/documentation/Laser_Tracking.gif)
 
 <div class="video-responsive">
   <iframe src="https://www.youtube-nocookie.com/embed/8LZnIDVj-8g?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -71,6 +81,12 @@ design all the images targets and impacts, tkinter window in full screen mode se
   <iframe src="https://www.youtube-nocookie.com/embed/r6u0h7QLznI?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+<!-- Targets images -->
+
+![Real impact picture](/assets/images/posts/laser_gun_projected_target/documentation/real_impact.jpg)
+
+<!-- Ui menus -->
+
 ### Saving the results to access them afterwards
 
 upload ending results after crop image, upload to MEGA, accessible on your phone, track your progress
@@ -78,6 +94,8 @@ upload ending results after crop image, upload to MEGA, accessible on your phone
 ### Raspberry pi too weak
 
 started on my laptop so it was powerful enough, planning to deploy on raspberry pi, overheated the pi the first time, thought about buying a mini PC but it was expensive, try a lot to optimized the code, found a way over: decrease the video from the webcam resolution
+
+![Raspberry Pi heat sink](/assets/images/posts/laser_gun_projected_target/documentation/real_impact.jpg)
 
 ### The real laser was too fast
 

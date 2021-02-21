@@ -3,12 +3,14 @@ layout: about
 title: About me
 description: If you want to learn more about me.
 ---
+
 <style>
     .luc-img {
         width: 30%;
         border-radius: 20%;
     }
 </style>
+
 <img class="luc-img" src="assets/images/author/lucas_jung_profile.jpg" alt="Lucas Jung Image">
 <img class="luc-img" width="300" src="assets/images/main/gruvw_logo.png" alt="Lucas Jung Image">
 
