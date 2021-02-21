@@ -51,13 +51,25 @@ It was a big project but I was very motivated by this cool idea even thought the
 
 python program ,many challenges and things that I had never done
 
+### Camera detection
+
+Feedback after the shot, camera looking at the projected user interface, camera initialisation and detection, not easy as the projecteur emmets a lot of light, plan transformation in order to go from a trapeze to a rectangle, establishing an axis, laser detection and getting the coordinates on the axis, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, started here as it was proving if I was capable of achieving the requested idea, built a small laser pointer and try it out
+
+<div class="video-responsive">
+  <iframe src="https://www.youtube-nocookie.com/embed/RavyzJ8D4Is?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div class="video-responsive">
+  <iframe src="https://www.youtube-nocookie.com/embed/8LZnIDVj-8g?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 ### User interface
 
 design all the images targets and impacts, tkinter window in full screen mode sent as video input to the projector as application support, remove the mouse pointer, module the target image size depending on the distance you wanted it to be artificially, made the button that can be triggered by shooting on them, display impacts, making the menus to change the settings, made the final screen with the results, menu thumbnails with preselected settings
 
-### Feedback after the shot
-
-camera looking at the projected user interface, camera initialisation and detection, not easy as the projecteur emmets a lot of light, plan transformation in order to go from a trapeze to a rectangle, establishing an axis, laser detection and getting the coordinates on the axis, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, started here as it was proving if I was capable of achieving the requested idea, built a small laser pointer and try it out
+<div class="video-responsive">
+  <iframe src="https://www.youtube-nocookie.com/embed/r6u0h7QLznI?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ### Saving the results to access them afterwards
 
