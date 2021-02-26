@@ -53,11 +53,11 @@ It was a big project but I was very motivated by this cool idea even thought the
 
 ## Program and challenges
 
-python program ,many challenges and things that I had never done
+python program in python on a raspberry pi , many challenges and things that I had never done: need to be able te detect a laser shot on the wall with a camera (video recognition) while displaying the user interface on the wall with a projector
 
 ### Camera detection
 
-Feedback after the shot, camera looking at the projected user interface, camera initialisation and detection, not easy as the projecteur emmets a lot of light, plan transformation in order to go from a trapeze to a rectangle, establishing an axis, laser detection and getting the coordinates on the axis, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, started here as it was proving if I was capable of achieving the requested idea, built a small laser pointer and try it out
+Using opencv in python to read camera feed, feedback after the shot, camera looking at the projected user interface, camera initialisation and detection, not easy as the projecteur emmets a lot of light, plan transformation in order to go from a trapeze to a rectangle, establishing an axis, laser detection and getting the coordinates on the axis, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, started here as it was proving if I was capable of achieving the requested idea, built a small laser pointer and try it out
 
 <img width="1000px" alt="Circles detection demo" src="/assets/images/posts/laser_gun_projected_target/documentation/Marks_Tracking_Circles.gif">
 
@@ -91,11 +91,11 @@ design all the images targets and impacts, tkinter window in full screen mode se
 
 ### Saving the results to access them afterwards
 
-upload ending results after crop image, upload to MEGA, accessible on your phone, track your progress
+upload ending results screen shot of the ui after crop image, upload to MEGA, accessible on your phone, track your progress
 
 ### Raspberry pi too weak
 
-started on my laptop so it was powerful enough, planning to deploy on raspberry pi, overheated the pi the first time, thought about buying a mini PC but it was expensive, try a lot to optimized the code, found a way over: decrease the video from the webcam resolution
+started on my laptop so it was powerful enough to run camera video recognition and user interface output to projector, planning to deploy on raspberry pi, overheated the pi the first time, thought about buying a mini PC but it was expensive, try a lot to optimized the code, found a way over: decrease the video from the webcam resolution
 
 <img width="400px" alt="Raspberry Pi heat sink" src="/assets/images/posts/laser_gun_projected_target/documentation/rpi_heat_sink.jpg">
 
@@ -105,4 +105,4 @@ finally there was this big issue: the real laser cartouche he bought was not lon
 
 ## Conclusion
 
-about one month of work, met a couple of times, installation, learned a lot about the programmation part but also about how to talk with a client and exchange about how he wanted things to be etc
+about one month of work, met a couple of times, installation, learned a lot about the programmation (user interface and video recognition) part but also about how to talk with a client and exchange about how he wanted things to be (not building something for myself even if I enjoyed the project, I would not have done some things that way but I listen to his wills) etc
