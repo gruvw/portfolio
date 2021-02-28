@@ -10,6 +10,8 @@ tags:
 There is sadly no code that I will share for this project as I was payed to build the software.
 I will however describe and explain my work as best as I can below.
 
+{:toc}
+
 ## My first coding job
 
 I already had a job planned for the summer 2020 but the COVID19 pandemic made it not happening finally.
@@ -57,6 +59,37 @@ python program in python on a raspberry pi , many challenges and things that I h
 
 ### Camera detection
 
+The first thing that I decided to do was to get the input from the user: detecting a laser shot on the wall.
+I chose to do that first because it was the thing that I was the least sure about so I would not waste time on the other things if I could not built the detection.
+
+I decided to build a proof of concept where the goal was to record a laser shot and display the impact on the wall where it landed. I also wanted to try the user interface interaction by shooting on buttons.
+Therefore I had two things to build in order to test if I was really qualified to build this project:
+
+1. A plain laser detection on the wall with a simple webcam
+2. Basic user interface projected on the wall where I can display an impact along with a single button to clear all the displayed impacts
+
+#### Laser detection
+
+I made the choice to go with the [OpenCV](https://opencv.org/){:target="_blank"} library and a simple Logitech webcam.
+In order to test the laser detection I build a small box with a red button on it that will activate a laser. The box had two modes:
+
+1. While the button is pressed the laser will remain activated (like a presentation pointer)
+2. On button press a laser shot is simulated: the laser is activated for 25 milliseconds before turning off automatically
+
+As I did not have the final laser bullet at the time, I was forced to build this small system to try it out.
+This is how it looked:
+
+![Home made laser bullet](/assets/images/posts/laser_gun_projected_target/documentation/simulateur_cartouche_laser.jpg)
+
+I successfully built the laser detection from the webcam with mode 1 (constantly showing the laser).
+This is a small demonstration of the laser recognition:
+
+<img width="1000px" alt="Laser tracking demo" src="/assets/images/posts/laser_gun_projected_target/documentation/Laser_Tracking.gif">
+
+On the left image you can see the raw feed from the webcam.
+In the middle there is the image after the image processing.
+On the right image you can see the extracted informations on top of the raw image (blue circle around the laser with a red dot in the center).
+
 Using opencv in python to read camera feed, feedback after the shot, camera looking at the projected user interface, camera initialisation and detection, not easy as the projecteur emmets a lot of light, plan transformation in order to go from a trapeze to a rectangle, establishing an axis, laser detection and getting the coordinates on the axis, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, started here as it was proving if I was capable of achieving the requested idea, built a small laser pointer and try it out
 
 <img width="1000px" alt="Circles detection demo" src="/assets/images/posts/laser_gun_projected_target/documentation/Marks_Tracking_Circles.gif">
@@ -67,9 +100,6 @@ Using opencv in python to read camera feed, feedback after the shot, camera look
   <iframe src="https://www.youtube-nocookie.com/embed/RavyzJ8D4Is?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-![Home made laser bullet](/assets/images/posts/laser_gun_projected_target/documentation/simulateur_cartouche_laser.jpg)
-
-<img width="1000px" alt="Laser tracking demo" src="/assets/images/posts/laser_gun_projected_target/documentation/Laser_Tracking.gif">
 
 <div class="video-responsive">
   <iframe src="https://www.youtube-nocookie.com/embed/8LZnIDVj-8g?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
