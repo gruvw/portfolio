@@ -11,6 +11,7 @@
 
 // Custom css gruvw
 
+// Embedded youtube videos
 .video-responsive{
     overflow:hidden;
     /* padding-bottom:56.25%; */
@@ -28,6 +29,7 @@
     position:absolute;
 }
 
+// TOC
 .section-nav {
     background-color: #fff;
     margin-left: 20px;
@@ -36,4 +38,10 @@
     border: 2px solid #e8e8e8;
     border-radius: 4px;
     width: fit-content;
+}
+.toc-h2 {
+    list-style: none;
+}
+.toc-h3 {
+    list-style: disc;
 }
