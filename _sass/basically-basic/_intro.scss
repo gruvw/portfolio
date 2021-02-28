@@ -5,7 +5,7 @@
 .intro {
   margin: 1rem 0;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom:0.5rem;
 }
 
 .intro-image {
@@ -53,6 +53,7 @@
 .intro-actions {
   @include list-unstyled;
 
+  margin-top: -1rem;
   li {
     display: inline-block;
   }

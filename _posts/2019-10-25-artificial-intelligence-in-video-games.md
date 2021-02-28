@@ -10,6 +10,7 @@ actions:
 image: "/assets/images/posts/ai_in_video_games/main.jpg"
 tags:
   - Python
+toc: true
 ---
 
 I programmed a computer to learn how to play the game Snake on its own.

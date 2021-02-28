@@ -10,6 +10,7 @@ actions:
 # image: "/assets/images/posts/"
 tags:
   - Web
+toc: true
 ---
 
 In july 2020, I decided to build a website where I would be able to publish my different projects related to programming. That led to this website hosted on GitHub (powered by [GitHub Pages](https://pages.github.com/){:target="_blank"} and [Jekyll](https://jekyllrb.com/){:target="_blank"}).
@@ -119,6 +120,7 @@ There were a few things to configure in order for everything to be the way I wan
 * SEO
 
 When I finally got the technical aspect of Jekyll configured, I needed to slightly adust the [CSS](https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade){:target="_blank"} and HTML templates in order to fix little details (open links in new tabs, lines number in code fences, ...).
+I also added small things like a table of contents.
 
 I finished by writing the default pages:
 
@@ -148,7 +150,7 @@ If you are interested in seeing my resume you can find it here:
 * The raw JSON data on [this GitHub Gist](https://gist.github.com/gruvw/510ea6adf8679429e6078282a87f782e){:target="_blank"}
 * On the JSON resume registry: [Gruvw](https://registry.jsonresume.org/gruvw){:target="_blank"}
 
-#### Project list
+#### Projects list
 
 The page where all my projects are listed by tags.
 

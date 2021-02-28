@@ -11,4 +11,5 @@ image: "/assets/images/posts/python_over_the_air_update/main.png"
 tags:
   - Python
   - Side Project
+toc: true
 ---

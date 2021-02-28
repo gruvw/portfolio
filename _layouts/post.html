@@ -8,7 +8,8 @@ layout: default
   <div class="inner" style="width: 100%;">
     <article class="entry-wrap" style="width: 100%;">
       <div class="entry-content" style="width: 100%;">
-        {{ content }}
+        {% if page.toc %}<h4 style="margin-bottom: 10px;">Table of contents:</h4>{% endif %}
+        {{ content | toc }}
       </div>
       {% if site.disqus.shortname %}
         {% include disqus_comments.html %}

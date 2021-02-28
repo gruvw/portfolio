@@ -10,6 +10,7 @@ actions:
 image: "/assets/images/posts/creating_a_python_package/main.png"
 tags:
   - Python
+toc: true
 ---
 
 I created a Python package which keeps track of what I am printing to the console in a log file along with the possibility to add a prefix to what I am printing.

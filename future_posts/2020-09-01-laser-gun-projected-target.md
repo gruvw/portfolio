@@ -5,14 +5,13 @@ sub_title: "A target projected on the wall that you can shoot on using a laser g
 image: "/assets/images/posts/laser_gun_projected_target/main.jpg"
 tags:
   - Python
+toc: true
 ---
 
 There is sadly no code that I will share for this project as I was payed to build the software.
 I will however describe and explain my work as best as I can below.
 
-{:toc}
-
-## My first coding job
+## My First Coding Job
 
 I already had a job planned for the summer 2020 but the COVID19 pandemic made it not happening finally.
 I was left without anyway to work and gain money that summer till the day that I receive an email from a person.
@@ -27,7 +26,7 @@ It made me learn how to talk to a client and understand what he wanted.
 I regularly made some reports containing the avancement of the project.
 It ultimately confirmed my will to work as a developper.
 
-## The idea
+## The Idea
 
 The project that I needed to build was about training to shoot.
 Shooting casts a lot of money: you need to pay the location where you train and all the bullets that you use.
@@ -53,11 +52,11 @@ I also made a system to see your statistics afterwards and therefore track your 
 
 It was a big project but I was very motivated by this cool idea even thought there was a lot of difficulties that I did not knew how to solve in the beginning.
 
-## Program and challenges
+## Program And Challenges
 
 python program in python on a raspberry pi , many challenges and things that I had never done: need to be able te detect a laser shot on the wall with a camera (video recognition) while displaying the user interface on the wall with a projector
 
-### Camera detection
+### Camera Detection
 
 The first thing that I decided to do was to get the input from the user: detecting a laser shot on the wall.
 I chose to do that first because it was the thing that I was the least sure about so I would not waste time on the other things if I could not built the detection.
@@ -68,7 +67,7 @@ Therefore I had two things to build in order to test if I was really qualified t
 1. A plain laser detection on the wall with a simple webcam
 2. Basic user interface projected on the wall where I can display an impact along with a single button to clear all the displayed impacts
 
-#### Laser detection
+#### Laser Detection
 
 I made the choice to go with the [OpenCV](https://opencv.org/){:target="_blank"} library and a simple Logitech webcam.
 In order to test the laser detection I build a small box with a red button on it that will activate a laser. The box had two modes:
@@ -105,7 +104,7 @@ Using opencv in python to read camera feed, feedback after the shot, camera look
   <iframe src="https://www.youtube-nocookie.com/embed/8LZnIDVj-8g?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-### User interface
+### User Interface
 
 design all the images targets and impacts, tkinter window in full screen mode sent as video input to the projector as application support, remove the mouse pointer, module the target image size depending on the distance you wanted it to be artificially, made the button that can be triggered by shooting on them, display impacts, making the menus to change the settings, made the final screen with the results, menu thumbnails with preselected settings
 
@@ -123,13 +122,13 @@ design all the images targets and impacts, tkinter window in full screen mode se
 
 upload ending results screen shot of the ui after crop image, upload to MEGA, accessible on your phone, track your progress
 
-### Raspberry pi too weak
+### Raspberry Pi Too Weak
 
 started on my laptop so it was powerful enough to run camera video recognition and user interface output to projector, planning to deploy on raspberry pi, overheated the pi the first time, thought about buying a mini PC but it was expensive, try a lot to optimized the code, found a way over: decrease the video from the webcam resolution
 
 <img width="400px" alt="Raspberry Pi heat sink" src="/assets/images/posts/laser_gun_projected_target/documentation/rpi_heat_sink.jpg">
 
-### The real laser was too fast
+### The Real Laser Was Too Fast
 
 finally there was this big issue: the real laser cartouche he bought was not long enough to be detected by the camera every time, sometimes the laser turned on and off between two recorded frames from the webcam, big issue but not really my fault as I was not engaged for the hardware part (inside the gun), I told him many times that it would be really great to have all the hardware parts as fast as possible in order to see if everything would work, Everything on my side was working great he just needed to find a way to increase the laser duration so we ended here
 
