@@ -65,11 +65,13 @@ I decided to build a proof of concept where the goal was to record a laser shot 
 Therefore I had two things to build in order to test if I was really qualified to build this project:
 
 1. A plain laser detection on the wall with a simple webcam
-2. Basic user interface projected on the wall where I can display an impact along with a single button to clear all the displayed impacts
+2. Camera calibration with the projector
+3. Basic user interface projected on the wall where I can display an impact along with a single button to clear all the displayed impacts
+
+I made the choice to go with the [OpenCV](https://opencv.org/){:target="_blank"} library and a simple Logitech webcam.
 
 #### Laser Detection
 
-I made the choice to go with the [OpenCV](https://opencv.org/){:target="_blank"} library and a simple Logitech webcam.
 In order to test the laser detection I build a small box with a red button on it that will activate a laser. The box had two modes:
 
 1. While the button is pressed the laser will remain activated (like a presentation pointer)
@@ -89,12 +91,15 @@ On the left image you can see the raw feed from the webcam.
 In the middle there is the image after the image processing.
 On the right image you can see the extracted informations on top of the raw image (blue circle around the laser with a red dot in the center).
 
+Nothing really changes for mode 2 except that I just wait until there is a frame recorded by the camera that contains a laser dot.
+
 #### Camera calibration
 
 I needed to use a projector in order to report the position of the laser shot onto the wall.
 But before that, I needed to calibrate the camera with the projector.
 The camera needs to know where is the projected surface in order to communicate the position of the shot relatively to the surface of projection.
-This calibration will be the first thing to be done when executing the program, establishing a common two axis system between the camera feed and the projected area.
+This calibration will be the first thing to be done when executing the program.
+It is establishing a main two coordinates axis system after used across the camera feed (input) and the projected area (output).
 
 That calibration is done in two parts:
 
@@ -119,15 +124,20 @@ I solved this issue by taking the one with the smallest area if two rectangles a
 Once that the program knows the centers and the corners, it calculates the mean two by two in order to have four precise points that it can use to determinate the position of the projected surface in the camera feed.
 I decided to cumulate the circles and the rectangle detection in order to gain in precision because the impact needs to be placed exactly where you shot.
 
-Once the commun axis has been established the camera must not move at all.
+I also needed to correct the perspective effect that is deforming a rectangle if we are not looking at it perfectly perpendicular and from its center:
+
+<img width="500px" title="https://www.pyimagesearch.com/2014/08/25/4-point-opencv-getperspective-transform-example/" alt="Perspective correction" src="/assets/images/posts/laser_gun_projected_target/documentation/perspective_transform.jpg">
+
+Once the shared axis system is established the camera must not move at all.
 I later added a button in the user interface that re-calibrates the camera just in case the impacts placement feels a bit inaccurate (the camera is moving a bit because of vibrations and other small factors).
 
-
-Using opencv in python to read camera feed, feedback after the shot, camera looking at the projected user interface, camera initialisation and detection, not easy as the projecteur emmets a lot of light, plan transformation in order to go from a trapeze to a rectangle, establishing an axis, laser detection and getting the coordinates on the axis, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, started here as it was proving if I was capable of achieving the requested idea, built a small laser pointer and try it out
+feedback after the shot, not easy as the projecteur emmets a lot of light, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, it was proving if I was capable of achieving the requested idea
 
 <div class="video-responsive">
   <iframe src="https://www.youtube-nocookie.com/embed/RavyzJ8D4Is?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+
+#### Display impacts
 
 <div class="video-responsive">
   <iframe src="https://www.youtube-nocookie.com/embed/8LZnIDVj-8g?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
