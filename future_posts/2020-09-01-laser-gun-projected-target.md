@@ -52,14 +52,14 @@ I also made a system to see your statistics afterwards and therefore track your 
 
 It was a big project but I was very motivated by this cool idea even thought there was a lot of difficulties that I did not knew how to solve in the beginning.
 
-## Program And Challenges
+## ⚙️ Program And Challenges
 
 python program in python on a raspberry pi , many challenges and things that I had never done: need to be able te detect a laser shot on the wall with a camera (video recognition) while displaying the user interface on the wall with a projector
 
 ### Camera Detection
 
 The first thing that I decided to do was to get the input from the user: detecting a laser shot on the wall.
-I chose to do that first because it was the thing that I was the least sure about so I would not waste time on the other things if I could not built the detection.
+I chose to do that first because it was the thing that I was the least confident about so I would not waste time on the other things if I could not built the detection.
 
 I decided to build a proof of concept where the goal was to record a laser shot and display the impact on the wall where it landed. I also wanted to try the user interface interaction by shooting on buttons.
 Therefore I had two things to build in order to test if I was really qualified to build this project:
@@ -89,11 +89,41 @@ On the left image you can see the raw feed from the webcam.
 In the middle there is the image after the image processing.
 On the right image you can see the extracted informations on top of the raw image (blue circle around the laser with a red dot in the center).
 
-Using opencv in python to read camera feed, feedback after the shot, camera looking at the projected user interface, camera initialisation and detection, not easy as the projecteur emmets a lot of light, plan transformation in order to go from a trapeze to a rectangle, establishing an axis, laser detection and getting the coordinates on the axis, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, started here as it was proving if I was capable of achieving the requested idea, built a small laser pointer and try it out
+#### Camera calibration
+
+I needed to use a projector in order to report the position of the laser shot onto the wall.
+But before that, I needed to calibrate the camera with the projector.
+The camera needs to know where is the projected surface in order to communicate the position of the shot relatively to the surface of projection.
+This calibration will be the first thing to be done when executing the program, establishing a common two axis system between the camera feed and the projected area.
+
+That calibration is done in two parts:
+
+1. In the first part, 4 black circles are placed (on a white background) in the 4 corners of the projected area. I coded a function that is detecting those circles and that calculates the center of them.
+2. In the second part, a black rectangle is displayed in order to match its corner with the center of the circles from part 1.
+
+The following gif illustrates the circles detection system:
 
 <img width="1000px" alt="Circles detection demo" src="/assets/images/posts/laser_gun_projected_target/documentation/Marks_Tracking_Circles.gif">
 
+We can see the projected area in white on the wall with the four circles on it.
+Like the laser detection gif, on the left there is the raw camera feed, in the middle is the image after being processed and on the right is the extracted data displayed on top of the camera feed.
+The circles detection is working pretty well.
+
+The next gif shows the rectangle detection system:
+
 <img width="1000px" alt="Rectangle detection demo" src="/assets/images/posts/laser_gun_projected_target/documentation/Marks_Tracking_Rectangles.gif">
+
+As we can see, sometimes the program detects the border of the projection surface as a valid rectangle.
+I solved this issue by taking the one with the smallest area if two rectangles are detected.
+
+Once that the program knows the centers and the corners, it calculates the mean two by two in order to have four precise points that it can use to determinate the position of the projected surface in the camera feed.
+I decided to cumulate the circles and the rectangle detection in order to gain in precision because the impact needs to be placed exactly where you shot.
+
+Once the commun axis has been established the camera must not move at all.
+I later added a button in the user interface that re-calibrates the camera just in case the impacts placement feels a bit inaccurate (the camera is moving a bit because of vibrations and other small factors).
+
+
+Using opencv in python to read camera feed, feedback after the shot, camera looking at the projected user interface, camera initialisation and detection, not easy as the projecteur emmets a lot of light, plan transformation in order to go from a trapeze to a rectangle, establishing an axis, laser detection and getting the coordinates on the axis, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, started here as it was proving if I was capable of achieving the requested idea, built a small laser pointer and try it out
 
 <div class="video-responsive">
   <iframe src="https://www.youtube-nocookie.com/embed/RavyzJ8D4Is?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
