@@ -46,6 +46,7 @@ plugins: # previsously gems
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-toc
+  - jemoji
 feed:
   path: atom.xml
 

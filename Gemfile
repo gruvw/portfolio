@@ -24,6 +24,7 @@ group :jekyll_plugins do
     gem "jekyll-sitemap"
     gem "jekyll-algolia"
     gem "jekyll-toc"
+    gem 'jemoji'
   end
 
 # Performance-booster for watching directories on Windows
