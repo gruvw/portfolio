@@ -46,15 +46,23 @@ Shooting on the button shown on the user interface would trigger them.
 That way navigating through the menus and changing the settings could also be done using the laser weapon.
 I also made a system to see your statistics afterwards and therefore track your progress.
 
-<div align="center">
-  <img width="550px" alt="Hardware project architecture" src="/assets/images/posts/laser_gun_projected_target/documentation/Architecture_Hardware_en.jpg">
-</div><br>
-
 It was a big project but I was very motivated by this cool idea even thought there was a lot of difficulties that I did not knew how to solve in the beginning.
 
 ## ⚙️ Program And Challenges
 
-python program in python on a raspberry pi , many challenges and things that I had never done: need to be able te detect a laser shot on the wall with a camera (video recognition) while displaying the user interface on the wall with a projector
+I chose to code this project in Python because it was the language that I knew the best.
+I ran it on a [Raspberry Pi](https://www.raspberrypi.org/) to keep things compact an easy to set up.
+I knew that there was a lot of challenges about things that I had never done before like video recognition.
+I needed to be able to detect a laser shot on the wall with a carmera while displaying feedbacks and the user interface on the wall with a projector.
+
+This is a little representation of the architecture I built:
+
+<div align="center">
+  <img width="550px" alt="Hardware project architecture" src="/assets/images/posts/laser_gun_projected_target/documentation/Architecture_Hardware_en.jpg">
+</div><br>
+
+So the user interface was projected on a wall and the laser shots were recorded with a small webcam.
+The gun did not need to be connected to the Raspberry Pi because it just fires a laser.
 
 ### Camera Detection
 
@@ -131,13 +139,17 @@ I also needed to correct the perspective effect that is deforming a rectangle if
 Once the shared axis system is established the camera must not move at all.
 I later added a button in the user interface that re-calibrates the camera just in case the impacts placement feels a bit inaccurate (the camera is moving a bit because of vibrations and other small factors).
 
-feedback after the shot, not easy as the projecteur emmets a lot of light, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, it was proving if I was capable of achieving the requested idea
+The following short video taken with my phone shows the full calibration process:
 
 <div class="video-responsive">
   <iframe src="https://www.youtube-nocookie.com/embed/RavyzJ8D4Is?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+It is detecting the shapes pretty fast which makes the whole calibration process short.
+
 #### Display impacts
+
+the last part of the proof of concept was to, feedback after the shot, not easy as the projecteur emmets a lot of light, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, it was proving if I was capable of achieving the requested idea
 
 <div class="video-responsive">
   <iframe src="https://www.youtube-nocookie.com/embed/8LZnIDVj-8g?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
