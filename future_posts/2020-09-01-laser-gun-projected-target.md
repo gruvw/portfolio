@@ -11,7 +11,7 @@ toc: true
 There is sadly no code that I will share for this project as I was payed to build the software.
 I will however describe and explain my work as best as I can below.
 
-## My First Coding Job
+## 💼 My First Coding Job
 
 I already had a job planned for the summer 2020 but the COVID19 pandemic made it not happening finally.
 I was left without anyway to work and gain money that summer till the day that I receive an email from a person.
@@ -26,7 +26,7 @@ It made me learn how to talk to a client and understand what he wanted.
 I regularly made some reports containing the avancement of the project.
 It ultimately confirmed my will to work as a developper.
 
-## The Idea
+## 💡 The Idea
 
 The project that I needed to build was about training to shoot.
 Shooting casts a lot of money: you need to pay the location where you train and all the bullets that you use.
@@ -70,7 +70,7 @@ The first thing that I decided to do was to get the input from the user: detecti
 I chose to do that first because it was the thing that I was the least confident about so I would not waste time on the other things if I could not built the detection.
 
 I decided to build a proof of concept where the goal was to record a laser shot and display the impact on the wall where it landed. I also wanted to try the user interface interaction by shooting on buttons.
-Therefore I had two things to build in order to test if I was really qualified to build this project:
+Therefore I had three things to build in order to test if I was really qualified to build this project:
 
 1. A plain laser detection on the wall with a simple webcam
 2. Camera calibration with the projector
@@ -91,6 +91,7 @@ This is how it looked:
 ![Home made laser bullet](/assets/images/posts/laser_gun_projected_target/documentation/simulateur_cartouche_laser.jpg)
 
 I successfully built the laser detection from the webcam with mode 1 (constantly showing the laser).
+
 This is a small demonstration of the laser recognition:
 
 <img width="1000px" alt="Laser tracking demo" src="/assets/images/posts/laser_gun_projected_target/documentation/Laser_Tracking.gif">
@@ -145,29 +146,67 @@ The following short video taken with my phone shows the full calibration process
   <iframe src="https://www.youtube-nocookie.com/embed/RavyzJ8D4Is?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-It is detecting the shapes pretty fast which makes the whole calibration process short.
+It was detecting the shapes pretty quickly which made the whole calibration process pretty short.
 
 #### Display impacts
 
-the last part of the proof of concept was to, feedback after the shot, not easy as the projecteur emmets a lot of light, not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible, it was proving if I was capable of achieving the requested idea
+The last part of the proof of concept was to get a visual feedback on the screen after a laser shot.
+It was pretty easy to do once the camera calibration process was done as it gave me a shared coordinate system between the camera and the projected image.  
+The camera detects when a laser is present and retrieve its position.
+I had to adjust a bit the laser detection as the projector was emitting a lot of light.
+After that the coordinates of the laser impact are converted to some new coordinates that are used to display a impact image on the screen at the same location.
+On top of that, the impact image is randomly rotated so it does not look always the same.
+
+I added a button interaction logic that used that system: when you shoot on a button, it gets triggered.
+
+That led to a small app combining the camera calibration, laser detection, impact placement and button triggering:
 
 <div class="video-responsive">
   <iframe src="https://www.youtube-nocookie.com/embed/8LZnIDVj-8g?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+It worked really well.
+The proof of concept was done so I moved on to building the final application.
+
 ### User Interface
 
-design all the images targets and impacts, tkinter window in full screen mode sent as video input to the projector as application support, remove the mouse pointer, module the target image size depending on the distance you wanted it to be artificially, made the button that can be triggered by shooting on them, display impacts, making the menus to change the settings, made the final screen with the results, menu thumbnails with preselected settings
+I started by designing the multiple targets that we can choose from before starting.
+Below are two examples of targets:
+
+<img width="250px" alt="Real impact picture" src="/assets/images/posts/laser_gun_projected_target/documentation/cible_dots.png" style="border: 2px solid black;">
+<img width="250px" alt="Real impact picture" src="/assets/images/posts/laser_gun_projected_target/documentation/cible_cercle.png" style="border: 2px solid black;">
+
+I used a [Tkinter](https://docs.python.org/fr/3/library/tkinter.html) window in full screen mode sent as video output to the projector and build the user interface.
+On the main menu I added some configuration buttons that can be used to select things like which target we want or how far from it we want to be standing.
+I emulate the distance to a target by simply reducing the target size according to how it would be like in real life.
+I also added a button to re-calibrate the camera just in case it moved a bit.
+
+This is a small video of what the menu looked like (the user interface is in french):
 
 <div class="video-responsive">
   <iframe src="https://www.youtube-nocookie.com/embed/r6u0h7QLznI?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-<!-- Targets images -->
+The player interacts with the buttons by shooting directly on them in order to select the settings he wants.
+When the main menu is displayed he can see a little thumbnails on each button showing what he has pre-selected.
+When the player is ready, he can shoot on start and shoot on the target.
 
-<img width="150px" alt="Real impact picture" src="/assets/images/posts/laser_gun_projected_target/documentation/real_impact.jpg">
+There are multiple "programs" available to the player, for examples: program A is a free range, meaning that the player can freely shoot on the target and on program B the player has 5 bullets and 5 seconds to shoot...
 
-<!-- Ui menus -->
+Once the game is finished, the results are displayed on the screen:
+
+* The target is enlarged
+* All the shots ar represented and numbered chronologically
+* In the top left corner the time between each shots is displayed
+* If the shot was too far of the target that it cannot be displayed on the results screen, the shot is shown in orange in the top left corner
+* The settings used for the game are displayed in the top right corner
+* If two shots are too close to each other, a light blue circle is drawn on each of them
+
+This is an example of a result page:
+
+<img width="800px" alt="Real impact picture" src="/assets/images/posts/laser_gun_projected_target/documentation/score.png">
+
+After seeing his results the player is taken back to the home screen.
 
 ### Saving the results to access them afterwards
 
@@ -182,7 +221,8 @@ started on my laptop so it was powerful enough to run camera video recognition a
 ### The Real Laser Was Too Fast
 
 finally there was this big issue: the real laser cartouche he bought was not long enough to be detected by the camera every time, sometimes the laser turned on and off between two recorded frames from the webcam, big issue but not really my fault as I was not engaged for the hardware part (inside the gun), I told him many times that it would be really great to have all the hardware parts as fast as possible in order to see if everything would work, Everything on my side was working great he just needed to find a way to increase the laser duration so we ended here
+not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible
 
-## Conclusion
+## 📝 Conclusion
 
 about one month of work, met a couple of times, installation, learned a lot about the programmation (user interface and video recognition) part but also about how to talk with a client and exchange about how he wanted things to be (not building something for myself even if I enjoyed the project, I would not have done some things that way but I listen to his wills) etc
