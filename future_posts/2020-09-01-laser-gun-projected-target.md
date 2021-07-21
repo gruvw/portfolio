@@ -202,7 +202,7 @@ Once the game is finished, the results are displayed on the screen:
 * The settings used for the game are displayed in the top right corner
 * If two shots are too close to each other, a light blue circle is drawn on each of them
 
-This is an example of a result page:
+This is an example of a result pages:
 
 <img width="800px" alt="Real impact picture" src="/assets/images/posts/laser_gun_projected_target/documentation/score.png"  style="border: 2px solid black;">
 
@@ -210,13 +210,34 @@ After seeing his results, the player is taken back to the home screen.
 
 ### Saving the results to access them afterwards
 
-upload ending results screen shot of the ui after crop image, upload to MEGA, accessible on your phone, track your progress
+At the end of a game, the result page is also saved and uploaded to the cloud in order to access it later.
+I used the [MEGA](https://mega.io/) API in order to upload a screenshot of the result screen.
+The player can later use the MEGA application on his phone (for example) and see all his games.
+That way, he can analyze his mistakes and track his progress.
 
 ### Raspberry Pi Too Weak
 
-started on my laptop so it was powerful enough to run camera video recognition and user interface output to projector, planning to deploy on raspberry pi, overheated the pi the first time, thought about buying a mini PC but it was expensive, try a lot to optimized the code, found a way over: decrease the video from the webcam resolution
+I started to code the program on my laptop with the idea that it will run on a [Raspberry Pi](https://www.raspberrypi.org/) in the end.
+However, when I first installed everything on the Raspberry Pi, it was running really slowly and the interface was lagging a lot.
+I also got heat warnings and it even shutdown on its own multiple times (to prevent overheating).
+At that point, I thought that a Raspberry Pi would not be powerful enough for this project.
+Video processing and recognition is a very resource intensive process, and I thought that I would need a real laptop or a kind of mini PC to run the program.
 
-<img width="400px" alt="Raspberry Pi heat sink" src="/assets/images/posts/laser_gun_projected_target/documentation/rpi_heat_sink.jpg" title="https://www.chipskey.cc/heat-pipe-tower-fan-5-layers-acrylic-board-raspberry-pi-4-icetower-cooling-fan-rgb-7-color-led-lighting-fan-p-10334.html">
+I solved the overheating issue by buying an active cooling fan like that one:
+
+<img width="350px" alt="Raspberry Pi heat sink" src="/assets/images/posts/laser_gun_projected_target/documentation/rpi_heat_sink.jpg" title="https://www.chipskey.cc/heat-pipe-tower-fan-5-layers-acrylic-board-raspberry-pi-4-icetower-cooling-fan-rgb-7-color-led-lighting-fan-p-10334.html">
+
+Even thought I have been using some Raspberry Pis in many projects where passive cooling always were sufficient, this time I needed something like that to keep the board cool.
+The Raspberry Pi was not shutting down anymore, but I was still running really slowly and the CPU usage was always above 90%.
+
+As a mini PC was too expensive, I kept trying to optimize my program.
+I finally found a way to reduce the CPU usage: lower the video input resolution from the webcam to 660x480 pixels.
+That way, the video recognition process was less intensive and the program was running smoothly.
+There has been a little drop in the precision of the shots, but it wasn't too bad.
+However, it was more noticeable as the distance from the target increases because the shooting area was smaller but the resolution stayed the same.
+
+When I think back about this issue, I might have overestimated the Raspberry Pi.
+Indeed, it had to handle a lot of things: webcam input, video recognition, computing and display output to the projector.
 
 ### The Real Laser Was Too Fast
 
