@@ -227,14 +227,14 @@ I solved the overheating issue by buying an active cooling fan like that one:
 
 <img width="350px" alt="Raspberry Pi heat sink" src="/assets/images/posts/laser_gun_projected_target/documentation/rpi_heat_sink.jpg" title="https://www.chipskey.cc/heat-pipe-tower-fan-5-layers-acrylic-board-raspberry-pi-4-icetower-cooling-fan-rgb-7-color-led-lighting-fan-p-10334.html">
 
-Even thought I have been using some Raspberry Pis in many projects where passive cooling always were sufficient, this time I needed something like that to keep the board cool.
+Even thought I have been using some Raspberry Pis in many other projects where passive cooling was always sufficient, this time I needed something like that to keep the board cool.
 The Raspberry Pi was not shutting down anymore, but I was still running really slowly and the CPU usage was always above 90%.
 
 As a mini PC was too expensive, I kept trying to optimize my program.
 I finally found a way to reduce the CPU usage: lower the video input resolution from the webcam to 660x480 pixels.
 That way, the video recognition process was less intensive and the program was running smoothly.
 There has been a little drop in the precision of the shots, but it wasn't too bad.
-However, it was more noticeable as the distance from the target increases because the shooting area was smaller but the resolution stayed the same.
+However, it was more noticeable as the distance from the target increases because the shooting area was smaller, but the resolution stayed the same.
 
 When I think back about this issue, I might have overestimated the Raspberry Pi.
 Indeed, it had to handle a lot of things: webcam input, video recognition, computing and display output to the projector.
