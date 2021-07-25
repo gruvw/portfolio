@@ -241,8 +241,13 @@ Indeed, it had to handle a lot of things: webcam input, video recognition, compu
 
 ### The Real Laser Was Too Fast
 
-finally there was this big issue: the real laser cartouche he bought was not long enough to be detected by the camera every time, sometimes the laser turned on and off between two recorded frames from the webcam, big issue but not really my fault as I was not engaged for the hardware part (inside the gun), I told him many times that it would be really great to have all the hardware parts as fast as possible in order to see if everything would work, Everything on my side was working great he just needed to find a way to increase the laser duration so we ended here
-not enough fps because the laser hit duration was slow and as the hand moves you need to recognize the impact location as fast as possible
+Finally, there was another issue: the real laser bullet that my client bought for his gun was not firing long enough to be detected by the webcam every time.  
+Sometimes, the laser was turning on and back off between two frames recorded by the webcam.
+The webcam was recording about 24 frames per seconds, but this was not enough to detect the impact every time.
+
+My homemade laser "bullet" that I build and used for testing the detection was set to last one tenth of a second, which was enough for the camera to detect, but the real laser that he bought must last less than 50 milliseconds.
+
+However, he told me that he will either find a way to modify the bullet he bought to last longer or buy another one that will.
 
 ## 📝 Conclusion
 
