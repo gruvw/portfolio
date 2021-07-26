@@ -18,7 +18,7 @@ I was left without anyway to work and gain money that summer till the day that I
 It was in fact a friend of the teacher that was following me for my high school project [AI in video games](/2019/10/25/artificial-intelligence-in-video-games.html){:target="_blank"} that had an idea and needed someone that knew how to build it.
 My teacher recommended him to me as he knew my coding level from the high school project.
 
-It was a bit like a freelance type of work as he was not a corporation, and he just wanted a particular program from me.
+It was a bit like a freelance type of work as he was not part of a corporation, he just wanted a particular program from me.
 It was not the first time that I made money from coding as when I was about 13 years old, I arrived at the second place in the Grip-It robotic competition at the Leman Make and the price was some money.
 However, it was my first coding job where I would get paid for doing something that someone requested.
 
@@ -251,4 +251,10 @@ However, he told me that he will either find a way to modify the bullet he bough
 
 ## 📝 Conclusion
 
-about one month of work, met a couple of times, installation, learned a lot about the programmation (user interface and video recognition) part but also about how to talk with a client and exchange about how he wanted things to be (not building something for myself even if I enjoyed the project, I would not have done some things that way but I listen to his wills) etc
+The whole project building took me about one month of work.
+We met together a couple of times and I finally came to his house to install the final product/system.
+I learned a lot about programming custom user interfaces and video recognition.
+I also learned how to talk and exchange ideas with a client about how he wanted things to be.
+It is not always easy as I sometimes would not have made the same choices if I was building it for myself, but I listened to his wills and ideas.
+I also did a great job at keeping a change log every time I added something to the software in order to keep track of what I was doing and give my client some updates.
+I enjoyed a lot doing this project and it was really fun.
