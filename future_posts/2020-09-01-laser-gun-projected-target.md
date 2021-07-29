@@ -14,35 +14,35 @@ I will however describe and explain my work as good as I can below.
 ## 💼 My First Coding Job
 
 I already had a job planned for the summer 2020, but the COVID-19 pandemic made it not happening finally.
-I was left without anyway to work and gain money that summer till the day that I receive an email from a person.
+I was left without any way to work and gain money that summer till the day when I received an email from a person.
 It was in fact a friend of the teacher that was following me for my high school project [AI in video games](/2019/10/25/artificial-intelligence-in-video-games.html){:target="_blank"} that had an idea and needed someone that knew how to build it.
-My teacher recommended him to me as he knew my coding level from the high school project.
+My teacher recommended me as he knew my coding skills from the high school project.
 
-It was a bit like a freelance type of work as he was not part of a corporation, he just wanted a particular program from me.
+It was a bit like a freelance type of work as he was not part of a corporation, he just wanted me to build a software for his personal use.
 It was not the first time that I made money from coding as when I was about 13 years old, I arrived at the second place in the Grip-It robotic competition at the Leman Make and the price was some money.
 However, it was my first coding job where I would get paid for doing something that someone requested.
 
 It made me learn how to talk to a client and understand what he wanted.
 I regularly made some reports containing the advancement of the project.
-It ultimately confirmed my will to work as a developer.
+It ultimately confirmed my will to work as a software engineer.
 
 ## 💡 The Idea
 
 The project that I needed to build was about training to shoot.
-Shooting casts a lot of money: you need to pay the location where you train and all the bullets that you use.
-It also takes a lot of time to go to this location, and therefore you do not train really often.
+Shooting costs a lot of money: you need to pay the location where you train and all the bullets that you use.
+It also takes a lot of time to go to this location, and therefore you do not train a lot.
 
-The solution that I needed to build was a way to train in a room of your house but not using real bullets but a laser gun.
+The solution that I needed to build was a way to train in a room of your house without using real bullets but a laser bullet instead.
 That way, you are not spending a lot of money on bullets, and you can train anytime you want as it only takes a few minutes (even seconds) to set up the system.
-If you have a 20 minutes break, you could now practice in your room.
+If you have a 20 minutes break, you could now practice aiming and shooting in your house.
 
-In order to do so, there is a little laser bullet that you can insert into your usual gun and when you press on the trigger, it turns the laser on for an instant, and you can repeat the operation.
+In order to do so, there is a little laser bullet that needs to be inserted into your regular gun and when you press on the trigger, it turns on the laser for an instant, and you can repeat the operation.
 
 My work was to build a target to shoot on with the laser bullet.
 The target was projected on a wall with a video projector.
 That way, I could choose what to show and build a user interface to change what target to use or to emulate the distance by reducing the size of the projected image.
-I also used a camera to detect the laser impact and to place an impact image on the projected target precisely where the shot hit.
-Shooting on the button shown on the user interface would trigger them.
+I also used a camera to detect the laser impact and to place a regular bullet impact image on the projected target precisely where the shot hit.
+Shooting on a button shown on the user interface would trigger it.
 That way, navigating through the menus and changing the settings could also be done using the laser weapon.
 I also made a system to see your statistics afterwards and therefore track your progress.
 
@@ -51,8 +51,9 @@ It was a big project, but I was very motivated by this cool idea, even thought t
 ## ⚙️ Program And Challenges
 
 I chose to code this project in Python because it was the language that I knew the best.
-I ran it on a [Raspberry Pi](https://www.raspberrypi.org/) to keep things compact and easy to set up.
-I knew that there was a lot of challenges about things that I had never done before, like video recognition.
+I ran the program on a [Raspberry Pi](https://www.raspberrypi.org/) to keep things compact and easy to set up.
+
+I knew that there was a lot of challenges about things that I had never done before, particularly video recognition.
 I needed to be able to detect a laser shot on the wall with a camera while displaying feedbacks and the user interface on the wall with a projector.
 
 This is a little representation of the architecture I built:
@@ -66,10 +67,11 @@ The gun did not need to be connected to the Raspberry Pi because it just fires a
 
 ### Camera Detection
 
-The first thing that I decided to do was to get the input from the user: detecting a laser shot on the wall.
-I chose to do that first because it was the thing that I was the least confident about, so I would not waste time on the other things if I could not build the detection.
+The first thing that I decided to build was a way to get the input from the user: detecting a laser shot on the wall.
+I chose to do that first because it was the thing that I was the least confident about, so I would not waste time on the other things if I could not even build the detection.
 
-I decided to build a proof of concept where the goal was to record a laser shot and display the impact on the wall where it landed. I also wanted to try the user interface interaction by shooting on buttons.
+I decided to build a proof of concept where the goal was to record a laser shot and display the impact on the wall where it landed. 
+I also wanted to try the user interface interaction by shooting on buttons.
 Therefore, I had three things to build in order to test if I was really qualified to build this project:
 
 1. A plain laser detection on the wall with a simple webcam
@@ -96,8 +98,8 @@ This is a small demonstration of the laser recognition:
 
 <img width="1000px" alt="Laser tracking demo" src="/assets/images/posts/laser_gun_projected_target/documentation/Laser_Tracking.gif">
 
-On the left image, we can see the raw feed from the webcam.
-In the middle there is the image after the image processing.
+On the left image, we can see the raw video feed from the webcam.
+The image processing output image is displayed in the middle.
 On the right image, we can see the extracted information on top of the raw image (blue circle around the laser with a red dot in the center).
 
 Nothing really changes for mode 2 except that I just wait until there is a frame recorded by the camera that contains a laser dot.
@@ -108,7 +110,7 @@ I needed to use a projector in order to report the position of the laser shot on
 But before that, I needed to calibrate the camera with the projector.
 The camera needs to know where is the projected surface in order to communicate the position of the shot relatively to the surface of projection.
 This calibration will be the first thing to be done when executing the program.
-It is establishing a main two coordinates axis system after used across the camera feed (input) and the projected area (output).
+It is establishing a shared two axes coordinates system across the camera feed (input) and the projected area (output).
 
 That calibration is done in two parts:
 
@@ -245,7 +247,7 @@ Finally, there was another issue: the real laser bullet that my client bought fo
 Sometimes, the laser was turning on and back off between two frames recorded by the webcam.
 The webcam was recording about 24 frames per seconds, but this was not enough to detect the impact every time.
 
-My homemade laser "bullet" that I build and used for testing the detection was set to last one tenth of a second, which was enough for the camera to detect, but the real laser that he bought must last less than 50 milliseconds.
+My homemade laser "bullet" that I built and used for testing the detection was set to last 25 milliseconds, which was enough for the camera to detect, but the real laser that he bought was lasting less than 15 milliseconds.
 
 However, he told me that he will either find a way to modify the bullet he bought to last longer or buy another one that will.
 
