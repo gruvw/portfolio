@@ -104,6 +104,8 @@ On the right image, we can see the extracted information on top of the raw image
 
 Nothing really changes for mode 2 except that I just wait until there is a frame recorded by the camera that contains a laser dot.
 
+I later had to adjust a bit the laser detection as the projector was emitting a lot of light.
+
 #### Camera calibration
 
 I needed to use a projector in order to report the position of the laser shot onto the wall.
@@ -115,7 +117,7 @@ It is establishing a shared two axes coordinates system across the camera feed (
 That calibration is done in two parts:
 
 1. In the first part, 4 black circles are placed (on a white background) in the 4 corners of the projected area. I coded a function that is detecting those circles and that calculates the center of them.
-2. In the second part, a black rectangle is displayed in order to match its corner with the center of the circles from part 1.
+2. In the second part, a black rectangle is displayed in a way that matchs its corner with the center of the circles from the first part.
 
 The following GIF illustrates the circles' detection system:
 
@@ -132,8 +134,8 @@ The next GIF shows the rectangle detection system:
 As we can see, sometimes the program detects the border of the projection surface as a valid rectangle.
 I solved this issue by taking the one with the smallest area if two rectangles are detected.
 
-Once that the program knows the centers and the corners, it calculates the mean two by two in order to have four precise points that it can use to determinate the position of the projected surface in the camera feed.
-I decided to cumulate the circles and the rectangle detection in order to gain in precision because the impact needs to be placed exactly where you shot.
+Once the program knows the centers and the corners, it calculates the mean two by two in order to have four precise points that it can use to determinate the position of the projected surface in the camera feed.
+I decided to cumulate the circles and the rectangle detection in order to gain in precision because the laser impact needs to be placed exactly where the shot landed.
 
 I also needed to correct the perspective effect that is deforming a rectangle if we are not looking at it perfectly perpendicular and from its center:
 
@@ -148,14 +150,13 @@ The following short video taken with my phone shows the full calibration process
   <iframe src="https://www.youtube-nocookie.com/embed/RavyzJ8D4Is?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-It was detecting the shapes pretty quickly, which made the whole calibration process pretty short.
+It was detecting the shapes quickly, which made the whole calibration process pretty short.
 
 #### Display impacts
 
 The last part of the proof of concept was to get a visual feedback on the screen after a laser shot.
-It was pretty easy to do once the camera calibration process was done, as it gave me a shared coordinate system between the camera and the projected image.  
+It was pretty easy to do once the camera calibration process was done, as it gave me a shared coordinates system between the camera and the projected image.  
 The camera detects when a laser is present and retrieve its position.
-I had to adjust a bit the laser detection as the projector was emitting a lot of light.
 After that, the coordinates of the laser impact are converted to some new coordinates that are used to display an impact image on the screen at the same location.
 On top of that, the impact image is randomly rotated, so it does not always look the same.
 
@@ -172,7 +173,7 @@ The proof of concept was done, so I moved on to building the final application.
 
 ### User Interface
 
-I started by designing the multiple targets that we can choose from before starting.
+I started by designing the multiple targets that we can choose from before starting a game.
 Below are two examples of targets:
 
 <img width="250px" alt="Real impact picture" src="/assets/images/posts/laser_gun_projected_target/documentation/cible_dots.png" style="border: 2px solid black;">
@@ -180,7 +181,7 @@ Below are two examples of targets:
 
 I used a [Tkinter](https://docs.python.org/fr/3/library/tkinter.html) window in full screen mode sent as video output to the projector and build the user interface.
 On the main menu, I added some configuration buttons that can be used to select things like which target we want or how far from it, we want to be standing.
-I emulate the distance to a target by simply reducing the target size according to how it would be like in real life.
+I emulated the distance to a target by simply reducing the target size according to how it would be looking in real life.
 I also added a button to re-calibrate the camera, just in case it moved a bit.
 
 This is a small video of what the menu looked like (the user interface is in French):
@@ -193,18 +194,18 @@ The player interacts with the buttons by shooting directly on them in order to s
 When the main menu is displayed, he can see a little thumbnail on each button showing what he has pre-selected.
 When the player is ready, he can shoot on the start button and shoot on the target.
 
-There are multiple "programs" available to the player, for examples: program A is a free-range, meaning that the player can freely shoot on the target or, on program B, the player has 5 bullets and 5 seconds to shoot...
+There are multiple "programs" available to the player, for examples: program A is a free-range, meaning that the player can freely shoot on the target, on program B the player has 5 bullets and 5 seconds to shoot...
 
 Once the game is finished, the results are displayed on the screen:
 
 * The target is enlarged
 * All the shots are represented and numbered chronologically
 * In the top left corner, the time between each shot is displayed
-* If the shot was too far from the target that it cannot be displayed on the results screen, the shot is shown in orange in the top left corner
+* If the shot was so far from the target that it cannot be displayed on the enlarged one in the results screen, the shot is shown in orange in the top left corner
 * The settings used for the game are displayed in the top right corner
 * If two shots are too close to each other, a light blue circle is drawn on each of them
 
-This is an example of a result pages:
+This is an example of a result page:
 
 <img width="800px" alt="Real impact picture" src="/assets/images/posts/laser_gun_projected_target/documentation/score.png"  style="border: 2px solid black;">
 
@@ -219,24 +220,24 @@ That way, he can analyze his mistakes and track his progress.
 
 ### Raspberry Pi Too Weak
 
-I started to code the program on my laptop with the idea that it will run on a [Raspberry Pi](https://www.raspberrypi.org/) in the end.
+I started to code the program on my laptop with the idea that it will run on a Raspberry Pi in the end.
 However, when I first installed everything on the Raspberry Pi, it was running really slowly and the interface was lagging a lot.
 I also got heat warnings and it even shutdown on its own multiple times (to prevent overheating).
 At that point, I thought that a Raspberry Pi would not be powerful enough for this project.
-Video processing and recognition is a very resource intensive process, and I thought that I would need a real laptop or a kind of mini PC to run the program.
+Video processing and recognition is a very resource intensive process, and I thought that I would need a real laptop or a kind of mini PC to run the software.
 
 I solved the overheating issue by buying an active cooling fan like that one:
 
 <img width="350px" alt="Raspberry Pi heat sink" src="/assets/images/posts/laser_gun_projected_target/documentation/rpi_heat_sink.jpg" title="https://www.chipskey.cc/heat-pipe-tower-fan-5-layers-acrylic-board-raspberry-pi-4-icetower-cooling-fan-rgb-7-color-led-lighting-fan-p-10334.html">
 
-Even thought I have been using some Raspberry Pis in many other projects where passive cooling was always sufficient, this time I needed something like that to keep the board cool.
-The Raspberry Pi was not shutting down anymore, but I was still running really slowly and the CPU usage was always above 90%.
+Even though I have been using some Raspberry Pis in many other projects where passive cooling was always sufficient, this time I needed something like that to keep the board cool.
+The Raspberry Pi was not shutting down anymore, but it was still running really slowly and the CPU usage was always above 90%.
 
 As a mini PC was too expensive, I kept trying to optimize my program.
 I finally found a way to reduce the CPU usage: lower the video input resolution from the webcam to 660x480 pixels.
 That way, the video recognition process was less intensive and the program was running smoothly.
 There has been a little drop in the precision of the shots, but it wasn't too bad.
-However, it was more noticeable as the distance from the target increases because the shooting area was smaller, but the resolution stayed the same.
+However, it was more noticeable as the simulated distance from the target increases because the shooting area was smaller, but the resolution stayed the same.
 
 When I think back about this issue, I might have overestimated the Raspberry Pi.
 Indeed, it had to handle a lot of things: webcam input, video recognition, computing and display output to the projector.
@@ -244,10 +245,10 @@ Indeed, it had to handle a lot of things: webcam input, video recognition, compu
 ### The Real Laser Was Too Fast
 
 Finally, there was another issue: the real laser bullet that my client bought for his gun was not firing long enough to be detected by the webcam every time.  
-Sometimes, the laser was turning on and back off between two frames recorded by the webcam.
-The webcam was recording about 24 frames per seconds, but this was not enough to detect the impact every time.
+Sometimes, the laser was turning on and back off between two frames captured by the webcam.
+The webcam was recording about 40 frames per seconds, but it was not enough to detect the impact every time.
 
-My homemade laser "bullet" that I built and used for testing the detection was set to last 25 milliseconds, which was enough for the camera to detect, but the real laser that he bought was lasting less than 15 milliseconds.
+My homemade laser "bullet" that I used for testing the detection was set to last 25 milliseconds, which was enough for the camera to detect, but the real laser that he bought was lasting less than 15 milliseconds.
 
 However, he told me that he will either find a way to modify the bullet he bought to last longer or buy another one that will.
 
@@ -255,7 +256,7 @@ However, he told me that he will either find a way to modify the bullet he bough
 
 The whole project building took me about one month of work.
 We met together a couple of times and I finally came to his house to install the final product/system.
-I learned a lot about programming custom user interfaces and video recognition.
+I learned a lot about video recognition and programming custom user interfaces.
 I also learned how to talk and exchange ideas with a client about how he wanted things to be.
 It is not always easy as I sometimes would not have made the same choices if I was building it for myself, but I listened to his wills and ideas.
 I also did a great job at keeping a change log every time I added something to the software in order to keep track of what I was doing and give my client some updates.
