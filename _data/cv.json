@@ -1,11 +1,11 @@
 {
     "basics": {
         "name": "Lucas Jung",
-        "label": "Developer",
+        "label": "Software Engineer",
         "picture": "https://avatars1.githubusercontent.com/u/63407038?s=460&u=58879e919dd2613767be454455528db0e469f89b&v=4",
         "email": "gruvw.dev@gmail.com",
         "website": "http://gruvw.com",
-        "summary": "Also know as Gruvw, I was born in 2002 in Switzerland. I started to learn how to code at the age of 10. Since then, I have fallen in love with programming and Computer Science in general. I learned almost everything that I know about programmation by myself and I have had, since the beginning, a 'practice to learn' policy. Therefore I make lots of projects here and there in order to put theory into practice.  I also try to have as much professional experiences as I can in order to know if I really want to do this as a job and for now the answer has always been yes. All of this led me to where I am today, still passionate and curious about everything and never missing out an opportunity to learn.",
+        "summary": "Also know as Gruvw, I was born in 2002 in Switzerland. I started to learn how to code at the age of 10. Since then, I have fallen in love with programming and Computer Science in general. I learned a lot about programming by myself before studying computer science and I have had, since the beginning, a 'practice to learn' policy. Therefore I make lots of small projects here and there in order to put theory into practice.  I also try to have as much professional experiences as I can in order to develop my skill further and to better understand professional environments. All of this led me to where I am today, passionate and curious about everything and never missing out an opportunity to learn.",
         "location": {
             "countryCode": "Switzerland",
             "region": "Vaud"
@@ -48,7 +48,7 @@
         {
             "company": "Babysitter",
             "startDate": "2018",
-            "endDate": "2020-06",
+            "endDate": "2020",
             "website": "https://babysitter.redcross.ch/",
             "summary": "Red-Cross babysitting certificate."
         },
@@ -65,7 +65,7 @@
             "website": "http://www.franic.eu/",
             "startDate": "2016-10-15",
             "endDate": "2014-10-19",
-            "summary": "Very short internship in order to confirm interest in IT domain."
+            "summary": "Very short internship, get in touch with IT."
         }
     ],
     "education": [
@@ -73,7 +73,8 @@
             "institution": "EPFL, Lausanne",
             "area": "CMS",
             "studyType": "Math preparation year",
-            "startDate": "2020-09-10",
+            "startDate": "2020-09",
+            "endDate": "2021-07",
             "courses": [
                 "Maths",
                 "Physics"
