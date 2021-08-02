@@ -8,43 +8,47 @@ tags:
 toc: true
 ---
 
-There is sadly no code that I will share for this project, as I was paid to build the software.
-I will however describe and explain my work as good as I can below.
+Sadly I won't be sharing any code for this project, as I was paid to build the software.
+I will however describe and explain my work as well as possible below.
 
 ## 💼 My First Coding Job
 
-I already had a job planned for the summer 2020, but the COVID-19 pandemic made it not happening finally.
-I was left without any way to work and gain money that summer till the day when I received an email from a person.
-It was in fact a friend of the teacher that was following me for my high school project [AI in video games](/2019/10/25/artificial-intelligence-in-video-games.html){:target="_blank"} that had an idea and needed someone that knew how to build it.
-My teacher recommended me as he knew my coding skills from the high school project.
+I already had a job planned for the summer 2020, but with the COVID-19 pandemic it could not take place.
+I was left without any way to work and gain money that summer until the day I received an email.
+It was sent by a friend of the teacher that was my mentor during my high school project [AI in video games](/2019/10/25/artificial-intelligence-in-video-games.html){:target="_blank"}.
+He had an idea and needed someone that knew how to build it.
+My teacher had recommended me since he knew my coding skills from the high school project.
 
-It was a bit like a freelance type of work as he was not part of a corporation, he just wanted me to build a software for his personal use.
-It was not the first time that I made money from coding as when I was about 13 years old, I arrived at the second place in the Grip-It robotic competition at the Leman Make and the price was some money.
+It was a bit like freelance work as he was not part of a corporation, he just wanted me to build a software for his personal use.
+It was not the first time that I made money from coding: I had won some money when I was about 13 years old and arrived second place in the Grip-It robotic competition at the Leman Make.
 However, it was my first coding job where I would get paid for doing something that someone requested.
 
-It made me learn how to talk to a client and understand what he wanted.
+It allowed me to learn how to talk to a client and understand what he wanted.
 I regularly made some reports containing the advancement of the project.
 It ultimately confirmed my will to work as a software engineer.
 
 ## 💡 The Idea
 
-The project that I needed to build was about training to shoot.
-Shooting costs a lot of money: you need to pay the location where you train and all the bullets that you use.
-It also takes a lot of time to go to this location, and therefore you do not train a lot.
+The project that I needed to build was to practice shooting.
+Shooting costs a lot of money: you need to pay for the location where you train and all the bullets that you use.
+It also takes a lot of time to go to the location.
+Therefore you do not train very often.
 
 The solution that I needed to build was a way to train in a room of your house without using real bullets but a laser bullet instead.
-That way, you are not spending a lot of money on bullets, and you can train anytime you want as it only takes a few minutes (even seconds) to set up the system.
-If you have a 20 minutes break, you could now practice aiming and shooting in your house.
+That way, you are not spending a lot of money on bullets, and you can train whenever you want.
+Indeed it only takes a few minutes (even seconds) to set up the system.
+So now if you have a 20 minutes break for example, you could practice aiming and shooting in your house.
 
-In order to do so, there is a little laser bullet that needs to be inserted into your regular gun and when you press on the trigger, it turns on the laser for an instant, and you can repeat the operation.
+In order to make this work, there is a little laser bullet that needs to be inserted into your regular gun.
+When you press on the trigger, it turns on the laser for an instant, and you can repeat the operation.
 
 My work was to build a target to shoot on with the laser bullet.
 The target was projected on a wall with a video projector.
 That way, I could choose what to show and build a user interface to change what target to use or to emulate the distance by reducing the size of the projected image.
 I also used a camera to detect the laser impact and to place a regular bullet impact image on the projected target precisely where the shot hit.
-Shooting on a button shown on the user interface would trigger it.
+Shooting on a button displayed on the user interface would trigger it.
 That way, navigating through the menus and changing the settings could also be done using the laser weapon.
-I also made a system to see your statistics afterwards and therefore track your progress.
+I also made a system that allows you to see your statistics afterwards and therefore track your progress.
 
 It was a big project, but I was very motivated by this cool idea, even thought there was a lot of difficulties that I did not know how to solve in the beginning.
 
@@ -53,7 +57,7 @@ It was a big project, but I was very motivated by this cool idea, even thought t
 I chose to code this project in Python because it was the language that I knew the best.
 I ran the program on a [Raspberry Pi](https://www.raspberrypi.org/) to keep things compact and easy to set up.
 
-I knew that there was a lot of challenges about things that I had never done before, particularly video recognition.
+I knew that there was a lot of challenging things that I had never done before, particularly video recognition.
 I needed to be able to detect a laser shot on the wall with a camera while displaying feedbacks and the user interface on the wall with a projector.
 
 This is a little representation of the architecture I built:
@@ -63,7 +67,7 @@ This is a little representation of the architecture I built:
 </div><br>
 
 So the user interface was projected on a wall and the laser shots were recorded with a small webcam.
-The gun did not need to be connected to the Raspberry Pi because it just fires a laser.
+The gun did not need to be connected to the Raspberry Pi because it was just firing a laser.
 
 ### Camera Detection
 
@@ -72,7 +76,7 @@ I chose to do that first because it was the thing that I was the least confident
 
 I decided to build a proof of concept where the goal was to record a laser shot and display the impact on the wall where it landed. 
 I also wanted to try the user interface interaction by shooting on buttons.
-Therefore, I had three things to build in order to test if I was really qualified to build this project:
+Therefore, I had three things to build in order to test if I was really qualified to make this project:
 
 1. A plain laser detection on the wall with a simple webcam
 2. Camera calibration with the projector
@@ -82,7 +86,7 @@ I made the choice to go with the [OpenCV](https://opencv.org/){:target="_blank"}
 
 #### Laser Detection
 
-In order to test the laser detection, I build a small box with a red button on it that will activate a laser. The box had two modes:
+In order to test the laser detection, I build a small box with a red button on it that would activate a laser. The box had two modes:
 
 1. While the button is pressed, the laser will remain activated (like a presentation pointer)
 2. On button press, a laser shot is simulated: the laser is activated for 25 milliseconds before turning off automatically
@@ -102,30 +106,30 @@ On the left image, we can see the raw video feed from the webcam.
 The image processing output image is displayed in the middle.
 On the right image, we can see the extracted information on top of the raw image (blue circle around the laser with a red dot in the center).
 
-Nothing really changes for mode 2 except that I just wait until there is a frame recorded by the camera that contains a laser dot.
+Nothing really changes for mode 2 except that I just make it wait until there is a frame recorded by the camera that contains a laser dot.
 
-I later had to adjust a bit the laser detection as the projector was emitting a lot of light.
+I later had to adjust the laser detection a bit as the projector was emitting a lot of light.
 
 #### Camera calibration
 
-I needed to use a projector in order to report the position of the laser shot onto the wall.
+I needed to use a projector in order to report the position of the laser shot onto the wall in order to have a visual feedback after shooting.
 But before that, I needed to calibrate the camera with the projector.
-The camera needs to know where is the projected surface in order to communicate the position of the shot relatively to the surface of projection.
-This calibration will be the first thing to be done when executing the program.
+The camera needs to know where the projected surface is in order to communicate the position of the shot in relation to the surface of projection.
+This calibration was the first thing to do when executing the program.
 It is establishing a shared two axes coordinates system across the camera feed (input) and the projected area (output).
 
 That calibration is done in two parts:
 
-1. In the first part, 4 black circles are placed (on a white background) in the 4 corners of the projected area. I coded a function that is detecting those circles and that calculates the center of them.
-2. In the second part, a black rectangle is displayed in a way that matchs its corner with the center of the circles from the first part.
+1. In the first part, 4 black circles are placed (on a white background) in the 4 corners of the projected area. I coded a function that detected those circles and that calculated their center.
+2. In the second part, a black rectangle is displayed in a way that matches each of its corners respectively to the center of each circle from the first part.
 
 The following GIF illustrates the circles' detection system:
 
 <img width="1000px" alt="Circles detection demo" src="/assets/images/posts/laser_gun_projected_target/documentation/Marks_Tracking_Circles.gif">
 
-We can see the projected area in white on the wall with the four circles on it.
-Like the laser detection GIF, on the left there is the raw camera feed, in the middle is the image after being processed and on the right is the extracted data displayed on top of the camera feed.
-The circles' detection is working pretty well.
+On the wall, we can see the projected area in white with the four circles displayed over it.
+Like the laser detection GIF, on the left there is the raw camera feed, in the middle there is the image after being processed and on the right there is the extracted data displayed on top of the camera feed.
+The circles' detection was working pretty well.
 
 The next GIF shows the rectangle detection system:
 
@@ -134,14 +138,15 @@ The next GIF shows the rectangle detection system:
 As we can see, sometimes the program detects the border of the projection surface as a valid rectangle.
 I solved this issue by taking the one with the smallest area if two rectangles are detected.
 
-Once the program knows the centers and the corners, it calculates the mean two by two in order to have four precise points that it can use to determinate the position of the projected surface in the camera feed.
+Once the program knows the centers and the corners, it calculates for each circle the mean of its center and its respective rectangle corner in order to have four precise points.
+It can use those points in order to determine the position of the projected surface in the camera feed.
 I decided to cumulate the circles and the rectangle detection in order to gain in precision because the laser impact needs to be placed exactly where the shot landed.
 
-I also needed to correct the perspective effect that is deforming a rectangle if we are not looking at it perfectly perpendicular and from its center:
+I also needed to correct the perspective effect that deforms a rectangle if we are not looking at it perfectly perpendicularly and from its center:
 
 <img width="500px" title="https://www.pyimagesearch.com/2014/08/25/4-point-opencv-getperspective-transform-example/" alt="Perspective correction" src="/assets/images/posts/laser_gun_projected_target/documentation/perspective_transform.jpg">
 
-Once the shared axis system is established, the camera must not move at all.
+Once the shared axes system is established, the camera must not move at all.
 I later added a button in the user interface that re-calibrates the camera, just in case the impacts' placement feels a bit inaccurate (the camera is moving a bit because of vibrations and other small factors).
 
 The following short video taken with my phone shows the full calibration process:
