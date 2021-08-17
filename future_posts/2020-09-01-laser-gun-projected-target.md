@@ -17,13 +17,13 @@ I already had a job planned for the summer 2020, but with the COVID-19 pandemic 
 I was left without any way to work and gain money that summer until the day I received an email.
 It was sent by a friend of the teacher that was my mentor during my high school project [AI in video games](/2019/10/25/artificial-intelligence-in-video-games.html){:target="_blank"}.
 He had an idea and needed someone that knew how to build it.
-My teacher had recommended me since he knew my coding skills from the high school project.
+My teacher had recommended me since they knew my coding skills from the high school project.
 
-It was a bit like freelance work as he was not part of a corporation, he just wanted me to build a software for his personal use.
+It was a bit like freelance work as they were not part of a corporation, they just wanted me to build a software for their personal use.
 It was not the first time that I made money from coding: I had won some money when I was about 13 years old and arrived second place in the Grip-It robotic competition at the Leman Make.
 However, it was my first coding job where I would get paid for doing something that someone requested.
 
-It allowed me to learn how to talk to a client and understand what he wanted.
+It allowed me to learn how to talk to a client and understand what they wanted.
 I regularly made some reports containing the advancement of the project.
 It ultimately confirmed my will to work as a software engineer.
 
@@ -116,7 +116,7 @@ I needed to use a projector in order to report the position of the laser shot on
 But before that, I needed to calibrate the camera with the projector.
 The camera needs to know where the projected surface is in order to communicate the position of the shot in relation to the surface of projection.
 This calibration was the first thing to do when executing the program.
-It is establishing a shared two axes coordinates system across the camera feed (input) and the projected area (output).
+It is establishing a shared two axes coordinate system across the camera feed (input) and the projected area (output).
 
 That calibration is done in two parts:
 
@@ -160,14 +160,14 @@ It was detecting the shapes quickly, which made the whole calibration process pr
 #### Display impacts
 
 The last part of the proof of concept was to get a visual feedback on the screen after a laser shot.
-It was pretty easy to do once the camera calibration process was done, as it gave me a shared coordinates system between the camera and the projected image.  
-The camera detects when a laser is present and retrieve its position.
+It was pretty easy to do once the camera calibration process was done, as it gave me a shared coordinate system between the camera and the projected image.  
+The camera detects when a laser is present and retrieves its position.
 After that, the coordinates of the laser impact are converted to some new coordinates that are used to display an impact image on the screen at the same location.
 On top of that, the impact image is randomly rotated, so it does not always look the same.
 
 I added a button interaction logic that used that system: when you shoot on a button, it gets triggered.
 
-That led to a small app combining the camera calibration, laser detection, impact placement and button triggering:
+That led to a small application combining the camera calibration, laser detection, impact placement and button triggering:
 
 <div class="video-responsive">
   <iframe src="https://www.youtube-nocookie.com/embed/8LZnIDVj-8g?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -184,9 +184,9 @@ Below are two examples of targets:
 <img width="250px" alt="Real impact picture" src="/assets/images/posts/laser_gun_projected_target/documentation/cible_dots.png" style="border: 2px solid black;">
 <img width="250px" alt="Real impact picture" src="/assets/images/posts/laser_gun_projected_target/documentation/cible_cercle.png" style="border: 2px solid black;">
 
-I used a [Tkinter](https://docs.python.org/fr/3/library/tkinter.html) window in full screen mode sent as video output to the projector and build the user interface.
-On the main menu, I added some configuration buttons that can be used to select things like which target we want or how far from it, we want to be standing.
-I emulated the distance to a target by simply reducing the target size according to how it would be looking in real life.
+I used a [Tkinter](https://docs.python.org/fr/3/library/tkinter.html) window in full screen mode sent as video output to the projector and built the user interface.
+On the main menu, I added some configuration buttons that can be used to select things like which target we want or how far from it we want to be standing.
+I emulated the distance to a target by simply reducing the target size according to how it would look in real life.
 I also added a button to re-calibrate the camera, just in case it moved a bit.
 
 This is a small video of what the menu looked like (the user interface is in French):
@@ -195,9 +195,9 @@ This is a small video of what the menu looked like (the user interface is in Fre
   <iframe src="https://www.youtube-nocookie.com/embed/r6u0h7QLznI?rel=0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-The player interacts with the buttons by shooting directly on them in order to select the settings he wants.
-When the main menu is displayed, he can see a little thumbnail on each button showing what he has pre-selected.
-When the player is ready, he can shoot on the start button and shoot on the target.
+The player interacts with the buttons by shooting directly on them in order to select the settings they want.
+When the main menu is displayed, they can see a little thumbnail on each button showing what they have pre-selected.
+When the player is ready, they can shoot on the start button and then on the target.
 
 There are multiple "programs" available to the player, for examples: program A is a free-range, meaning that the player can freely shoot on the target, on program B the player has 5 bullets and 5 seconds to shoot...
 
@@ -206,7 +206,7 @@ Once the game is finished, the results are displayed on the screen:
 * The target is enlarged
 * All the shots are represented and numbered chronologically
 * In the top left corner, the time between each shot is displayed
-* If the shot was so far from the target that it cannot be displayed on the enlarged one in the results screen, the shot is shown in orange in the top left corner
+* If the shot was so far from the target that it could not be displayed on the enlarged one in the results screen, the shot is shown in orange in the top left corner
 * The settings used for the game are displayed in the top right corner
 * If two shots are too close to each other, a light blue circle is drawn on each of them
 
@@ -214,55 +214,55 @@ This is an example of a result page:
 
 <img width="800px" alt="Real impact picture" src="/assets/images/posts/laser_gun_projected_target/documentation/score.png"  style="border: 2px solid black;">
 
-After seeing his results, the player is taken back to the home screen.
+After seeing their results, the player is taken back to the home screen.
 
 ### Saving the results to access them afterwards
 
 At the end of a game, the result page is also saved and uploaded to the cloud in order to access it later.
 I used the [MEGA](https://mega.io/) API in order to upload a screenshot of the result screen.
-The player can later use the MEGA application on his phone (for example) and see all his games.
-That way, he can analyze his mistakes and track his progress.
+The player can later use the MEGA application on their phone (for example) and see all their past games.
+That way, they can analyze their mistakes and track their progress.
 
 ### Raspberry Pi Too Weak
 
-I started to code the program on my laptop with the idea that it will run on a Raspberry Pi in the end.
+I started to code the program on my laptop with the idea that it would run on a Raspberry Pi at the end.
 However, when I first installed everything on the Raspberry Pi, it was running really slowly and the interface was lagging a lot.
 I also got heat warnings and it even shutdown on its own multiple times (to prevent overheating).
 At that point, I thought that a Raspberry Pi would not be powerful enough for this project.
 Video processing and recognition is a very resource intensive process, and I thought that I would need a real laptop or a kind of mini PC to run the software.
 
-I solved the overheating issue by buying an active cooling fan like that one:
+I solved the overheating issue by buying an active cooling fan like this one:
 
 <img width="350px" alt="Raspberry Pi heat sink" src="/assets/images/posts/laser_gun_projected_target/documentation/rpi_heat_sink.jpg" title="https://www.chipskey.cc/heat-pipe-tower-fan-5-layers-acrylic-board-raspberry-pi-4-icetower-cooling-fan-rgb-7-color-led-lighting-fan-p-10334.html">
 
-Even though I have been using some Raspberry Pis in many other projects where passive cooling was always sufficient, this time I needed something like that to keep the board cool.
+Even though I have been using Raspberry Pis in many other projects where passive cooling was always sufficient, this time I needed something like that to keep the board cool.
 The Raspberry Pi was not shutting down anymore, but it was still running really slowly and the CPU usage was always above 90%.
 
 As a mini PC was too expensive, I kept trying to optimize my program.
 I finally found a way to reduce the CPU usage: lower the video input resolution from the webcam to 660x480 pixels.
 That way, the video recognition process was less intensive and the program was running smoothly.
-There has been a little drop in the precision of the shots, but it wasn't too bad.
-However, it was more noticeable as the simulated distance from the target increases because the shooting area was smaller, but the resolution stayed the same.
+It caused a little drop in the precision of the shots, but it wasn't too bad.
+However, it was more noticeable as the simulated distance from the target increased because the shooting area was smaller, but the resolution stayed the same.
 
-When I think back about this issue, I might have overestimated the Raspberry Pi.
+When I think back to this issue, I might have overestimated the Raspberry Pi.
 Indeed, it had to handle a lot of things: webcam input, video recognition, computing and display output to the projector.
 
 ### The Real Laser Was Too Fast
 
-Finally, there was another issue: the real laser bullet that my client bought for his gun was not firing long enough to be detected by the webcam every time.  
+Finally, there was another issue: the real laser bullet that my client bought for their gun was not firing for long enough to be detected by the webcam every time.  
 Sometimes, the laser was turning on and back off between two frames captured by the webcam.
 The webcam was recording about 40 frames per seconds, but it was not enough to detect the impact every time.
 
-My homemade laser "bullet" that I used for testing the detection was set to last 25 milliseconds, which was enough for the camera to detect, but the real laser that he bought was lasting less than 15 milliseconds.
+My homemade laser "bullet" that I used for testing the detection was set to last 25 milliseconds, which was enough for the camera to detect, but the real laser that my client bought lasted less than 15 milliseconds.
 
-However, he told me that he will either find a way to modify the bullet he bought to last longer or buy another one that will.
+However, they told me that they would either find a way to modify the bullet they bought to last longer or buy another one.
 
 ## 📝 Conclusion
 
-The whole project building took me about one month of work.
-We met together a couple of times and I finally came to his house to install the final product/system.
+The whole project building took me about a month of work.
+We met a couple of times before I came to their house to install the final product/system.
 I learned a lot about video recognition and programming custom user interfaces.
-I also learned how to talk and exchange ideas with a client about how he wanted things to be.
-It is not always easy as I sometimes would not have made the same choices if I was building it for myself, but I listened to his wills and ideas.
+I also learned how to talk and exchange ideas with a client about how they wanted things to be.
+It was not always easy as sometimes I would not have made the same choices if I was building this project for myself, but I listened to their wishes.
 I also did a great job at keeping a change log every time I added something to the software in order to keep track of what I was doing and give my client some updates.
-I enjoyed a lot doing this project and it was really fun.
+I enjoyed doing this project a lot and it was really fun.
