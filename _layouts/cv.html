@@ -2,25 +2,24 @@
 layout: default
 ---
 
-{% assign cv = site.data.cv %}
-{% include cv/intro.html %}
-
-<main id="main" class="page-content" aria-label="Content">
-  <div class="index inner">
-    <div>{{ content }}</div>
-    <div>
-      <div class="entries">
-        {% include cv/basics.html %}
-        {% include cv/work.html %}
-        {% include cv/volunteer.html %}
-        {% include cv/education.html %}
-        {% include cv/awards.html %}
-        {% include cv/publications.html %}
-        {% include cv/skills.html %}
-        {% include cv/languages.html %}
-        {% include cv/interests.html %}
-        {% include cv/references.html %}
-      </div>
-    </div>
-  </div>
-</main>
+<main id="container"></main>
+<script>
+  fetch('https://registry.jsonresume.org/gruvw').then(response => {
+    return response.text();
+  }).then(data => {
+    const iframeContainer = window.document.getElementById('container');
+    const iframe = document.createElement('iframe');
+    iframe.frameBorder = 'none';
+    iframe.width = '100%';
+    function fixIframe() {
+      iframe.height = iframe.contentWindow.document.body.scrollHeight;
+      iframe.contentWindow.document.body.style["marginBottom"] = "0px";
+    }
+    iframe.addEventListener("load", fixIframe);
+    window.addEventListener("resize", fixIframe);
+    const finalHtml = data;
+    const blob = new Blob([finalHtml], {type: 'text/html'});
+    iframe.src = window.URL.createObjectURL(blob);
+    iframeContainer.appendChild(iframe);
+  })
+</script>
