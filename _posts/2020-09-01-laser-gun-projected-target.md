@@ -2,14 +2,14 @@
 layout: post
 title: "Laser gun projected target"
 sub_title: "A target projected on the wall that you can shoot on using a laser gun."
+introduction: "Sadly I won't be sharing any code for this project, as I was paid to build the software. I will however describe and explain my work as well as possible below."
 image: "/assets/images/posts/laser_gun_projected_target/main.jpg"
 tags:
   - Python
 toc: true
 ---
 
-Sadly I won't be sharing any code for this project, as I was paid to build the software.
-I will however describe and explain my work as well as possible below.
+I designed and coded a virtual target projected on a wall in order to practice shooting at home using a laser gun.
 
 ## 💼 My First Coding Job
 

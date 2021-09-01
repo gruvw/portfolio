@@ -13,7 +13,7 @@ tags:
 toc: true
 ---
 
-I decided to take notes in lectures with LaTeX and this is how I set up my LaTeX writing environment.
+I decided to take notes during lectures with LaTeX and this is how I set up my LaTeX writing environment.
 
 ## 🗂️ Environment decision
 
