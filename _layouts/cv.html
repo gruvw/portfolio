@@ -16,7 +16,10 @@ layout: default
       iframe.height = iframe.contentWindow.document.body.scrollHeight;
       iframe.contentWindow.document.body.style["marginBottom"] = "0px";
     }
-    iframe.addEventListener("load", fixIframe);
+    iframe.addEventListener("load", () => {
+      iframe.contentWindow.document.head.innerHTML += '<base target="_blank" />';
+      fixIframe();
+    });
     window.addEventListener("resize", fixIframe);
     const finalHtml = data;
     const blob = new Blob([finalHtml], {type: 'text/html'});
