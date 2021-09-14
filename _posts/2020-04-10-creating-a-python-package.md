@@ -13,7 +13,8 @@ tags:
 toc: true
 ---
 
-I created a Python package which keeps track of what I am printing to the console in a log file along with the possibility to add a prefix to what I am printing.
+I created my first Python package.
+It keeps track of what I am printing to the console in a log file along with the possibility to add a prefix to what I am printing.
 
 ## 💡 The Idea
 
@@ -50,7 +51,7 @@ Doing it in that way let me to have the prefix before the statement but didn't s
 
 ### Introduction
 
-Although I coded a lot in Python, I never wrote a package or anything close to it. I took it like a good opportunity to learn a new skill in this language.
+Although I coded a lot in Python, I had never wrote a package or anything close to it. I took it like a good opportunity to learn a new skill in this language.
 I wanted my package to be easily installed on any computer with a [pip](https://packaging.python.org/key_projects/#pip){:target="_blank"} command like the other packages I installed in the past.
 This is where I stared.
 
@@ -152,8 +153,6 @@ pb.info("information")
 pb.debug("variable debug")
 pb.warn("warning")
 pb.err("error")
-
-pb.exit()  # terminates
 {% endhighlight %}
 
 The first line is where my package is imported in my python script.
