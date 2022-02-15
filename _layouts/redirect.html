@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} Redirect</title>
+  <link rel="canonical" href="{{ page.redirect_url }}" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="refresh" content="0;url={{ page.redirect_url }}" />
+</head>
+
+<body>
+  <h1>Redirecting to {{ page.title }}...</h1>
+  <a href="{{ page.redirect_url }}">Click here if you are not redirected.<a>
+
+  <script>
+    location = '{{ page.redirect_url }}'
+  </script>
+</body>
+
+</html>
