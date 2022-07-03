@@ -11,7 +11,7 @@ description: If you want to learn more about me.
     }
 </style>
 
-<img class="luc-img" src="assets/images/author/lucas_jung_profile.jpg" alt="Lucas Jung Image">
+<img class="luc-img" src="assets/images/author/lucas_jung-min.jpg" alt="Lucas Jung Image">
 <img class="luc-img" width="300" src="assets/images/main/gruvw_logo.png" alt="Lucas Jung Image">
 
 ## My journey
