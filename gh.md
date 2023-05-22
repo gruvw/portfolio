@@ -1,6 +1,6 @@
 ---
 layout: redirect
-sitemap: false
+sitemap: true
 title: GitHub
 redirect_url: https://github.com/gruvw
 ---

@@ -2,28 +2,10 @@
 layout: default
 ---
 
-<main id="container"></main>
+<iframe src="/resume.html" frameborder="0" width="100%" scrolling="no" onload="resizeIframe(this)"></iframe>
+
 <script>
-  fetch('https://registry.jsonresume.org/gruvw').then(response => {
-    return response.text();
-  }).then(data => {
-    const iframeContainer = window.document.getElementById('container');
-    const iframe = document.createElement('iframe');
-    iframe.frameBorder = 'none';
-    iframe.width = '100%';
-    iframe.scrolling = 'no';
-    function fixIframe() {
-      iframe.height = iframe.contentWindow.document.body.scrollHeight;
-      iframe.contentWindow.document.body.style["marginBottom"] = "0px";
-    }
-    iframe.addEventListener("load", () => {
-      iframe.contentWindow.document.head.innerHTML += '<base target="_blank" />';
-      fixIframe();
-    });
-    window.addEventListener("resize", fixIframe);
-    const finalHtml = data;
-    const blob = new Blob([finalHtml], {type: 'text/html'});
-    iframe.src = window.URL.createObjectURL(blob);
-    iframeContainer.appendChild(iframe);
-  })
+  function resizeIframe(obj) {
+    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+  }
 </script>

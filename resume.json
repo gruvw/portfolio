@@ -1,0 +1,236 @@
+{
+    "basics": {
+        "name": "Lucas Jung",
+        "label": "EPFL Computer Science Student / Software Developer",
+        "picture": "https://avatars1.githubusercontent.com/u/63407038?s=460&u=58879e919dd2613767be454455528db0e469f89b&v=4",
+        "email": "gruvw.dev@gmail.com",
+        "website": "https://gruvw.com",
+        "summary": "Also known as Gruvw, I was born in 2002 in Switzerland. I started to learn how to code at the age of 10. Since then, I have fallen in love with programming and Computer Science in general. I learned a lot about programming by myself before studying Computer Science at EPFL and I wrote many projects (some OpenSource that you can check out on my GitHub). I try to have as much professional experiences as possible in order to develop my skills further and to better understand professional environments. I am passionate and very curious about everything, never missing out an opportunity to learn.",
+        "location": {
+            "countryCode": "Switzerland",
+            "region": "Vaud"
+        },
+        "profiles": [
+            {
+                "network": "GitHub",
+                "username": "gruvw",
+                "url": "https://github.com/gruvw"
+            },
+            {
+                "network": "LinkedIn",
+                "username": "Lucas Jung",
+                "url": "https://www.linkedin.com/in/jung-lucas/"
+            }
+        ]
+    },
+    "work": [
+        {
+            "company": "EPFL",
+            "position": "Student Assistant",
+            "startDate": "2022-09-20",
+            "website": "https://epfl.ch/",
+            "summary": "Programming course student teaching assistant (CS-107, CS-108)."
+        },
+        {
+            "company": "Del West",
+            "position": "Information Technology Intern",
+            "startDate": "2021-08-16",
+            "endDate": "2020-09-03",
+            "website": "https://delwest.ch/",
+            "summary": "Installation and configuration of SCADA system on CNC machines (Industry 4.0). Data collection and analysis of industrial production.",
+            "highlights": [
+                "Configuration of data acquisition servers using MongoDB",
+                "Technical analysis of production using OEE and TEEP",
+                "Automatic reports generation"
+            ]
+        },
+        {
+            "company": "Project for a private customer",
+            "position": "Software engineer",
+            "startDate": "2020-07-06",
+            "endDate": "2020-08-23",
+            "website": "https://gruvw.com/2020/09/01/laser-gun-projected-target.html",
+            "summary": "Programmation of a custom software: video projected target on which you can shoot with a laser gun.",
+            "highlights": [
+                "Software and hardware compatibility",
+                "Video recognition using OpenCV"
+            ]
+        },
+        {
+            "company": "Private teacher",
+            "startDate": "2019",
+            "endDate": "2021",
+            "summary": "Teaching Maths, Physics, French and Microsoft Office."
+        },
+        {
+            "company": "Nestlé, Vevey",
+            "position": "Summer Intern",
+            "startDate": "2019-07-29",
+            "endDate": "2019-08-09",
+            "website": "https://www.nestle.ch/",
+            "summary": "Short internship in the Finances department.",
+            "highlights": [
+                "Creation of Microsoft Power BI dashboards for financial data visualisation",
+                "Extensive use of the Microsoft Office Suite"
+            ]
+        },
+        {
+            "company": "Babysitter",
+            "startDate": "2018",
+            "endDate": "2020",
+            "website": "https://babysitter.redcross.ch/",
+            "summary": "Red-Cross babysitting certificate."
+        },
+        {
+            "company": "Sogel Foundation, Lausanne",
+            "position": "Summer Intern",
+            "startDate": "2018-07-22",
+            "endDate": "2018-07-29",
+            "summary": "Short internship in the administration department."
+        },
+        {
+            "company": "Franic Technologies SA, Renens",
+            "position": "Summer Intern",
+            "website": "http://www.franic.eu/",
+            "startDate": "2016-10-15",
+            "endDate": "2016-10-19",
+            "summary": "Very short internship, get in touch with IT."
+        }
+    ],
+    "education": [
+        {
+            "institution": "EPFL, Lausanne",
+            "area": "Bachelor",
+            "studyType": "Computer Science",
+            "startDate": "2021-09",
+            "courses": [
+                "CS-328: Numerical methods for visual computing and machine learning",
+                "CS-233: Introduction to machine learning"
+            ]
+        },
+        {
+            "institution": "EPFL, Lausanne",
+            "area": "CMS",
+            "studyType": "Special Mathematics Course",
+            "startDate": "2020-09",
+            "endDate": "2021-07"
+        },
+        {
+            "institution": "Burier High School, La-Tour-De-Peilz",
+            "area": "High School diploma",
+            "studyType": "Maths and Physics specialization",
+            "startDate": "2017-08",
+            "endDate": "2020-07",
+            "website": "https://www.gymnasedeburier.ch/"
+        },
+        {
+            "institution": "Secondary School, Blonay",
+            "area": "Pre high school diploma",
+            "studyType": "Maths and Physics specialization",
+            "startDate": "2014-08",
+            "endDate": "2017-07"
+        }
+    ],
+    "awards": [
+        {
+            "title": "Information Technology Award",
+            "date": "2020-07-03",
+            "awarder": "Burier High School, La-Tour-De-Peilz",
+            "summary": "Last year in highschool award - For the excellence of his results in IT."
+        },
+        {
+            "title": "Léman Make - Robotics contest, Nyon",
+            "date": "2015",
+            "awarder": "Milliwatt conference, EPFL",
+            "summary": "Second place at the Léman Make robotics contest after one year of preparation. Presentation of the robot to the Milliwatt conference at the EPFL."
+        }
+    ],
+    "skills": [
+        {
+            "name": "Programming languages",
+            "level": "Very high level",
+            "keywords": [
+                "Python",
+                "Java / Scala",
+                "LaTeX",
+                "Dart / Flutter",
+                "C / Arduino",
+                "SQL"
+            ]
+        },
+        {
+            "name": "Tools",
+            "level": "High level",
+            "keywords": [
+                "Visual Studio Code / VIM",
+                "MySQL / SQLite / MongoDB / Redis",
+                "GIT / GitHub",
+                "Linux",
+                "Microsoft/Libre Office Suite"
+            ]
+        },
+        {
+            "name": "Web Development",
+            "level": "Good level",
+            "keywords": [
+                "HTML",
+                "CSS",
+                "Javascript",
+                "PHP"
+            ]
+        }
+    ],
+    "languages": [
+        {
+            "language": "French",
+            "fluency": "Native speaker"
+        },
+        {
+            "language": "English",
+            "fluency": "B2 Certificate"
+        },
+        {
+            "language": "German",
+            "fluency": "School level"
+        }
+    ],
+    "interests": [
+        {
+            "name": "Music",
+            "keywords": [
+                "Playing guitar / digital instruments",
+                "Listening (~90000 minutes per year)"
+            ]
+        },
+        {
+            "name": "Linux",
+            "keywords": [
+                "NVIM",
+                "VIFM",
+                "Qtile",
+                "Fish shell"
+            ]
+        },
+        {
+            "name": "Typing",
+            "keywords": [
+                "DVORAK",
+                "Average: ~140 words per minute",
+                "Top: ~170 words per minute"
+            ]
+        },
+        {
+            "name": "Others",
+            "keywords": [
+                "Code Golf",
+                "Electronics",
+                "Video Games",
+                "Table Soccer",
+                "Theater: Member of Burier high school theater troupe 2019"
+            ]
+        }
+    ],
+    "meta": {
+        "theme": "flat"
+    }
+}
