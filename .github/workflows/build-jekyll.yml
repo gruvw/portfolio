@@ -58,5 +58,6 @@ jobs:
       - name: Build and deploy
         uses: helaili/jekyll-action@v2
         with:
+          pre_build_commands: git config --global http.version HTTP/1.1; apk fetch git-lfs;
           token: ${{ secrets.GH_TOKEN }}
           target_branch: 'gh-pages'
