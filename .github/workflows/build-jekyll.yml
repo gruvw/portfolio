@@ -25,17 +25,16 @@ jobs:
       - uses: kelvintaywl/action-jsonresume-export@v1
         name: Export resume as HTML
         with:
-          theme: macchiato
+          theme: flat
           resume_filepath: resume.json
-          # modifies the index.html in-place
-          output_filepath: resume.html
+          output_filepath: json_resume.html
       - name: Commit published HTML
         id: commit
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          if [ -n "$(git status --porcelain resume.html)" ]; then
-            git add resume.html
+          if [ -n "$(git status --porcelain json_resume.html)" ]; then
+            git add json_resume.html
             git commit -m "[ci skip] update resume page"
             echo ::set-output name=exit_code::0
           else
