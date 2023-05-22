@@ -1,0 +1,669 @@
+<!doctype html>
+<html>
+	<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+	
+	<title>Lucas Jung</title>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+	
+	<style type="text/css">
+	@import url(
+	https://fonts.googleapis.com/css?family=Lato:400,700
+);
+body {
+	background: #fff;
+	font-family: Lato, sans-serif;
+	margin: 0 0 80px;
+}
+a {
+	color: #2ecc71;
+}
+a:focus,
+a:hover {
+	color: #f1c40f;
+	text-decoration: none;
+}
+p {
+	line-height: 1.5;
+	margin: 0;
+}
+p + p {
+	margin-top: 10px;
+}
+h1,
+h2,
+h3,
+h4 {
+	margin-top: 0
+}
+section {
+	margin-top: 30px;
+}
+li {
+	line-height: 1.8;
+	list-style: none;
+}
+li:before {
+	content: "\f052";
+	float: left;
+	font: 13px Octicons;
+	margin-top: 6px;
+	margin-left: -20px;
+	opacity: .1;
+	position: absolute;
+}
+blockquote {
+	border-left: 5px solid #e7e9ec;
+	font-size: 14px;
+}
+em {
+	color: #95a5a6;
+	font-weight: normal;
+	font-style: normal;
+}
+h4 span:first-child {
+	color: #000;
+	font-weight: bold;
+}
+.container {
+	max-width: 750px;
+	padding: 0 30px;
+}
+.col-sm-6 {
+	margin-bottom: 10px;
+}
+.col-sm-12 h4 {
+	margin-top: 12px; 
+}
+.col-sm-12 + .col-sm-12 {
+	margin-top: 30px;
+}
+#header {
+	background: #f4f6f6;
+	padding: 50px 0;
+	margin-bottom: 30px;
+}
+#header h2 {
+	color: #95a5a6;
+	font-size: 24px;
+}
+#content h3 {
+	color: #f1c40f;
+	font-size: 26px;
+	margin-top: -4px;
+}
+#content aside {
+	text-align: right;
+	padding-right: 30px;
+}
+#profiles .network {
+	text-transform: capitalize;
+}
+#work .position,
+#volunteer .position {
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+#education .area {
+	font-weight: bold;
+}
+#education .area:before {
+	content: "\f0d7";
+	font: 16px Octicons;
+	margin-right: 6px;
+}
+#education .studyType {
+	margin-left: 25px;
+}
+#awards .summary,
+#publications .summary {
+	margin-top: 8px;
+}
+#publications .website a:before {
+	content: attr(href);
+}
+
+@media (min-width: 480px) {
+	.strike-through {
+		border-top: 1px solid #f4f6f6;
+		height: 20px;
+		margin-top: 12px;
+		margin-bottom: -2px;
+		position: relative;
+	}
+	.strike-through span,
+	.strike-through a {
+		background: #fff;
+		position: absolute;
+	}
+	.strike-through span:first-child {
+		padding-right: 20px;
+		margin-top: -12px;
+	}
+	.strike-through span + span {
+		font-size: 14px;
+		margin-top: -10px;
+		padding-left: 20px;
+		right: 0;
+	}
+}
+@media (max-width: 768px) {
+	.col-sm-6:last-child {
+		margin-bottom: 0px;
+	}
+	#content aside {
+		margin-bottom: 20px;
+		padding-right: 0;
+		text-align: left;
+	}
+	#publications .website a:before {
+		content: "View publication";
+	}
+}
+@media (max-width: 480px) {
+	h1 {
+		font-size: 26px;
+	}
+	.date {
+		font-size: 14px;
+		margin-bottom: 5px;
+	}
+	.strike-through span:first-child {
+		margin-bottom: 7px;
+	}
+	.strike-through span {
+		display: block;
+	}	
+	#header {
+		margin-bottom: 10px;
+		padding: 40px 0;
+	}
+	#actions {
+		display: none;
+	}
+}
+
+	</style>
+	
+	</head>
+	<body>
+	
+	<header id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9 col-sm-push-3">
+					<h1>
+						Lucas Jung
+					</h1>
+					<h2>
+						EPFL Computer Science Student / Software Developer
+					</h2>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div id="content" class="container">
+
+	<section id="contact" class="row">
+		<aside class="col-sm-3">
+			<h3>Contact</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-6">
+				<strong>Email</strong>
+				<div class="email">gruvw.dev@gmail.com</div>
+			</div>
+			<div class="col-sm-6">
+				<strong>Website</strong>
+				<div class="website">
+					<a href="https://gruvw.com">https://gruvw.com</a>
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	<section id="about" class="row">
+		<aside class="col-sm-3">
+			<h3>About</h3>
+		</aside>
+		<div class="col-sm-9">
+			<p>Also known as Gruvw, I was born in 2002 in Switzerland. I started to learn how to code at the age of 10. Since then, I have fallen in love with programming and Computer Science in general. I learned a lot about programming by myself before studying Computer Science at EPFL and I wrote many projects (some of them are Open-Source, you can check them out on my GitHub). I try to have as much professional experiences as possible in order to develop my skills further and to better understand professional environments. I am passionate and very curious about everything, never missing out an opportunity to learn.</p>
+		</div>
+	</section>
+	<section id="profiles" class="row">
+		<aside class="col-sm-3">
+			<h3>Profiles</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+				<div class="col-sm-6">
+					<strong class="network">
+						GitHub
+					</strong>
+					<div class="username">
+						<div class="url">
+							<a href="https://github.com/gruvw">gruvw</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<strong class="network">
+						LinkedIn
+					</strong>
+					<div class="username">
+						<div class="url">
+							<a href="https://www.linkedin.com/in/jung-lucas/">Lucas Jung</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="work" class="row">
+		<aside class="col-sm-3">
+			<h3>Work</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>EPFL</span>
+					<span class="date">
+						2022-09-20 — 
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="https://epfl.ch/">https://epfl.ch/</a>
+				</div>
+				<div class="position">
+					Student Assistant
+				</div>
+				<div class="summary">
+					<p>Programming course student teaching assistant (CS-107, CS-108).</p>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Del West</span>
+					<span class="date">
+						2021-08-16 — 2020-09-03
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="https://delwest.ch/">https://delwest.ch/</a>
+				</div>
+				<div class="position">
+					Information Technology Intern
+				</div>
+				<div class="summary">
+					<p>Installation and configuration of SCADA system on CNC machines (Industry 4.0). Data collection and analysis of industrial production.</p>
+				</div>
+				<h4>Highlights</h4>
+				<ul class="highlights">
+					<li class="bullet">Configuration of data acquisition servers using MongoDB</li>
+					<li class="bullet">Technical analysis of production using OEE and TEEP</li>
+					<li class="bullet">Automatic reports generation</li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Project for a private customer</span>
+					<span class="date">
+						2020-07-06 — 2020-08-23
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="https://gruvw.com/2020/09/01/laser-gun-projected-target.html">https://gruvw.com/2020/09/01/laser-gun-projected-target.html</a>
+				</div>
+				<div class="position">
+					Software engineer
+				</div>
+				<div class="summary">
+					<p>Programmation of a custom software: video projected target on which you can shoot with a laser gun.</p>
+				</div>
+				<h4>Highlights</h4>
+				<ul class="highlights">
+					<li class="bullet">Software and hardware compatibility</li>
+					<li class="bullet">Video recognition using OpenCV</li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Private teacher</span>
+					<span class="date">
+						2019 — 2021
+					</span>
+				</h4>
+				<div class="summary">
+					<p>Teaching Maths, Physics, French and Microsoft Office.</p>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Nestlé, Vevey</span>
+					<span class="date">
+						2019-07-29 — 2019-08-09
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="https://www.nestle.ch/">https://www.nestle.ch/</a>
+				</div>
+				<div class="position">
+					Summer Intern
+				</div>
+				<div class="summary">
+					<p>Short internship in the Finances department.</p>
+				</div>
+				<h4>Highlights</h4>
+				<ul class="highlights">
+					<li class="bullet">Creation of Microsoft Power BI dashboards for financial data visualisation</li>
+					<li class="bullet">Extensive use of the Microsoft Office Suite</li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Babysitter</span>
+					<span class="date">
+						2018 — 2020
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="https://babysitter.redcross.ch/">https://babysitter.redcross.ch/</a>
+				</div>
+				<div class="summary">
+					<p>Red-Cross babysitting certificate.</p>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Sogel Foundation, Lausanne</span>
+					<span class="date">
+						2018-07-22 — 2018-07-29
+					</span>
+				</h4>
+				<div class="position">
+					Summer Intern
+				</div>
+				<div class="summary">
+					<p>Short internship in the administration department.</p>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Franic Technologies SA, Renens</span>
+					<span class="date">
+						2016-10-15 — 2016-10-19
+					</span>
+				</h4>
+				<div class="website pull-right">
+					<a href="http://www.franic.eu/">http://www.franic.eu/</a>
+				</div>
+				<div class="position">
+					Summer Intern
+				</div>
+				<div class="summary">
+					<p>Very short internship, get in touch with IT.</p>
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+
+	
+	<section id="education" class="row">
+		<aside class="col-sm-3">
+			<h3>Education</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>EPFL, Lausanne</span>
+					<span class="date">
+						2021-09 — 
+					</span>
+				</h4>
+				<div class="area">
+					Bachelor
+				</div>
+				<div class="studyType">
+					Computer Science
+				</div>
+				<h4>Courses</h4>
+				<ul class="courses">
+					<li>CS-328: Numerical methods for visual computing and machine learning</li>
+					<li>CS-233: Introduction to machine learning</li>
+				</ul>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>EPFL, Lausanne</span>
+					<span class="date">
+						2020-09 — 2021-07
+					</span>
+				</h4>
+				<div class="area">
+					CMS
+				</div>
+				<div class="studyType">
+					Special Mathematics Course
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Burier High School, La-Tour-De-Peilz</span>
+					<span class="date">
+						2017-08 — 2020-07
+					</span>
+				</h4>
+				<div class="area">
+					High School diploma
+				</div>
+				<div class="studyType">
+					Maths and Physics specialization
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Secondary School, Blonay</span>
+					<span class="date">
+						2014-08 — 2017-07
+					</span>
+				</h4>
+				<div class="area">
+					Pre high school diploma
+				</div>
+				<div class="studyType">
+					Maths and Physics specialization
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	
+	<section id="awards" class="row">
+		<aside class="col-sm-3">
+			<h3>Awards</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Information Technology Award</span>
+				</h4>
+				<div class="date pull-right">
+					<em>Awarded</em>
+					2020-07-03
+				</div>
+				<div class="awarder">
+					<em>by</em>
+					<strong>Burier High School, La-Tour-De-Peilz</strong>
+				</div>
+				<div class="summary">
+					Last year in highschool award - For the excellence of his results in IT.
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<h4 class="strike-through">
+					<span>Léman Make - Robotics contest, Nyon</span>
+				</h4>
+				<div class="date pull-right">
+					<em>Awarded</em>
+					2015
+				</div>
+				<div class="awarder">
+					<em>by</em>
+					<strong>Milliwatt conference, EPFL</strong>
+				</div>
+				<div class="summary">
+					Second place at the Léman Make robotics contest after one year of preparation. Presentation of the robot to the Milliwatt conference at the EPFL.
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	<section id="skills" class="row">
+		<aside class="col-sm-3">
+			<h3>Skills</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-6">
+				<div class="name">
+					<h4>Programming languages</h4>
+				</div>
+				<ul class="keywords">
+					<li>Python</li>
+					<li>Java / Scala</li>
+					<li>LaTeX</li>
+					<li>Dart / Flutter</li>
+					<li>C / Arduino</li>
+					<li>SQL</li>
+				</ul>
+			</div>
+			<div class="col-sm-6">
+				<div class="name">
+					<h4>Tools</h4>
+				</div>
+				<ul class="keywords">
+					<li>Visual Studio Code / VIM</li>
+					<li>MySQL / SQLite / MongoDB / Redis</li>
+					<li>GIT / GitHub</li>
+					<li>Linux</li>
+					<li>Microsoft/Libre Office Suite</li>
+				</ul>
+			</div>
+			<div class="col-sm-6">
+				<div class="name">
+					<h4>Web Development</h4>
+				</div>
+				<ul class="keywords">
+					<li>HTML</li>
+					<li>CSS</li>
+					<li>Javascript</li>
+					<li>PHP</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="languages" class="row">
+		<aside class="col-sm-3">
+			<h3>Languages</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-6">
+				<div class="language">
+					<strong>French</strong>
+				</div>
+				<div class="fluency">
+					Native speaker
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="language">
+					<strong>English</strong>
+				</div>
+				<div class="fluency">
+					B2 Certificate
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="language">
+					<strong>German</strong>
+				</div>
+				<div class="fluency">
+					School level
+				</div>
+			</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="interests" class="row">
+		<aside class="col-sm-3">
+			<h3>Interests</h3>
+		</aside>
+		<div class="col-sm-9">
+			<div class="row">
+			<div class="col-sm-6">
+				<div class="name">
+					<h4>Music</h4>
+				</div>
+				<ul class="keywords">
+					<li>Playing guitar / digital instruments</li>
+					<li>Listening (~90000 minutes per year)</li>
+				</ul>
+			</div>
+			<div class="col-sm-6">
+				<div class="name">
+					<h4>Linux</h4>
+				</div>
+				<ul class="keywords">
+					<li>NVIM</li>
+					<li>VIFM</li>
+					<li>Qtile</li>
+					<li>Fish shell</li>
+				</ul>
+			</div>
+			<div class="col-sm-6">
+				<div class="name">
+					<h4>Typing</h4>
+				</div>
+				<ul class="keywords">
+					<li>DVORAK</li>
+					<li>Average: ~140 words per minute</li>
+					<li>Top: ~170 words per minute</li>
+				</ul>
+			</div>
+			<div class="col-sm-6">
+				<div class="name">
+					<h4>Others</h4>
+				</div>
+				<ul class="keywords">
+					<li>Code Golf</li>
+					<li>Electronics</li>
+					<li>Video Games</li>
+					<li>Table Soccer</li>
+					<li>Theater: Member of Burier high school theater troupe 2019</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+	</section>
+	
+
+	</div>
+	
+	</body>
+</html>
