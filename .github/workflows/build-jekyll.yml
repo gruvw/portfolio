@@ -6,6 +6,40 @@ on:
       - master  # Source code branch
 
 jobs:
+  resume:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      # Build resume
+      - uses: kelvintaywl/action-jsonresume-export@v1
+        name: Export resume as HTML
+        with:
+          theme: flat
+          resume_filepath: resume.json
+          output_filepath: json_resume.html
+
+      - name: Commit published HTML
+        id: commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          if [ -n "$(git status --porcelain json_resume.html)" ]; then
+            git add json_resume.html
+            git commit -m "[ci skip] update resume page"
+            echo ::set-output name=exit_code::0
+          else
+            echo ::set-output name=exit_code::1
+          fi
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        if: steps.commit.outputs.exit_code == 0
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          branch: ${{ github.ref }}
+
   github-pages:
     runs-on: ubuntu-latest
     steps:
@@ -20,32 +54,6 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-
-      # Build resume
-      - uses: kelvintaywl/action-jsonresume-export@v1
-        name: Export resume as HTML
-        with:
-          theme: flat
-          resume_filepath: resume.json
-          output_filepath: json_resume.html
-      - name: Commit published HTML
-        id: commit
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          if [ -n "$(git status --porcelain json_resume.html)" ]; then
-            git add json_resume.html
-            git commit -m "[ci skip] update resume page"
-            echo ::set-output name=exit_code::0
-          else
-            echo ::set-output name=exit_code::1
-          fi
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        if: steps.commit.outputs.exit_code == 0
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          branch: ${{ github.ref }}
 
       - name: Build and deploy
         uses: helaili/jekyll-action@v2
