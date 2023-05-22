@@ -60,14 +60,15 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - node_modules
-  - Rakefile
+  - Makefile
   - README
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - /docs # ignore Basically Basic sample site
-  - /example # ignore Basically Basic dev site
+
+include:
+  - json_resume.html
 
 # Front Matter Defaults
 defaults:
