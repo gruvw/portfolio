@@ -3,10 +3,10 @@ name: Build and Deploy to Github Pages
 on:
   push:
     branches:
-      - master  # Source code branch
+      - master
 
 jobs:
-  resume:
+  json-resume:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -40,13 +40,20 @@ jobs:
           github_token: ${{ secrets.GH_TOKEN }}
           branch: ${{ github.ref }}
 
+      - name: Retrieve push
+        run: |
+          echo "commit_hash=$(git rev-parse HEAD)"
+          echo "commit_hash=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
   github-pages:
+    needs: json-resume
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ needs.json-resume.outputs.commit_hash }}
+          # ref: ${{ github.ref }}
 
       # Use GitHub Actions' cache to cache dependencies on servers
       - name: Get cached gems
@@ -62,4 +69,4 @@ jobs:
         with:
           pre_build_commands: git config --global http.version HTTP/1.1; apk fetch git-lfs;
           token: ${{ secrets.GH_TOKEN }}
-          target_branch: 'gh-pages'
+          target_branch: gh-pages
