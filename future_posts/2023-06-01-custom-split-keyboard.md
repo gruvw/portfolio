@@ -10,6 +10,7 @@ actions:
 image: "" # TODO
 tags:
   - Python
+  - Hardware
   - Side Project
 toc: true
 ---

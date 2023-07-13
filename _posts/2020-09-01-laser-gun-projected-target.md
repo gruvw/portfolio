@@ -6,6 +6,7 @@ introduction: "Sadly I won't be sharing any code for this project, as I was paid
 image: "/assets/images/posts/laser_gun_projected_target/main.jpg"
 tags:
   - Python
+  - Hardware
 toc: true
 ---
 
