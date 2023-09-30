@@ -94,4 +94,21 @@ I am able to take notes fast enough thanks to snippets.
 The compilation is working well and I can preview the pdf to the side if needed.
 SyncTex makes it easy to navigate from code to pdf and vice versa.
 
-If you want to checkout any configuration files or snippets, they are available on the [gruvw/latex-setup](https://github.com/gruvw/latex-setup) GitHub repository.
+## 🖊️ 2023 / 09 - Edit
+
+After more than 2 years editing and writing LaTeX (and code) using VSCode, I finally took the leap and switched (back) to (Neovim)[https://neovim.io].  
+This decision was motivated by multiple factors:
+
+- VSCode is proprietary. I know there is VSCodium out there but the whole application feels too proprietary to me.
+- VSCode is awfully slow. I hate more and more Electron based applications. I want fast and delay free typing especially in my code editor.
+- Bloated software. VSCode has way too many features and I don't use (or even know) half of them. When it is not builtin, adding plugins is made so easy that I too often found myself installing plugins that I really don't need.
+- Configuration as code. Neovim uses lua for configuration and it is awesome. I can extend my editor exactly the way I want.
+- Vim motions "emulation" in VSCode feels like a dirty workaround and not very much configurable.
+- GUI is not the right kind of tool for text editing. When writing code I live in the terminal so I was finding myself switching back and forth between a GUI and the terminal which is not ideal. This goes without saying that the builtin VSCode terminal is basically unusable.
+
+I replaced VSCode HyperSnips by Neovim (LuaSnips)[https://github.com/L3MON4D3/LuaSnip] and rewrote my snippets in lua (not too difficult to transition).  
+Two months into my Neovim config and I haven't been happier writing code and LaTeX.  
+Really the best improvement is **speed**, I am so much faster and proficient in Neovim. The startup time is below a 100ms and the snippets are triggering instantly.
+
+Configuring Neovim was however pretty difficult to learn at first but there are good tutorials and documentations out there.
+
