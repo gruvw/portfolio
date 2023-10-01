@@ -29,7 +29,7 @@
             "position": "Student Assistant",
             "startDate": "2022-09-20",
             "website": "https://epfl.ch/",
-            "summary": "Programming course student teaching assistant (CS-107, CS-108)."
+            "summary": "Programming course student teaching assistant (CS-107 two years, CS-108)."
         },
         {
             "company": "Del West",
@@ -105,7 +105,10 @@
             "startDate": "2021-09",
             "courses": [
                 "CS-328: Numerical methods for visual computing and machine learning",
-                "CS-233: Machine learning"
+                "CS-233: Machine learning",
+                "EE-202: Electronics",
+                "CS-304: Research project in Computer Science",
+                "EE-310: Microprogrammed Embedded Systems"
             ]
         },
         {
