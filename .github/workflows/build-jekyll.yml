@@ -19,6 +19,10 @@ jobs:
           resume_filepath: resume.json
           output_filepath: json_resume.html
 
+      # Open links in iframe to new tab
+      - name: Add base tag
+        run: "sed -i '4i<base target=\"_blank\">' json_resume.html"
+
       - name: Commit & Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
