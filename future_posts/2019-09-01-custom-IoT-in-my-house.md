@@ -7,7 +7,7 @@ actions:
   - label: "Project's GitHub repository"
     icon: github
     url: "https://github.com/gruvw/maison-jung"
-image: "" # TODO
+image: "/assets/images/posts/custom_iot_in_my_house/main.jpg"
 tags:
   - Python
   - Hardware
