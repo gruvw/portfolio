@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Custom IOT in my house"
-sub_title: "How I designed, built and programmed a full IOT system in my house from scratch."
+title: "Custom IoT in my house"
+sub_title: "How I designed, built and programmed a full IoT system in my house from scratch."
 introduction: "You can access the source code and the documentation regarding this project on the following GitHub repository:"
 actions:
   - label: "Project's GitHub repository"
@@ -11,6 +11,10 @@ image: "" # TODO
 tags:
   - Python
   - Hardware
-  - Side Project
 toc: true
 ---
+
+I connected regular household/garden devices in my house to control them via a smartphone.
+I built the whole system from scratch without relying on any existing IoT solutions.
+
+## 📱 Project description
