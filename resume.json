@@ -167,10 +167,10 @@
             "name": "Tools",
             "level": "High level",
             "keywords": [
-                "Visual Studio Code / VIM",
+                "NeoVim (Vim) / Visual Studio Code",
                 "MySQL / SQLite / MongoDB / Redis",
                 "GIT / GitHub",
-                "Linux",
+                "Linux (Debian)",
                 "Microsoft/Libre Office Suite"
             ]
         }
