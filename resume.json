@@ -1,11 +1,11 @@
 {
     "basics": {
         "name": "Lucas Jung",
-        "label": "EPFL Computer Science Student / Software Developer (He/Him)",
+        "label": "EPFL Computer Science Student / Software Engineer (He/Him)",
         "picture": "https://avatars1.githubusercontent.com/u/63407038?s=460&u=58879e919dd2613767be454455528db0e469f89b&v=4",
         "email": "gruvw.dev@gmail.com",
         "website": "https://gruvw.com",
-        "summary": "Also known as Gruvw, I was born in 2002 in Switzerland. I started to learn how to code at the age of 10. Since then, I have fallen in love with programming and Computer Science in general. I learned a lot about programming by myself before studying Computer Science at EPFL and I wrote many projects (some of them are Open-Source, you can check them out on my GitHub). I try to have as many professional experiences as possible in order to develop my skills further and to better understand professional environments. I love customizing my working environment to perfectly fit my workflows & needs. I am passionate and very curious about everything and never missing out an opportunity to learn.",
+        "summary": "Also known as Gruvw, I was born in 2002 in Switzerland. I started to learn how to code at the age of 10. Since then, I have fallen in love with programming and Computer Science in general. I learned a lot about programming by myself before studying Computer Science at EPFL and I wrote many projects (some of them are Open-Source, you can check them out on my GitHub). I try to have as many professional experiences as possible in order to develop my skills further and better understand professional environments. I highly customized my working environment (PDE) to perfectly fit my workflow/needs and edit text blazingly fast. I am passionate and very curious about everything, and I never miss an opportunity to learn.",
         "location": {
             "countryCode": "Switzerland",
             "region": "Vaud"
@@ -29,7 +29,7 @@
             "position": "Student Assistant",
             "startDate": "2022-09-20",
             "website": "https://epfl.ch/",
-            "summary": "Programming course student teaching assistant (CS-107 two years, CS-108)."
+            "summary": "Programming course student teaching assistant (CS-107 two times, CS-108 two times)."
         },
         {
             "company": "Del West",
@@ -104,11 +104,13 @@
             "studyType": "Computer Science",
             "startDate": "2021-09",
             "courses": [
-                "CS-328: Numerical methods for visual computing and machine learning",
-                "CS-233: Machine learning",
+                "CS-233: Machine Learning",
                 "EE-202: Electronics",
-                "CS-304: Research project in Computer Science",
-                "EE-310: Microprogrammed Embedded Systems"
+                "CS-328: Numerical Methods for Visual Computing and Machine Learning",
+                "CS-304: Research Project in Computer Science",
+                "EE-310: Microprogrammed Embedded Systems",
+                "CS-358: Making Intelligent Things",
+                "EE-312: Matrix analysis"
             ]
         },
         {
@@ -167,7 +169,7 @@
             "name": "Tools",
             "level": "High level",
             "keywords": [
-                "NeoVim (Vim) / Visual Studio Code",
+                "Neovim (Vim) / Visual Studio Code",
                 "MySQL / SQLite / MongoDB / Redis",
                 "GIT / GitHub",
                 "Linux (Debian)",
@@ -200,7 +202,7 @@
         {
             "name": "Linux",
             "keywords": [
-                "NVIM",
+                "Neovim",
                 "VIFM",
                 "Qtile",
                 "Fish Shell"
@@ -221,8 +223,9 @@
                 "Code Golf",
                 "Electronics",
                 "Video Games",
-                "Table Soccer",
+                "Foosball (Table Football)",
                 "Cryptocurrencies",
+                "Constructed language",
                 "Theater: Member of Burier high school theater troupe 2019"
             ]
         }
