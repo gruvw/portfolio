@@ -147,7 +147,7 @@
             "title": "Léman Make - Robotics contest, Nyon",
             "date": "2015",
             "awarder": "Milliwatt conference, EPFL",
-            "summary": "Second place at the Léman Make robotics contest after one year of preparation. Presentation of the robot to the Milliwatt conference at the EPFL."
+            "summary": "Second place at the Léman Make robotics contest after one year of preparation. Presentation of the robot to the Milliwatt conference at EPFL."
         }
     ],
     "skills": [
@@ -172,7 +172,7 @@
                 "Neovim (Vim) / Visual Studio Code",
                 "MySQL / SQLite / MongoDB / Redis",
                 "GIT / GitHub",
-                "Linux (Debian)",
+                "GNU / Linux / Debian",
                 "Microsoft/Libre Office Suite"
             ]
         }
