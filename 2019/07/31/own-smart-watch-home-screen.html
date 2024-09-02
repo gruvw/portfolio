@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<!--
+    Basically Basic Jekyll Theme 1.4.4
+    Copyright 2017-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/jekyll-theme-basically-basic/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Designing my own watch face | Gruvw</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Designing my own watch face" />
+<meta name="author" content="Lucas Jung" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I designed my own smart watch home screen and customized it the way I wanted it to be." />
+<meta property="og:description" content="I designed my own smart watch home screen and customized it the way I wanted it to be." />
+<link rel="canonical" href="https://gruvw.com/2019/07/31/own-smart-watch-home-screen.html" />
+<meta property="og:url" content="https://gruvw.com/2019/07/31/own-smart-watch-home-screen.html" />
+<meta property="og:site_name" content="Gruvw" />
+<meta property="og:image" content="https://gruvw.com/assets/images/posts/own_smart_watch_home_screen/main.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-07-31T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://gruvw.com/assets/images/posts/own_smart_watch_home_screen/main.jpg" />
+<meta property="twitter:title" content="Designing my own watch face" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Lucas Jung"},"dateModified":"2019-07-31T00:00:00+00:00","datePublished":"2019-07-31T00:00:00+00:00","description":"I designed my own smart watch home screen and customized it the way I wanted it to be.","headline":"Designing my own watch face","image":"https://gruvw.com/assets/images/posts/own_smart_watch_home_screen/main.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://gruvw.com/2019/07/31/own-smart-watch-home-screen.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://gruvw.com/assets/images/main/gruvw_logo.png"},"name":"Lucas Jung"},"url":"https://gruvw.com/2019/07/31/own-smart-watch-home-screen.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,600,600i">
+  
+
+  
+    
+    <link rel="alternate" type="application/atom+xml" title="Gruvw" href="/atom.xml">
+  
+</head>
+
+
+  <body class="layout--post designing-my-own-watch-face">
+
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+    <div class="sidebar-toggle-wrapper">
+      
+        <button class="search-toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <title>Search</title>
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+      
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">Menu</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+    <li class="menu-item">
+      <a href="/" itemprop="url">
+        <span itemprop="name">Home</span>
+      </a>
+    </li>
+
+    <!-- site.pages links -->
+    
+    
+
+    
+      
+      
+        <li class="menu-item">
+          <a href="/resume.html" itemprop="url">
+            <span itemprop="name">Resume</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/projects.html" itemprop="url">
+            <span itemprop="name">Projects</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/documents.html" itemprop="url">
+            <span itemprop="name">Documents</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/slides.html" itemprop="url">
+            <span itemprop="name">Slides</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/about.html" itemprop="url">
+            <span itemprop="name">About me</span>
+          </a>
+        </li>
+      
+    
+  </ul>
+</nav>
+
+        <ul class="contact-list">
+  
+    <li>
+      <a href="mailto:gruvw.dev@gmail.com">
+        <span class="icon icon--email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="313.1 3.7 16 16"><path d="M318.5 8.9c0-.2.2-.4.4-.4h4.5c.2 0 .4.2.4.4s-.2.4-.4.4h-4.5c-.3 0-.4-.2-.4-.4zm.4 2.1h4.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-4.5c-.2 0-.4.2-.4.4s.1.4.4.4zm3.5 1.2c0-.2-.2-.4-.4-.4h-3.1c-.2 0-.4.2-.4.4s.2.4.4.4h3.1c.2.1.4-.1.4-.4zm-1.5-8.4l-1.7 1.4c-.2.1-.2.4 0 .6s.4.2.6 0l1.4-1.2 1.4 1.2c.2.1.4.1.6 0s.1-.4 0-.6l-1.7-1.4c-.3-.1-.5-.1-.6 0zm7.8 6.2c.1.1.1.2.1.3v7.9c0 .8-.7 1.5-1.5 1.5h-12.5c-.8 0-1.5-.7-1.5-1.5v-7.9c0-.1.1-.2.1-.3l1.6-1.3c.2-.1.4-.1.6 0s.1.4 0 .6l-1.2 1 1.8 1.3v-4c0-.6.5-1.1 1.1-1.1h7.5c.6 0 1.1.5 1.1 1.1v4l1.8-1.3-1.2-1c-.2-.1-.2-.4 0-.6s.4-.2.6 0l1.6 1.3zm-11.6 2.2l4 2.8 4-2.8V7.6c0-.1-.1-.2-.2-.2h-7.5c-.1 0-.2.1-.2.2v4.6zm10.9-1l-4.7 3.4 3.4 2.6c.2.1.2.4.1.6-.1.2-.4.2-.6.1l-3.6-2.8-1.2.8c-.1.1-.3.1-.5 0l-1.2-.8-3.6 2.8c-.2.1-.4.1-.6-.1-.1-.2-.1-.4.1-.6l3.4-2.6-4.7-3.4v7.1c0 .4.3.6.6.6h12.5c.4 0 .6-.3.6-.6v-7.1z"/></svg></span>
+        <span class="label">Email</span>
+      </a>
+    </li>
+  
+
+  
+    <li><a href="https://github.com/gruvw" target="_blank">
+  <span class="icon icon--github"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>
+  <span class="label">GitHub</span>
+</a>
+</li>
+  
+
+  
+    <li><a href="https://www.linkedin.com/in/jung-lucas" target="_blank">
+  <span class="icon icon--linkedin"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51v1.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/></svg></span>
+  <span class="label">LinkedIn</span>
+</a>
+</li>
+  
+
+  
+</ul>
+
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+      
+        <p class="site-title">
+          <a href="/">
+            <img src="/assets/images/main/gruvw_logo.png" alt="" class="site-logo">
+            <span>Gruvw</span>
+          </a>
+        </p>
+      
+    </div>
+  </div>
+</header>
+
+        <div class="initial-content">
+          <header class="intro">
+  
+    
+    
+    
+    <div class="intro-image">
+      <img src="/assets/images/posts/own_smart_watch_home_screen/main.jpg" alt="Designing my own watch face">
+    </div>
+  
+
+  <div class="inner">
+    <div class="intro-text">
+      <h1 id="page-title" class="intro-title">Designing my own watch face
+</h1>
+      
+        <p class="intro-subtitle">How I designed and created my own smart watch home screen.
+</p>
+      
+
+      
+        
+
+
+        <p class="entry-meta">
+          <span class="byline-item">by Lucas Jung</span><span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time datetime="2019-07-31T00:00:00+00:00">July 31, 2019</time></span> <span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="15 309.7 16 16"><g><path d="M23.9 315.1v3.6c0 .5-.4.9-.9.9s-.9-.4-.9-.9v-3.6h1.8z"/><path d="M30.1 317.7c.5 3.9-2.3 7.5-6.2 7.9-3.9.5-7.5-2.3-7.9-6.2-.5-3.9 2.3-7.5 6.2-7.9v-1.8H24v1.8c1.1.1 2.7.7 3.5 1.4l1.3-1.3 1.3 1.3-1.3 1.3c.5.9 1.2 2.5 1.3 3.5zm-1.8.9c0-2.9-2.4-5.3-5.3-5.3s-5.3 2.4-5.3 5.3 2.4 5.3 5.3 5.3 5.3-2.3 5.3-5.3z"/></g></svg></span>5 min read</span>
+        </p>
+      
+
+      
+        <div class="intro-more">
+          <p>You can access the source files regarding the watch face on the following GitHub repository:</p>
+
+        </div>
+      
+
+      
+        <ul class="intro-actions">
+          
+            <li><a href="https://github.com/gruvw/rainbow-watch-face" target="_blank" class="btn"><span class="icon"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>Project's GitHub repository</a></li>
+          
+        </ul>
+      
+    </div>
+  </div>
+</header>
+
+
+<main id="main" class="page-content" aria-label="Content" style="width: 100%;">
+  <div class="inner" style="width: 100%;">
+    <article class="entry-wrap" style="width: 100%;">
+      <div class="entry-content" style="width: 100%;">
+        <h4 style="margin-bottom: 10px;">Table of contents:</h4>
+        <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#-the-desire">💎 The Desire</a></li>
+<li class="toc-entry toc-h2"><a href="#-the-creation">🛠 The Creation</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#how-to-do-it">How to do it</a></li>
+<li class="toc-entry toc-h3"><a href="#design">Design</a></li>
+<li class="toc-entry toc-h3"><a href="#export">Export</a></li>
+<li class="toc-entry toc-h3"><a href="#how-it-looks">How it looks</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#-publication">🚀 Publication</a></li>
+<li class="toc-entry toc-h2"><a href="#-conclusion">📄 Conclusion</a></li>
+</ul><p>I designed my own smart watch home screen and customized it the way I wanted it to be.</p>
+
+<h2 id="-the-desire">
+<a class="anchor" href="#-the-desire" aria-hidden="true"><span class="octicon octicon-link"></span></a>💎 The Desire</h2>
+
+<p>I just bought the <a href="https://www.mi.com/en/mi-smart-band-4/" target="_blank">Xiaomi Band 4</a> which was the very new smart watch model from Xiaomi at the time. As I already had bought the Xiaomi Band 2 and I was really happy about it, I knew that I would not be disappointed by the new one.</p>
+
+<p>Anyway, I received the watch and I liked it a lot. There is a whole community around this watch because with this model, you can customize the home screen the way you want. As many designs were very cool, I downloaded many of them and that inspired me to do create my very own watch face design. I thought that if so many people could create these designs, why couldn’t I?</p>
+
+<h2 id="-the-creation">
+<a class="anchor" href="#-the-creation" aria-hidden="true"><span class="octicon octicon-link"></span></a>🛠 The Creation</h2>
+
+<h3 id="how-to-do-it">
+<a class="anchor" href="#how-to-do-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to do it</h3>
+
+<p>I had never done this kind of thing before so I absolutely did not know where to start. This is why I did what everyone else would do: Google it. I did some quick research and I found <a href="https://c.mi.com/thread-2281025-1-0.html" target="_blank">this tutorial</a> posted on the Xiaomi forum. It described well what I wanted to do and seemed pretty easy.</p>
+
+<p>What you need to do in order to create a watch face is to split your design idea into very small pieces (every numbers, every logos, etc). After that, you need to save all the images you have designed in the same folder and rename it with a number (first image 0, second image 2, …).</p>
+
+<p>Once you have done that, there is a program to download which will convert everything into a single <em>.bin</em> file. Then you can upload this <em>.bin</em> file to your watch and you are done.</p>
+
+<h3 id="design">
+<a class="anchor" href="#design" aria-hidden="true"><span class="octicon octicon-link"></span></a>Design</h3>
+
+<p>For me, this project was more about image design than about actual coding.
+Even if there is a bit of <a href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation" target="_blank">json</a>, everything else is just image editing.</p>
+
+<p>I wanted to use the well known Adobe PhotoShop editor but it was too expensive for the use I would make of it so I looked for an alternative.
+After some quick researches, I found <a href="https://www.getpaint.net/" target="_blank">Paint.NET</a>: a very easy to use PhotoShop like image editor. It was fine for what I wanted to do.</p>
+
+<p>This is when I started to design my different elements. I started with the numbers (big ones and small ones) and the date. Then I drew them pixel by pixel. As the screen of the band is small, it did not take that long.
+Once I finished with the numbers and the date, I started to design the background. I wanted something colorful and fun so that is what I tried to achieve.
+After that, I designed the daily steps goal progress bar. Unfortunately we cannot see it in action in the generated images (white gauge filled with black) but as you get closer to your daily steps goal, the bar fills itself with some blue to green gradient.
+I finished the designing part with the small icons (lock, bluetooth, …) that I wanted as simple as possible.</p>
+
+<h3 id="export">
+<a class="anchor" href="#export" aria-hidden="true"><span class="octicon octicon-link"></span></a>Export</h3>
+
+<p>At this point, I was pretty satisfied by the design. I renamed every image (there were 101 images) with a number going from 0 to 100.</p>
+
+<p>I was now ready for writing the json file. This is just a file that will tell the program that “compiles” the watch face where each image is and what is its purpose.</p>
+
+<p>This is an example taken from the json file:</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td>
+<td class="code"><pre><span class="nl">"Background"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"Image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"X"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"Y"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ImageIndex"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<p>In the example, we can see that I indicate to the program that the background image has the index (file name) 0 and that it needs to be placed on the top left corner of the screen (x=0, y=0).</p>
+
+<p>I did the exact same thing for each image (image index and position). Luckily sometimes you can define the index by ranges: for example the images representing the numbers from 0 to 9 are indexes 59 to 68.</p>
+
+<p>When I designed the different images, I also made some weather related ones (temperature, …) but I finally decided not to put them into the watch face because it would make things much too close to each other and I preferred to have more room between each element.</p>
+
+<p>After I had finished filling the entire json file, I executed the program (AmazfitBipTools_Mi4<em>1.0.3) in charge of converting all my work into a _.bin</em>  file that could be read by my watch.</p>
+
+<p>I highly encourage you to take a look into the (project’s GitHub repository) if you are interested in learning more about the files I described.</p>
+
+<h3 id="how-it-looks">
+<a class="anchor" href="#how-it-looks" aria-hidden="true"><span class="octicon octicon-link"></span></a>How it looks</h3>
+
+<p>This is a gif of the final result of my watch face:</p>
+
+<p><img src="https://raw.githubusercontent.com/gruvw/rainbow-watch-face/master/Gruvw_en_wf_packed_animated.gif" alt="Watch face animated gif"></p>
+
+<p>It rotates between random hours and dates etc in order to show multiple configuration. The only problem with this gif is that the steps’ progress bar does not fill up and stays black.</p>
+
+<h2 id="-publication">
+<a class="anchor" href="#-publication" aria-hidden="true"><span class="octicon octicon-link"></span></a>🚀 Publication</h2>
+
+<p>Before publishing this watch face to make it available to anyone worldwide, I wanted to give it a simple name. I chose <em>Gruvw Rainbow</em> because it has some kind of rainbow colors and I wanted my name in it.</p>
+
+<p>I decided to publish my work on the same platform/site I used in the beginning when I was downloading and testing watch faces done by other users: <a href="https://amazfitwatchfaces.com/mi-band-4/view/3018" target="_blank">https://amazfitwatchfaces.com/mi-band-4/view/3018</a></p>
+
+<p>It has (at the time I am writing this) over 810 views and over 290 downloads. I am very happy about that and it is pretty fun to think that someone could literally be looking at his watch right now and see the time on the watch face I designed.</p>
+
+<h2 id="-conclusion">
+<a class="anchor" href="#-conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>📄 Conclusion</h2>
+
+<p>In the end, I am very satisfied about what I have done in this project. Even though it is not a project that took me weeks to complete (it took me about 3 days), I am still very happy to have learned a way to customize my smart watch. On top of that, it is very satisfying to look at my wrist and see the design I created.</p>
+
+      </div>
+      
+    </article>
+  </div>
+</main>
+
+        </div>
+
+        <div class="search-content">
+          <div class="inner">
+  <label class="visually-hidden" for="search">Site Search</label>
+        <input type="text" id="search" class="search-input" aria-describedby="results-count" tabindex="-1" placeholder="Enter your search term..." />
+        <div id="results" class="results"></div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer" class="site-footer">
+  <div class="inner">
+    <div class="copyright">
+      
+        <p>&copy; 2024 Gruvw, All Rights Reserved.</p>
+      
+    </div>
+  </div>
+</footer>
+
+    
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-174941171-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<script async src="/assets/javascripts/main.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://gruvw.com/assets/javascripts/lunr/lunr.min.js"></script>
+  <script src="https://gruvw.com/assets/javascripts/lunr/lunr.store.js"></script>
+  <script>
+    var idx = lunr(function () {
+      
+      // the, the normal lunr index initialization
+      this.field('title')
+      this.field('excerpt')
+      this.field('categories')
+      this.field('tags')
+      this.ref('id')
+
+      this.pipeline.remove(lunr.trimmer)
+
+      // add documents to index
+      for (var item in store) {
+        this.add({
+          title: store[item].title,
+          excerpt: store[item].excerpt,
+          categories: store[item].categories,
+          tags: store[item].tags,
+          id: item
+        })
+      }
+    });
+
+    $(document).ready(function () {
+      $('input#search').on('keyup', function () {
+        var resultdiv = $('#results');
+        var query = $(this).val().toLowerCase();
+        var result =
+          idx.query(function (q) {
+            query.split(lunr.tokenizer.separator).forEach(function (term) {
+              q.term(term, { boost: 100 })
+              if (query.lastIndexOf(" ") != query.length - 1) {
+                q.term(term, { usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+              }
+              if (term != "") {
+                q.term(term, { usePipeline: false, editDistance: 1, boost: 1 })
+              }
+            })
+          });
+        resultdiv.empty();
+        resultdiv.prepend('<p id="results-count" class="results-found">' + result.length + ' Result(s) found</p>');
+        for (var item in result) {
+          var ref = result[item].ref;
+          var searchitem =
+            '<article class="entry">' +
+              '<h3 class="entry-title">' +
+                '<a href="' + store[ref].url + '">' + store[ref].title + '</a>' +
+              '</h3>' +
+              '<div class="entry-excerpt">' +
+                '<p>' + store[ref].excerpt.split(" ").splice(0, 20).join(" ") + '...</p>' +
+              '</div>' +
+            '</article>';
+          resultdiv.append(searchitem);
+        }
+      });
+    });
+  </script>
+
+
+
+  </body>
+
+</html>
