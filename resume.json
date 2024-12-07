@@ -154,12 +154,12 @@
             "keywords": [
                 "Python",
                 "Dart / Flutter",
-                "C / Arduino",
-                "Rust",
                 "Java / Scala",
+                "C / Arduino",
                 "LaTeX / Typst",
                 "SQL",
-                "WEB: HTML / CSS / JavaScript / PHP"
+                "WEB: HTML / CSS / JavaScript / PHP",
+                "Rust"
             ]
         },
         {
