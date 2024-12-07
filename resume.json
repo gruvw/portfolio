@@ -171,7 +171,8 @@
                 "GIT / GitHub",
                 "GNU / Linux / Debian",
                 "Microsoft/Libre Office Suite",
-                "Figma / Penpot"
+                "Figma / Penpot",
+                "CAD / Onshape"
             ]
         }
     ],
@@ -201,10 +202,10 @@
             "name": "Linux",
             "keywords": [
                 "Neovim",
-                "VIFM",
                 "Kitty",
                 "Qtile",
-                "Fish Shell"
+                "Fish Shell",
+                "VIFM"
             ]
         },
         {
@@ -226,7 +227,7 @@
                 "Cryptocurrencies",
                 "Sports (sailing, cycling, fitness, ...)",
                 "Video Games",
-                "Constructed language",
+                "Constructed languages",
                 "Theater: Member of Burier high school theater troupe 2019"
             ]
         }
