@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US"><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://gruvw.com/atom.xml" rel="self" type="application/atom+xml" /><link href="https://gruvw.com/" rel="alternate" type="text/html" hreflang="en-US" /><updated>2024-12-07T21:05:44+00:00</updated><id>https://gruvw.com/atom.xml</id><title type="html">Gruvw</title><subtitle>Coding projects website</subtitle><author><name>Lucas Jung</name></author><entry><title type="html">2D Plotter Robot</title><link href="https://gruvw.com/2024/04/01/2d-plotter-robot.html" rel="alternate" type="text/html" title="2D Plotter Robot" /><published>2024-04-01T00:00:00+00:00</published><updated>2024-04-01T00:00:00+00:00</updated><id>https://gruvw.com/2024/04/01/2d-plotter-robot</id><content type="html" xml:base="https://gruvw.com/2024/04/01/2d-plotter-robot.html">&lt;style&gt;
+    .process {
+        height: 250px;
+        margin: 3px;
+    }
+
+    .draw {
+        height: 170px;
+        margin: 3px;
+    }
+
+    .images {
+        margin: 5px;
+    }
+&lt;/style&gt;
+
+&lt;p&gt;Most of the project is already explained on the &lt;a href=&quot;https://github.com/gruvw/2d_plotter&quot; target=&quot;_blank&quot;&gt;README&lt;/a&gt; of the project on GitHub.&lt;/p&gt;
+
+&lt;h2 id=&quot;-concept&quot;&gt;🧠 Concept&lt;/h2&gt;
+
+&lt;p&gt;I took a course at EPFL that taught students about the two sides of building things: the hardware part and the integration with software.&lt;/p&gt;
+
+&lt;p&gt;During this course, I learned to use a laser cutting machine and 3D printers.
+It was my first time doing &lt;a href=&quot;https://en.wikipedia.org/wiki/Computer-aided_design&quot; target=&quot;_blank&quot;&gt;CAD&lt;/a&gt;, and the process was really amazing to go from an idea, design it, and have it printed over the course of only a few hours.&lt;/p&gt;
+
+&lt;p&gt;I build a 2D Plotter Robot: a device that can draw user defined drawings on a small sheet of paper based on a provided computer program.&lt;/p&gt;
+
+&lt;h2 id=&quot;-process&quot;&gt;⏳ Process&lt;/h2&gt;
+
+&lt;p&gt;Here are a few pictures demonstrating the whole process of building this robot:&lt;/p&gt;
+
+&lt;div class=&quot;images&quot;&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/process/process_1.png&quot; class=&quot;process&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/process/process_2.png&quot; class=&quot;process&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/process/process_3.png&quot; class=&quot;process&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/process/process_4.png&quot; class=&quot;process&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/process/process_5.png&quot; class=&quot;process&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/process/process_6.png&quot; class=&quot;process&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/process/process_7.png&quot; class=&quot;process&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I started by laser cutting all the parts for the core structure.
+Then I assembled the robot and soldered the cables to the external alimentation.&lt;/p&gt;
+
+&lt;p&gt;I initially 3D printed a static pen holder and wrote the basis of the software to test every component and make sure the plotter was drawing precise shapes.
+Later, I designed the dynamic pen holder that can lift the pen up and down in order to draw more complex shapes.
+I went through about 4 or 5 design iterations before having a convincing piece that would not be imprecise when lifting the pen.&lt;/p&gt;
+
+&lt;p&gt;I also added limit switches to automatically set the “home”/origin position of the plotter.
+Additionally, I connected a buzzer to the Arduino.
+It gives a nice audio feedback to the person using the plotter about the current state of the procedure (started, ready to draw, finished).&lt;/p&gt;
+
+&lt;h3 id=&quot;turtle-language&quot;&gt;Turtle language&lt;/h3&gt;
+
+&lt;p&gt;I implemented a turtle language interpreter/&lt;a href=&quot;https://en.wikipedia.org/wiki/Read–eval–print_loop&quot; target=&quot;_blank&quot;&gt;REPL&lt;/a&gt; (Read Eval Print Loop) in C so that we can provide instructions to the plotter using this language.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: learn more about the turtle language here &lt;a href=&quot;https://turtleacademy.com/playground&quot; target=&quot;_blank&quot;&gt;https://turtleacademy.com/playground&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;One can input turtle programs directly using the Arduino Serial Monitor.
+No modifications have been made to the original syntax of the language.
+It supports multi-lines input (with indentation) and it is not spacing dependent.&lt;/p&gt;
+
+&lt;h3 id=&quot;code&quot;&gt;Code&lt;/h3&gt;
+
+&lt;p&gt;The code for the project was mostly written in &lt;strong&gt;C&lt;/strong&gt; (a few &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.cpp&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ino&lt;/code&gt; were required to interact with the &lt;a href=&quot;https://www.arduino.cc/&quot; target=&quot;_blank&quot;&gt;Arduino&lt;/a&gt; ecosystem).&lt;br /&gt;
+To add a bit more to the challenge, I also decided not to use any external libraries (except for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Arduino.h&lt;/code&gt;).
+I wrote the code that manages the servo and the steppers from scratch (see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2d_plotter/src/hardware&lt;/code&gt; for more information).&lt;/p&gt;
+
+&lt;h2 id=&quot;-result&quot;&gt;🏁 Result&lt;/h2&gt;
+
+&lt;p&gt;Here are a few pictures showing the final plotter from different angles:&lt;/p&gt;
+
+&lt;div class=&quot;images&quot;&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/result/plotter_top.png&quot; class=&quot;process&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/result/plotter_side.png&quot; class=&quot;process&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/result/plotter_iso_front.png&quot; class=&quot;process&quot; /&gt;
+&lt;div&gt;&lt;br /&gt;
+
+Here is a short video demonstrating the result:
+
+&lt;div class=&quot;video-responsive&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/-nplPBwFOKw&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+The quality of the video is not perfect, but we can see the plotter drawing a dotted line correctly.&lt;br /&gt;
+
+Here are a few pictures of example drawings that the robot made:
+
+&lt;div class=&quot;images&quot;&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/drawings/heart.png&quot; class=&quot;draw&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/drawings/hilbert.png&quot; class=&quot;draw&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/drawings/magic_s.png&quot; class=&quot;draw&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/drawings/rose.png&quot; class=&quot;draw&quot; /&gt;
+    &lt;img src=&quot;/assets/images/posts/2d_plotter/drawings/sun.png&quot; class=&quot;draw&quot; /&gt;
+&lt;/div&gt;
+
+I had a lot of fun building this robot and programming the software for it.
+It was the first time I programmed an interpreter in C, but it was simpler than I originally thought.&lt;br /&gt;
+I ended up receiving the maximum grade for this project, so the teaching staff seemed to also agree that I managed to produce a great 2D plotter robot.
+&lt;/div&gt;&lt;/div&gt;</content><author><name>Lucas Jung</name></author><category term="C" /><category term="Hardware" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gruvw.com/assets/images/posts/2d_plotter/main.png" /><media:content medium="image" url="https://gruvw.com/assets/images/posts/2d_plotter/main.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">LaTeX writing setup</title><link href="https://gruvw.com/2021/05/17/latex-writing-setup.html" rel="alternate" type="text/html" title="LaTeX writing setup" /><published>2021-05-17T00:00:00+00:00</published><updated>2021-05-17T00:00:00+00:00</updated><id>https://gruvw.com/2021/05/17/latex-writing-setup</id><content type="html" xml:base="https://gruvw.com/2021/05/17/latex-writing-setup.html">&lt;p&gt;I decided to take notes during lectures with LaTeX and this is how I set up my LaTeX writing environment.&lt;/p&gt;
+
+&lt;h2 id=&quot;️-environment-decision&quot;&gt;🗂️ Environment decision&lt;/h2&gt;
+
+&lt;p&gt;I went through a lot of different writing environments before settling with LaTeX on VSCode.&lt;/p&gt;
+
+&lt;h3 id=&quot;markdown-note-taking&quot;&gt;Markdown note taking&lt;/h3&gt;
+
+&lt;p&gt;Before switching to &lt;a href=&quot;https://www.latex-project.org/&quot;&gt;LaTeX&lt;/a&gt;, I was taking notes in &lt;a href=&quot;https://en.wikipedia.org/wiki/Markdown&quot;&gt;Markdown&lt;/a&gt; using the &lt;a href=&quot;https://typora.io/&quot;&gt;Typora&lt;/a&gt; editor.
+Typora is, by far, the best Markdown editor available. I is a &lt;a href=&quot;https://en.wikipedia.org/wiki/WYSIWYG&quot;&gt;WYSIWYG&lt;/a&gt; application that has support for math equations preview, images copy-paste, code fences, diagrams, etc.
+I really liked taking notes in Markdown using Typora as it was easy to use and WYSIWYG was very convenient.&lt;/p&gt;
+
+&lt;p&gt;One issue that I had with Typora is that it did not have a way to create and use snippets (textual shortcuts).
+As I were typing a lot of math during lectures, I needed a way to write math faster.
+I found the &lt;a href=&quot;https://github.com/autokey/autokey&quot;&gt;AutoKey&lt;/a&gt; application which allowed me to define some snippets that I could use in any desktop application, Typora included.&lt;/p&gt;
+
+&lt;p&gt;This markdown setup was great and I enjoyed using it for a while until some issues came up:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Files containing a lot of math or code fences were starting to lag, there was some delay when typing&lt;/li&gt;
+  &lt;li&gt;I wanted to include some LaTeX packages but that was not possible due to the fact that Typora is using &lt;a href=&quot;https://www.mathjax.org/&quot;&gt;MathJax&lt;/a&gt; to render equations.&lt;/li&gt;
+  &lt;li&gt;I needed a better snippets support to write faster&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It is because of all these reasons that I decided to switch from Markdown to LaTeX even though I knew that I will not be able to have the same WYSIWYG quality as in Typora.&lt;/p&gt;
+
+&lt;h3 id=&quot;latex-on-vim&quot;&gt;LaTeX on Vim&lt;/h3&gt;
+
+&lt;p&gt;As I decided to take my notes in LaTeX, I needed an &lt;a href=&quot;https://en.wikipedia.org/wiki/Integrated_development_environment&quot;&gt;IDE&lt;/a&gt; to write LaTeX more easily.&lt;/p&gt;
+
+&lt;p&gt;I already knew the blog post from Gilles Castel, &lt;a href=&quot;https://castel.dev/post/lecture-notes-1/&quot;&gt;How I’m able to take notes in mathematics lectures using LaTeX and Vim&lt;/a&gt; (which I highly recommend you to read), so I decided to take notes in &lt;a href=&quot;https://www.vim.org/&quot;&gt;Vim&lt;/a&gt;.
+I was familiar with Vim keybindings so that was not an issue at all for me.&lt;/p&gt;
+
+&lt;p&gt;Vim was pretty hard to configure correctly.
+The “live” compilation mechanism took me a long time to set up and SyncTex was not working properly.&lt;/p&gt;
+
+&lt;p&gt;I used &lt;a href=&quot;https://pwmt.org/projects/zathura/&quot;&gt;Zathura&lt;/a&gt; as my pdf viewer.
+I used the &lt;a href=&quot;https://github.com/SirVer/ultisnips&quot;&gt;UltiSnips&lt;/a&gt; plugin as my main snippet engine.
+This plugin is just amazing! It works perfectly and the possibilities are endless.&lt;/p&gt;
+
+&lt;p&gt;After using Vim as my main LaTeX editor for a week, I was not really convinced about it…
+I think that I needed an IDE with more features than vim when working with LaTeX documents.
+LaTeX files can get long pretty fast and the whole compilation process was not as good as I wanted it to be.
+I was just not confortable enough with Vim so I decided to switch once again.&lt;/p&gt;
+
+&lt;h2 id=&quot;-vscode&quot;&gt;🔵 VSCode&lt;/h2&gt;
+
+&lt;p&gt;I am pretty used to &lt;a href=&quot;https://code.visualstudio.com/&quot;&gt;Visual Studio Code&lt;/a&gt; as it is my main IDE.
+I already wrote some LaTeX is VSCode so I had some idea about how to configure it the way I wanted it to be.&lt;/p&gt;
+
+&lt;p&gt;I use two LaTeX specific extensions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/James-Yu/LaTeX-Workshop&quot;&gt;LaTeX Workshop&lt;/a&gt;: Providing core features for LaTeX typesetting&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tecosaur/LaTeX-Utilities&quot;&gt;LaTeX Utilities&lt;/a&gt;: Providing fancy features that are less vital to the basic experience editing a LaTeX document&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I just needed to configure the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;settings.json&lt;/code&gt; to have the behaviors that I wanted.
+After that I was able to compile my LaTeX documents easily and the Math Preview Panel from LaTeX Workshop is really useful for writing math equations.
+SyncTex is working great out of the box too.&lt;/p&gt;
+
+&lt;p&gt;I also use the &lt;a href=&quot;https://github.com/VSCodeVim/Vim&quot;&gt;Vim extension&lt;/a&gt; for VSCode in order to use Vim keybindings.&lt;/p&gt;
+
+&lt;h3 id=&quot;snippets&quot;&gt;Snippets&lt;/h3&gt;
+
+&lt;p&gt;The only thing that was not working great was snippets.
+VSCode provides a snippet engine but it was not exactly what I wanted as code interpolation was not possible and there was no way to trigger a snippet automatically.&lt;/p&gt;
+
+&lt;p&gt;This is when I found the &lt;a href=&quot;https://github.com/draivin/hsnips&quot;&gt;HyperSnips extension&lt;/a&gt;.
+I don’t know why this extension doesn’t have more downloads as it is a very powerful snippet engine for VSCode.
+It is very similar to UltiSnips on Vim so it did not take me too long to transfer my snippets.&lt;/p&gt;
+
+&lt;p&gt;After creating and solving (creator was really active) some issues on the extension’s GitHub repository, I was really happy with the result.&lt;/p&gt;
+
+&lt;p&gt;The extension even supports context matching which allows some snippets to work only when writing math for example.&lt;/p&gt;
+
+&lt;h2 id=&quot;-conclusion&quot;&gt;📝 Conclusion&lt;/h2&gt;
+
+&lt;p&gt;It was really hard to set up a LaTeX writing environment that suited all my needs and I had enough of switching technologies or IDE once a week.
+Setting up environments and IDE are not things that I really enjoy doing, but now I am  happy about my writing environment.&lt;/p&gt;
+
+&lt;p&gt;I am able to take notes fast enough thanks to snippets.
+The compilation is working well and I can preview the pdf to the side if needed.
+SyncTex makes it easy to navigate from code to pdf and vice versa.&lt;/p&gt;
+
+&lt;h2 id=&quot;️-2023--09---edit&quot;&gt;🖊️ 2023 / 09 - Edit&lt;/h2&gt;
+
+&lt;p&gt;After more than 2 years editing and writing LaTeX (and code) using VSCode, I finally took the leap and switched (back) to &lt;a href=&quot;https://neovim.io&quot;&gt;Neovim&lt;/a&gt;.&lt;br /&gt;
+This decision was motivated by multiple factors:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;VSCode is proprietary. I know there is VSCodium out there but the whole application feels too proprietary to me.&lt;/li&gt;
+  &lt;li&gt;VSCode is awfully slow. I hate more and more Electron based applications. I want fast and delay free typing especially in my code editor.&lt;/li&gt;
+  &lt;li&gt;Bloated software. VSCode has way too many features and I don’t use (or even know) half of them. When it is not builtin, adding plugins is made so easy that I too often found myself installing plugins that I really don’t need.&lt;/li&gt;
+  &lt;li&gt;Configuration as code. Neovim uses lua for configuration and it is awesome. I can extend my editor exactly the way I want.&lt;/li&gt;
+  &lt;li&gt;Vim motions “emulation” in VSCode feels like a dirty workaround and not very much configurable.&lt;/li&gt;
+  &lt;li&gt;GUI is not the right kind of tool for text editing. When writing code I live in the terminal so I was finding myself switching back and forth between a GUI and the terminal which is not ideal. This goes without saying that the builtin VSCode terminal is basically unusable.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I replaced VSCode HyperSnips by Neovim &lt;a href=&quot;https://github.com/L3MON4D3/LuaSnip&quot;&gt;LuaSnips&lt;/a&gt; and rewrote my snippets in lua (not too difficult to transition).&lt;br /&gt;
+Two months into my Neovim config and I haven’t been happier writing code and LaTeX.&lt;br /&gt;
+Really the best improvement is &lt;strong&gt;speed&lt;/strong&gt;, I am so much faster and proficient in Neovim. The startup time is below 100ms and the snippets are triggering instantly.&lt;/p&gt;
+
+&lt;p&gt;Configuring Neovim was however pretty difficult to learn at first, but there are good tutorials and documentations out there.&lt;/p&gt;</content><author><name>Lucas Jung</name></author><category term="Side Project" /><summary type="html">I decided to take notes during lectures with LaTeX and this is how I set up my LaTeX writing environment.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gruvw.com/assets/images/posts/latex_writing_setup/main.png" /><media:content medium="image" url="https://gruvw.com/assets/images/posts/latex_writing_setup/main.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Laser gun projected target</title><link href="https://gruvw.com/2020/09/01/laser-gun-projected-target.html" rel="alternate" type="text/html" title="Laser gun projected target" /><published>2020-09-01T00:00:00+00:00</published><updated>2020-09-01T00:00:00+00:00</updated><id>https://gruvw.com/2020/09/01/laser-gun-projected-target</id><content type="html" xml:base="https://gruvw.com/2020/09/01/laser-gun-projected-target.html">&lt;p&gt;I designed and coded a virtual target projected on a wall in order to practice shooting at home using a laser gun.&lt;/p&gt;
+
+&lt;h2 id=&quot;-my-first-coding-job&quot;&gt;💼 My First Coding Job&lt;/h2&gt;
+
+&lt;p&gt;I already had a job planned for the summer 2020, but with the COVID-19 pandemic it could not take place.
+I was left without any way to work and gain money that summer until the day I received an email.
+It was sent by a friend of the teacher that was my mentor during my high school project &lt;a href=&quot;/2019/10/25/artificial-intelligence-in-video-games.html&quot; target=&quot;_blank&quot;&gt;AI in video games&lt;/a&gt;.
+He had an idea and needed someone that knew how to build it.
+My teacher had recommended me since they knew my coding skills from the high school project.&lt;/p&gt;
+
+&lt;p&gt;It was a bit like freelance work as they were not part of a corporation, they just wanted me to build a software for their personal use.
+It was not the first time that I made money from coding: I had won some money when I was about 13 years old and arrived second place in the Grip-It robotic competition at the Leman Make.
+However, it was my first coding job where I would get paid for doing something that someone requested.&lt;/p&gt;
+
+&lt;p&gt;It allowed me to learn how to talk to a client and understand what they wanted.
+I regularly made some reports containing the advancement of the project.
+It ultimately confirmed my will to work as a software engineer.&lt;/p&gt;
+
+&lt;h2 id=&quot;-the-idea&quot;&gt;💡 The Idea&lt;/h2&gt;
+
+&lt;p&gt;The project that I needed to build was to practice shooting.
+Shooting costs a lot of money: you need to pay for the location where you train and all the bullets that you use.
+It also takes a lot of time to go to the location.
+Therefore you do not train very often.&lt;/p&gt;
+
+&lt;p&gt;The solution that I needed to build was a way to train in a room of your house without using real bullets but a laser bullet instead.
+That way, you are not spending a lot of money on bullets, and you can train whenever you want.
+Indeed it only takes a few minutes (even seconds) to set up the system.
+So now if you have a 20 minutes break for example, you could practice aiming and shooting in your house.&lt;/p&gt;
+
+&lt;p&gt;In order to make this work, there is a little laser bullet that needs to be inserted into your regular gun.
+When you press on the trigger, it turns on the laser for an instant, and you can repeat the operation.&lt;/p&gt;
+
+&lt;p&gt;My work was to build a target to shoot on with the laser bullet.
+The target was projected on a wall with a video projector.
+That way, I could choose what to show and build a user interface to change what target to use or to emulate the distance by reducing the size of the projected image.
+I also used a camera to detect the laser impact and to place a regular bullet impact image on the projected target precisely where the shot hit.
+Shooting on a button displayed on the user interface would trigger it.
+That way, navigating through the menus and changing the settings could also be done using the laser weapon.
+I also made a system that allows you to see your statistics afterwards and therefore track your progress.&lt;/p&gt;
+
+&lt;p&gt;It was a big project, but I was very motivated by this cool idea, even thought there was a lot of difficulties that I did not know how to solve in the beginning.&lt;/p&gt;
+
+&lt;h2 id=&quot;️-program-and-challenges&quot;&gt;⚙️ Program And Challenges&lt;/h2&gt;
+
+&lt;p&gt;I chose to code this project in Python because it was the language that I knew the best.
+I ran the program on a &lt;a href=&quot;https://www.raspberrypi.org/&quot;&gt;Raspberry Pi&lt;/a&gt; to keep things compact and easy to set up.&lt;/p&gt;
+
+&lt;p&gt;I knew that there was a lot of challenging things that I had never done before, particularly video recognition.
+I needed to be able to detect a laser shot on the wall with a camera while displaying feedbacks and the user interface on the wall with a projector.&lt;/p&gt;
+
+&lt;p&gt;This is a little representation of the architecture I built:&lt;/p&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+  &lt;img width=&quot;550px&quot; alt=&quot;Hardware project architecture&quot; src=&quot;/assets/images/posts/laser_gun_projected_target/documentation/Architecture_Hardware_en.jpg&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;So the user interface was projected on a wall and the laser shots were recorded with a small webcam.
+The gun did not need to be connected to the Raspberry Pi because it was just firing a laser.&lt;/p&gt;
+
+&lt;h3 id=&quot;camera-detection&quot;&gt;Camera Detection&lt;/h3&gt;
+
+&lt;p&gt;The first thing that I decided to build was a way to get the input from the user: detecting a laser shot on the wall.
+I chose to do that first because it was the thing that I was the least confident about, so I would not waste time on the other things if I could not even build the detection.&lt;/p&gt;
+
+&lt;p&gt;I decided to build a proof of concept where the goal was to record a laser shot and display the impact on the wall where it landed. 
+I also wanted to try the user interface interaction by shooting on buttons.
+Therefore, I had three things to build in order to test if I was really qualified to make this project:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;A plain laser detection on the wall with a simple webcam&lt;/li&gt;
+  &lt;li&gt;Camera calibration with the projector&lt;/li&gt;
+  &lt;li&gt;Basic user interface projected on the wall where I can display an impact along with a single button to clear all the displayed impacts&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I made the choice to go with the &lt;a href=&quot;https://opencv.org/&quot; target=&quot;_blank&quot;&gt;OpenCV&lt;/a&gt; library and a simple Logitech webcam.&lt;/p&gt;
+
+&lt;h4 id=&quot;laser-detection&quot;&gt;Laser Detection&lt;/h4&gt;
+
+&lt;p&gt;In order to test the laser detection, I build a small box with a red button on it that would activate a laser. The box had two modes:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;While the button is pressed, the laser will remain activated (like a presentation pointer)&lt;/li&gt;
+  &lt;li&gt;On button press, a laser shot is simulated: the laser is activated for 25 milliseconds before turning off automatically&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;As I did not have the final laser bullet at the time, I was forced to build this small system to try it out.
+This is how it looked:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/laser_gun_projected_target/documentation/simulateur_cartouche_laser.jpg&quot; alt=&quot;Home made laser bullet&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I successfully built the laser detection from the webcam with mode 1 (constantly showing the laser).&lt;/p&gt;
+
+&lt;p&gt;This is a small demonstration of the laser recognition:&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;1000px&quot; alt=&quot;Laser tracking demo&quot; src=&quot;/assets/images/posts/laser_gun_projected_target/documentation/Laser_Tracking.gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On the left image, we can see the raw video feed from the webcam.
+The image processing output image is displayed in the middle.
+On the right image, we can see the extracted information on top of the raw image (blue circle around the laser with a red dot in the center).&lt;/p&gt;
+
+&lt;p&gt;Nothing really changes for mode 2 except that I just make it wait until there is a frame recorded by the camera that contains a laser dot.&lt;/p&gt;
+
+&lt;p&gt;I later had to adjust the laser detection a bit as the projector was emitting a lot of light.&lt;/p&gt;
+
+&lt;h4 id=&quot;camera-calibration&quot;&gt;Camera calibration&lt;/h4&gt;
+
+&lt;p&gt;I needed to use a projector in order to report the position of the laser shot onto the wall in order to have a visual feedback after shooting.
+But before that, I needed to calibrate the camera with the projector.
+The camera needs to know where the projected surface is in order to communicate the position of the shot in relation to the surface of projection.
+This calibration was the first thing to do when executing the program.
+It is establishing a shared two axes coordinate system across the camera feed (input) and the projected area (output).&lt;/p&gt;
+
+&lt;p&gt;That calibration is done in two parts:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;In the first part, 4 black circles are placed (on a white background) in the 4 corners of the projected area. I coded a function that detected those circles and that calculated their center.&lt;/li&gt;
+  &lt;li&gt;In the second part, a black rectangle is displayed in a way that matches each of its corners respectively to the center of each circle from the first part.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The following GIF illustrates the circles’ detection system:&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;1000px&quot; alt=&quot;Circles detection demo&quot; src=&quot;/assets/images/posts/laser_gun_projected_target/documentation/Marks_Tracking_Circles.gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;On the wall, we can see the projected area in white with the four circles displayed over it.
+Like the laser detection GIF, on the left there is the raw camera feed, in the middle there is the image after being processed and on the right there is the extracted data displayed on top of the camera feed.
+The circles’ detection was working pretty well.&lt;/p&gt;
+
+&lt;p&gt;The next GIF shows the rectangle detection system:&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;1000px&quot; alt=&quot;Rectangle detection demo&quot; src=&quot;/assets/images/posts/laser_gun_projected_target/documentation/Marks_Tracking_Rectangles.gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As we can see, sometimes the program detects the border of the projection surface as a valid rectangle.
+I solved this issue by taking the one with the smallest area if two rectangles are detected.&lt;/p&gt;
+
+&lt;p&gt;Once the program knows the centers and the corners, it calculates for each circle the mean of its center and its respective rectangle corner in order to have four precise points.
+It can use those points in order to determine the position of the projected surface in the camera feed.
+I decided to cumulate the circles and the rectangle detection in order to gain in precision because the laser impact needs to be placed exactly where the shot landed.&lt;/p&gt;
+
+&lt;p&gt;I also needed to correct the perspective effect that deforms a rectangle if we are not looking at it perfectly perpendicularly and from its center:&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;500px&quot; title=&quot;https://www.pyimagesearch.com/2014/08/25/4-point-opencv-getperspective-transform-example/&quot; alt=&quot;Perspective correction&quot; src=&quot;/assets/images/posts/laser_gun_projected_target/documentation/perspective_transform.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once the shared axes system is established, the camera must not move at all.
+I later added a button in the user interface that re-calibrates the camera, just in case the impacts’ placement feels a bit inaccurate (the camera is moving a bit because of vibrations and other small factors).&lt;/p&gt;
+
+&lt;p&gt;The following short video taken with my phone shows the full calibration process:&lt;/p&gt;
+
+&lt;div class=&quot;video-responsive&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/RavyzJ8D4Is?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It was detecting the shapes quickly, which made the whole calibration process pretty short.&lt;/p&gt;
+
+&lt;h4 id=&quot;display-impacts&quot;&gt;Display impacts&lt;/h4&gt;
+
+&lt;p&gt;The last part of the proof of concept was to get a visual feedback on the screen after a laser shot.
+It was pretty easy to do once the camera calibration process was done, as it gave me a shared coordinate system between the camera and the projected image.&lt;br /&gt;
+The camera detects when a laser is present and retrieves its position.
+After that, the coordinates of the laser impact are converted to some new coordinates that are used to display an impact image on the screen at the same location.
+On top of that, the impact image is randomly rotated, so it does not always look the same.&lt;/p&gt;
+
+&lt;p&gt;I added a button interaction logic that used that system: when you shoot on a button, it gets triggered.&lt;/p&gt;
+
+&lt;p&gt;That led to a small application combining the camera calibration, laser detection, impact placement and button triggering:&lt;/p&gt;
+
+&lt;div class=&quot;video-responsive&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/8LZnIDVj-8g?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;It worked really well.
+The proof of concept was done, so I moved on to building the final application.&lt;/p&gt;
+
+&lt;h3 id=&quot;user-interface&quot;&gt;User Interface&lt;/h3&gt;
+
+&lt;p&gt;I started by designing the multiple targets that we can choose from before starting a game.
+Below are two examples of targets:&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;250px&quot; alt=&quot;Real impact picture&quot; src=&quot;/assets/images/posts/laser_gun_projected_target/documentation/cible_dots.png&quot; style=&quot;border: 2px solid black;&quot; /&gt;
+&lt;img width=&quot;250px&quot; alt=&quot;Real impact picture&quot; src=&quot;/assets/images/posts/laser_gun_projected_target/documentation/cible_cercle.png&quot; style=&quot;border: 2px solid black;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I used a &lt;a href=&quot;https://docs.python.org/fr/3/library/tkinter.html&quot;&gt;Tkinter&lt;/a&gt; window in full screen mode sent as video output to the projector and built the user interface.
+On the main menu, I added some configuration buttons that can be used to select things like which target we want or how far from it we want to be standing.
+I emulated the distance to a target by simply reducing the target size according to how it would look in real life.
+I also added a button to re-calibrate the camera, just in case it moved a bit.&lt;/p&gt;
+
+&lt;p&gt;This is a small video of what the menu looked like (the user interface is in French):&lt;/p&gt;
+
+&lt;div class=&quot;video-responsive&quot;&gt;
+  &lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/r6u0h7QLznI?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The player interacts with the buttons by shooting directly on them in order to select the settings they want.
+When the main menu is displayed, they can see a little thumbnail on each button showing what they have pre-selected.
+When the player is ready, they can shoot on the start button and then on the target.&lt;/p&gt;
+
+&lt;p&gt;There are multiple “programs” available to the player, for examples: program A is a free-range, meaning that the player can freely shoot on the target, on program B the player has 5 bullets and 5 seconds to shoot…&lt;/p&gt;
+
+&lt;p&gt;Once the game is finished, the results are displayed on the screen:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The target is enlarged&lt;/li&gt;
+  &lt;li&gt;All the shots are represented and numbered chronologically&lt;/li&gt;
+  &lt;li&gt;In the top left corner, the time between each shot is displayed&lt;/li&gt;
+  &lt;li&gt;If the shot was so far from the target that it could not be displayed on the enlarged one in the results screen, the shot is shown in orange in the top left corner&lt;/li&gt;
+  &lt;li&gt;The settings used for the game are displayed in the top right corner&lt;/li&gt;
+  &lt;li&gt;If two shots are too close to each other, a light blue circle is drawn on each of them&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is an example of a result page:&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;800px&quot; alt=&quot;Real impact picture&quot; src=&quot;/assets/images/posts/laser_gun_projected_target/documentation/score.png&quot; style=&quot;border: 2px solid black;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After seeing their results, the player is taken back to the home screen.&lt;/p&gt;
+
+&lt;h3 id=&quot;saving-the-results-to-access-them-afterwards&quot;&gt;Saving the results to access them afterwards&lt;/h3&gt;
+
+&lt;p&gt;At the end of a game, the result page is also saved and uploaded to the cloud in order to access it later.
+I used the &lt;a href=&quot;https://mega.io/&quot;&gt;MEGA&lt;/a&gt; API in order to upload a screenshot of the result screen.
+The player can later use the MEGA application on their phone (for example) and see all their past games.
+That way, they can analyze their mistakes and track their progress.&lt;/p&gt;
+
+&lt;h3 id=&quot;raspberry-pi-too-weak&quot;&gt;Raspberry Pi Too Weak&lt;/h3&gt;
+
+&lt;p&gt;I started to code the program on my laptop with the idea that it would run on a Raspberry Pi at the end.
+However, when I first installed everything on the Raspberry Pi, it was running really slowly and the interface was lagging a lot.
+I also got heat warnings and it even shutdown on its own multiple times (to prevent overheating).
+At that point, I thought that a Raspberry Pi would not be powerful enough for this project.
+Video processing and recognition is a very resource intensive process, and I thought that I would need a real laptop or a kind of mini PC to run the software.&lt;/p&gt;
+
+&lt;p&gt;I solved the overheating issue by buying an active cooling fan like this one:&lt;/p&gt;
+
+&lt;p&gt;&lt;img width=&quot;350px&quot; alt=&quot;Raspberry Pi heat sink&quot; src=&quot;/assets/images/posts/laser_gun_projected_target/documentation/rpi_heat_sink.jpg&quot; title=&quot;https://www.chipskey.cc/heat-pipe-tower-fan-5-layers-acrylic-board-raspberry-pi-4-icetower-cooling-fan-rgb-7-color-led-lighting-fan-p-10334.html&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Even though I have been using Raspberry Pis in many other projects where passive cooling was always sufficient, this time I needed something like that to keep the board cool.
+The Raspberry Pi was not shutting down anymore, but it was still running really slowly and the CPU usage was always above 90%.&lt;/p&gt;
+
+&lt;p&gt;As a mini PC was too expensive, I kept trying to optimize my program.
+I finally found a way to reduce the CPU usage: lower the video input resolution from the webcam to 660x480 pixels.
+That way, the video recognition process was less intensive and the program was running smoothly.
+It caused a little drop in the precision of the shots, but it wasn’t too bad.
+However, it was more noticeable as the simulated distance from the target increased because the shooting area was smaller, but the resolution stayed the same.&lt;/p&gt;
+
+&lt;p&gt;When I think back to this issue, I might have overestimated the Raspberry Pi.
+Indeed, it had to handle a lot of things: webcam input, video recognition, computing and display output to the projector.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-real-laser-was-too-fast&quot;&gt;The Real Laser Was Too Fast&lt;/h3&gt;
+
+&lt;p&gt;Finally, there was another issue: the real laser bullet that my client bought for their gun was not firing for long enough to be detected by the webcam every time.&lt;br /&gt;
+Sometimes, the laser was turning on and back off between two frames captured by the webcam.
+The webcam was recording about 40 frames per seconds, but it was not enough to detect the impact every time.&lt;/p&gt;
+
+&lt;p&gt;My homemade laser “bullet” that I used for testing the detection was set to last 25 milliseconds, which was enough for the camera to detect, but the real laser that my client bought lasted less than 15 milliseconds.&lt;/p&gt;
+
+&lt;p&gt;However, they told me that they would either find a way to modify the bullet they bought to last longer or buy another one.&lt;/p&gt;
+
+&lt;h2 id=&quot;-conclusion&quot;&gt;📝 Conclusion&lt;/h2&gt;
+
+&lt;p&gt;The whole project building took me about a month of work.
+We met a couple of times before I came to their house to install the final product/system.
+I learned a lot about video recognition and programming custom user interfaces.
+I also learned how to talk and exchange ideas with a client about how they wanted things to be.
+It was not always easy as sometimes I would not have made the same choices if I was building this project for myself, but I listened to their wishes.
+I also did a great job at keeping a change log every time I added something to the software in order to keep track of what I was doing and give my client some updates.
+I enjoyed doing this project a lot and it was really fun.&lt;/p&gt;</content><author><name>Lucas Jung</name></author><category term="Python" /><category term="Hardware" /><summary type="html">I designed and coded a virtual target projected on a wall in order to practice shooting at home using a laser gun.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gruvw.com/assets/images/posts/laser_gun_projected_target/main.jpg" /><media:content medium="image" url="https://gruvw.com/assets/images/posts/laser_gun_projected_target/main.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">This website 💻</title><link href="https://gruvw.com/2020/07/01/this-website.html" rel="alternate" type="text/html" title="This website 💻" /><published>2020-07-01T00:00:00+00:00</published><updated>2020-07-01T00:00:00+00:00</updated><id>https://gruvw.com/2020/07/01/this-website</id><content type="html" xml:base="https://gruvw.com/2020/07/01/this-website.html">&lt;p&gt;In july 2020, I decided to build a website where I would be able to publish my different projects related to programming. That led to this website hosted on GitHub (powered by &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot;&gt;GitHub Pages&lt;/a&gt; and &lt;a href=&quot;https://jekyllrb.com/&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;-the-concept&quot;&gt;📡 The Concept&lt;/h2&gt;
+
+&lt;p&gt;I had the idea of creating this kind of website a while ago.
+I wanted something in between a portfolio website that I would use to show of my work and a medium blog where I would just publish my work in case someone was interested.
+I also wanted a way to keep track of what I was doing and when.
+Creating a website was a cool solution because when I finished a programming project I would just write a text about it, add some pictures if necessary and publish it.
+That way I could come back to it in one or two years and track my progress.&lt;/p&gt;
+
+&lt;p&gt;The only issue I had was that I wanted the publishing process to be as straight forward as possible.
+I didn’t want to spend hours every single time I was going to write about something styling everything and make the article look great.
+I wanted to write whatever I wanted and click on a button in order to publish it.
+&lt;a href=&quot;https://fr.wikipedia.org/wiki/Markdown&quot; target=&quot;_blank&quot;&gt;Markdown&lt;/a&gt; was the perfect solution for this:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Very simple to format everything&lt;/li&gt;
+  &lt;li&gt;No waste of time writing tags and dividing into multiple divs…&lt;/li&gt;
+  &lt;li&gt;Easy to include links and photos&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This matched up exactly what I was looking for.&lt;/p&gt;
+
+&lt;p&gt;The only issue about it was to actually create the website from scratch…
+I would have had to make:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A program that converted my markdown files into &lt;a href=&quot;https://fr.wikipedia.org/wiki/Hypertext_Markup_Language&quot; target=&quot;_blank&quot;&gt;HTMl&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The landing page&lt;/li&gt;
+  &lt;li&gt;Create styles for the website&lt;/li&gt;
+  &lt;li&gt;Make everything responsive&lt;/li&gt;
+  &lt;li&gt;Create an easy way to publish new projects&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That is why I did not make the website earlier.
+I was often thinking about it but I was too lazy to do everything and I preferred spending time on more interesting and newer projects.&lt;/p&gt;
+
+&lt;h3 id=&quot;solution&quot;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;Someday I decided to find an alternative.
+As I was not motivated enough to build my very own website from scratch, I decided to learn a bit more about &lt;a href=&quot;https://pages.github.com/&quot; target=&quot;_blank&quot;&gt;GitHub Pages&lt;/a&gt;.
+I had heard of it before but I never really took the time to investigate it.
+When I read about how easy it was to set up a repository to become a GitHub Pages website I was blown away.
+I immediately found motivation to build the whole website and that is when I started this project.
+GitHub Pages was perfect for what I wanted: you just need to push any new article that you wrote to the GitHub repository and your site would be automatically updated.&lt;/p&gt;
+
+&lt;p&gt;What really put the cherry on top was when I found out about &lt;a href=&quot;https://jekyllrb.com/&quot; target=&quot;_blank&quot;&gt;Jekyll&lt;/a&gt; integration in GitHub Pages.
+I had never heard about Jekyll before but it was perfect for what I needed, already built for me.
+It is basically a way to convert markdown files directly into static blogs and websites.&lt;/p&gt;
+
+&lt;p&gt;In one day I found the solutions to all the things that were keeping me from doing this website that I wanted so much.
+The only issue about Jekyll and GitHub Pages was that my website will not be the most dynamic and original one out there with tones of javascript animations etc…
+But in reality, that was not too bad because it was not essential.
+I just wanted a place to publish and keep track of my work so why bother having the fanciest website if that was not the main purpose.&lt;/p&gt;
+
+&lt;h2 id=&quot;-setting-up&quot;&gt;🚧 Setting Up&lt;/h2&gt;
+
+&lt;p&gt;Even if I found the solutions I needed to build this website easily, I still needed to actually do it.
+I had never used either of GitHub Pages or Jekyll before.
+I also needed to buy a domain name and redirect it to GitHub Pages.
+So it was far from done yet.&lt;/p&gt;
+
+&lt;h3 id=&quot;hosting&quot;&gt;Hosting&lt;/h3&gt;
+
+&lt;p&gt;I needed to do three different things in order to host my website:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Creating the github repository&lt;/li&gt;
+  &lt;li&gt;Setting up GitHub Pages&lt;/li&gt;
+  &lt;li&gt;Buy a domain name and connect it with GitHub pages&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The first one was pretty easy: I just created a repository and named it &lt;em&gt;portfolio&lt;/em&gt;.
+At the time I thought I would do a website that would be more similar to a real portfolio and a more professional kind of website.
+But once I really got into creating I chose to change the purpose into just being a way to keep track of what projects I was doing when and share it with whoever I wanted.
+In the end it is a bit in between a portfolio and a blog but I am pretty happy about it.&lt;/p&gt;
+
+&lt;p&gt;The second thing was to actually transform the freshly created repository into an actual website.
+For that I used GitHub pages which is a really easy way to host a static website for free.
+In order to set it up I just went into the repository settings tab and scrolled down to the GitHub Pages section.
+Then I just needed to select the branch along with the root directory and I was good to go.&lt;/p&gt;
+
+&lt;p&gt;The last thing I wanted to change about the hosting part was the url that GitHub generated for the repository website which was something like &lt;em&gt;gruvw.github.io/portfolio&lt;/em&gt;.
+I looked to see if the domain gruvw.com was still available and it was so I bought it.
+Luckily my username is not a really common english word so it was pretty cheap (about 10$ a year).
+After buying the domain I set up the DNS records to point on my GitHub repository as explained in the &lt;a href=&quot;https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain&quot; target=&quot;_blank&quot;&gt;GitHub Pages documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;At this point the hosting part was finished and I was ready to start creating my website.&lt;/p&gt;
+
+&lt;h3 id=&quot;jekyll&quot;&gt;Jekyll&lt;/h3&gt;
+
+&lt;p&gt;Jekyll allowed me to build and update my static website with the theme I wanted.
+I stared with looking for a theme I liked on a &lt;a href=&quot;http://jekyllthemes.org/&quot; target=&quot;_blank&quot;&gt;theme collection website&lt;/a&gt;.
+There are a ton of them and I was surprised when I discovered that the &lt;a href=&quot;https://github.com/rundocs/jekyll-rtd-theme&quot; target=&quot;_blank&quot;&gt;Read The Docs theme&lt;/a&gt; was available (I might use it if I need to create a documentation for a futur project).
+I went with the &lt;a href=&quot;https://github.com/mmistakes/jekyll-theme-basically-basic&quot; target=&quot;_blank&quot;&gt;Basically Basic theme&lt;/a&gt; because I wanted something simple and straightforward.&lt;/p&gt;
+
+&lt;p&gt;Jekyll was designed for building blog websites but I wanted something a bit different so I modified the template to interpret a blog post as a projet.&lt;/p&gt;
+
+&lt;p&gt;Once I set up the theme in the repository and got the local &lt;a href=&quot;https://www.ruby-lang.org/fr/&quot; target=&quot;_blank&quot;&gt;Ruby&lt;/a&gt; server running I was ready to configure the website.
+There were a few things to configure in order for everything to be the way I wanted:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Title&lt;/li&gt;
+  &lt;li&gt;Description&lt;/li&gt;
+  &lt;li&gt;Links to GitHub and socials&lt;/li&gt;
+  &lt;li&gt;Contact email&lt;/li&gt;
+  &lt;li&gt;Domain name and url&lt;/li&gt;
+  &lt;li&gt;Pictures&lt;/li&gt;
+  &lt;li&gt;Search&lt;/li&gt;
+  &lt;li&gt;Plugins&lt;/li&gt;
+  &lt;li&gt;SEO&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When I finally got the technical aspect of Jekyll configured, I needed to slightly adust the &lt;a href=&quot;https://fr.wikipedia.org/wiki/Feuilles_de_style_en_cascade&quot; target=&quot;_blank&quot;&gt;CSS&lt;/a&gt; and HTML templates in order to fix little details (open links in new tabs, lines number in code fences, …).
+I also added small things like a table of contents.&lt;/p&gt;
+
+&lt;p&gt;I finished by writing the default pages:&lt;/p&gt;
+
+&lt;h4 id=&quot;404-not-found&quot;&gt;404 Not found&lt;/h4&gt;
+
+&lt;p&gt;A simple page that will inform a user that the page he is trying to access does not exist.&lt;/p&gt;
+
+&lt;h4 id=&quot;the-index&quot;&gt;The index&lt;/h4&gt;
+
+&lt;p&gt;The landing page of the website which was a bit weird to write: I needed to write it in markdown but name the file with a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.html&lt;/code&gt; extension and the markdown file needed to be written in a strange way…&lt;/p&gt;
+
+&lt;h4 id=&quot;about-page&quot;&gt;About page&lt;/h4&gt;
+
+&lt;p&gt;Just wrote a text about me and my life.&lt;/p&gt;
+
+&lt;p&gt;I needed to modify the template in order to make my images render correctly side by side and the page to still be responsive.&lt;/p&gt;
+
+&lt;h4 id=&quot;json-resume&quot;&gt;JSON Resume&lt;/h4&gt;
+
+&lt;p&gt;With this project I discovered &lt;a href=&quot;https://jsonresume.org/&quot; target=&quot;_blank&quot;&gt;JSON resume&lt;/a&gt; which is a very cool way to write and update your resume.
+So I wrote my resume in JSON and integrated it in my website automatically.
+It was very easy.&lt;/p&gt;
+
+&lt;p&gt;If you are interested in seeing my resume you can find it here:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;On this website: &lt;a href=&quot;https://gruvw.com/resume.html&quot; target=&quot;_blank&quot;&gt;Resume Page&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The raw JSON data on &lt;a href=&quot;https://gist.github.com/gruvw/510ea6adf8679429e6078282a87f782e&quot; target=&quot;_blank&quot;&gt;this GitHub Gist&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;On the JSON resume registry: &lt;a href=&quot;https://registry.jsonresume.org/gruvw&quot; target=&quot;_blank&quot;&gt;Gruvw&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;projects-list&quot;&gt;Projects list&lt;/h4&gt;
+
+&lt;p&gt;The page where all my projects are listed by tags.&lt;/p&gt;
+
+&lt;h2 id=&quot;-publishing-projects&quot;&gt;📝 Publishing Projects&lt;/h2&gt;
+
+&lt;p&gt;Once the site was finally ready, I just needed to actually write an article for each of my past projects.
+I created a new article by adding a markdown file and providing basic informations in the preamble.
+This is what this project’s preamble looks like:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;This&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;website&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;💻&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;sub_title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;The&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;creation&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;website&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;used&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;share&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;keep&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;track&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;coding&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;projects.&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;introduction&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;You&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;can&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;access&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;regarding&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;my&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;website&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;following&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GitHub&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;hosted:&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;actions&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Project's&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;GitHub&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;repository&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;github&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;https://github.com/gruvw/portfolio&quot;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Web&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Just after that I started writing the article like I would write any classic markdown file.&lt;/p&gt;
+
+&lt;p&gt;The only thing that remained to be done and that took &lt;strong&gt;a lot&lt;/strong&gt; of time was to write all the previous projects that I wanted to list on the website.
+I chose to try to write a few lines every day even if I was not writing a lot.
+It turned out that doing it daily was hard but I managed to write 2 to 3 times a week in my free time.&lt;/p&gt;
+
+&lt;h2 id=&quot;️-conclusion&quot;&gt;⚖️ Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In the end I am very happy that I took the time to set up this website because it is really useful.
+I now have a way to track my work and progress along with sharing it with others.
+All my important projects are listed and summarized in one single place.&lt;/p&gt;
+
+&lt;p&gt;The main goal was to be able to publish new articles and projects very easily by writing markdown files and I think that it was 100% achieved thanks to Jekyll.
+I recommend for anyone wanting to build something similar to try it out.
+The best thing is that it integrates perfectly with GitHub and GitHub Pages which does not even require any maintenance on my side as the website is stored on a repository.
+On top of that the hosting is totally free.
+The main downside is the website template which is fine but it is not the exact website that I would have created on my own and it lacks a bit of personality.
+I tried to fill this lack by writing good content and overall it is not really that big of an issue for me.&lt;/p&gt;
+
+&lt;p&gt;It took me a lot of time to write all the projects I wanted to include (projects that I had already made) but once that was done the site looked perfect and I am very happy about it!&lt;/p&gt;</content><author><name>Lucas Jung</name></author><category term="Web" /><summary type="html">In july 2020, I decided to build a website where I would be able to publish my different projects related to programming. That led to this website hosted on GitHub (powered by GitHub Pages and Jekyll).</summary></entry><entry><title type="html">Creating a python package</title><link href="https://gruvw.com/2020/04/10/creating-a-python-package.html" rel="alternate" type="text/html" title="Creating a python package" /><published>2020-04-10T00:00:00+00:00</published><updated>2020-04-10T00:00:00+00:00</updated><id>https://gruvw.com/2020/04/10/creating-a-python-package</id><content type="html" xml:base="https://gruvw.com/2020/04/10/creating-a-python-package.html">&lt;p&gt;I created my first Python package.
+It keeps track of what I am printing to the console in a log file along with the possibility to add a prefix to what I am printing.&lt;/p&gt;
+
+&lt;h2 id=&quot;-the-idea&quot;&gt;💡 The Idea&lt;/h2&gt;
+
+&lt;p&gt;As I coded multiple python programs that were running on a &lt;a href=&quot;https://www.raspberrypi.org/&quot; target=&quot;_blank&quot;&gt;Raspberry Pi&lt;/a&gt; all day long, I always wanted to keep track of what my program was doing and when it was doing it. In order to do so, every time that my program received a piece of information or was actually doing something, I printed a text to the console explaining what was going on.
+This way, it was easy to debug after a problem occurred on some part of a project as I knew if the server received the information or not and if it took the correct actions based on it.&lt;/p&gt;
+
+&lt;p&gt;I was obviously not constantly watching the console feed all the time so I also needed to print the time before any statement. Therefore, I was easily able to debug what went wrong at a certain time based on the console feed.&lt;/p&gt;
+
+&lt;p&gt;I was still facing two issues:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;When a bug would cause my python program to crash, I would loose all the console feed containing the precious debugging data.&lt;/li&gt;
+  &lt;li&gt;When I would restart my program, I would not be able to get back the previous console feed. I only had the currently running console feed and no history of the previous runs.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;This is when I had the idea of creating a python package which could print out statements directly with a prefix containing the current date and time. The package could also save the console feed inside a log file. I would then be able to see the console feed after closing the program and access any past run output.&lt;/p&gt;
+
+&lt;h2 id=&quot;-the-old-way&quot;&gt;💽 The Old Way&lt;/h2&gt;
+
+&lt;p&gt;Before the creation of this package, I was printing out statements this way:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;time&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# one time only
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;hour&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strftime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%d.%m %H:%M:%S |  &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;statement&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;-&amp;gt; Data sent successfully&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hour&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;statement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Every time I needed to print out something I was creating a prefix using the &lt;a href=&quot;https://docs.python.org/fr/3/library/time.html#time.strftime&quot; target=&quot;_blank&quot;&gt;strftime&lt;/a&gt; method of the &lt;a href=&quot;https://docs.python.org/fr/3/library/time.html&quot; target=&quot;_blank&quot;&gt;time&lt;/a&gt; package (line 3).
+After that I concatenated the prefix with the statement before printing the result (line 5).&lt;/p&gt;
+
+&lt;p&gt;Doing it in that way let me to have the prefix before the statement but didn’t store anything in a log file.&lt;/p&gt;
+
+&lt;h2 id=&quot;-the-creation&quot;&gt;🛠 The Creation&lt;/h2&gt;
+
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Although I coded a lot in Python, I had never wrote a package or anything close to it. I took it like a good opportunity to learn a new skill in this language.
+I wanted my package to be easily installed on any computer with a &lt;a href=&quot;https://packaging.python.org/key_projects/#pip&quot; target=&quot;_blank&quot;&gt;pip&lt;/a&gt; command like the other packages I installed in the past.
+This is where I stared.&lt;/p&gt;
+
+&lt;h3 id=&quot;pypi&quot;&gt;PyPi&lt;/h3&gt;
+
+&lt;p&gt;I first needed to understand where and how to make my future package available to anyone using the pip command. That led me to search where the different python packages are stored. I found out that they were stored on &lt;a href=&quot;https://pypi.org/&quot; target=&quot;_blank&quot;&gt;PyPi&lt;/a&gt;, the &lt;strong&gt;Python Package Index&lt;/strong&gt;.
+Once I knew that, I searched a way to publish a package on PyPi. I found &lt;a href=&quot;https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56&quot; target=&quot;_blank&quot;&gt;this&lt;/a&gt; tutorial on &lt;a href=&quot;https://medium.com/&quot; target=&quot;_blank&quot;&gt;Medium&lt;/a&gt; wrote by &lt;a href=&quot;https://medium.com/@joel.barmettler&quot; target=&quot;_blank&quot;&gt;joelbarmettlerUZH&lt;/a&gt;.
+It was really helpful and it covered everything from the point where you finished writing your code to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install your_package&lt;/code&gt; command.
+I read this article so that I knew how to write my code in order to make it easier to publish on PyPi once I would finish coding my package.&lt;/p&gt;
+
+&lt;h3 id=&quot;coding&quot;&gt;Coding&lt;/h3&gt;
+
+&lt;p&gt;Now that I knew how to write my package in a way that would make it accessible to anyone, I needed to actually code it.
+I started my reflection by asking myself which categories of statements I wanted my package to be able to display. I found 3 main categories:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;An information&lt;/li&gt;
+  &lt;li&gt;A warning&lt;/li&gt;
+  &lt;li&gt;An error&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I did some research about log files in python and this is where I found the &lt;a href=&quot;https://docs.python.org/3/library/logging.html&quot; target=&quot;_blank&quot;&gt;logging&lt;/a&gt; package. This discovery made my work a lot simpler because it almost perfectly matched my goal of keeping track of what I was printing inside a log file.
+I learned a bit about how to use this package and ran some tests. I was pretty satisfied about it and I started implementing it inside my own package.
+It wasn’t an issue to use it inside my package because it is part of the &lt;a href=&quot;https://docs.python.org/3/library/index.html&quot; target=&quot;_blank&quot;&gt;Python Standard Library&lt;/a&gt;. That meant that I didn’t need to mess with requirements or anything like that because (almost) everyone already had the logging package installed on their machines.&lt;/p&gt;
+
+&lt;p&gt;I coded the main methods of my package which were:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The initialisation method, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;init&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;The exit method, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;exit&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;The info method, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;info&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;The warning method, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;warn&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;The error method, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;err&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;I also added a new category which was the debug method, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;debug&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(I am not going to describe each method here but you can read more about them in the documentation of the project that you can find on the &lt;a href=&quot;https://github.com/gruvw/printbetter&quot; target=&quot;_blank&quot;&gt;project’s GitHub repository&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;h3 id=&quot;customisation&quot;&gt;Customisation&lt;/h3&gt;
+
+&lt;p&gt;I wanted my package to be as customizable as possible. In order to let the users customise the package, I created the following methods:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Customizing the printing prefix the way they want, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;custom_PRINTPREFIXFORMAT&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Customizing the logging prefix the way they want, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;custom_LOGFORMAT&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Disabling or enabling the printing on the console, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;disable_PRINTOUT&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;enable_PRINTOUT&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Disabling or enabling the record of the statements on a log file, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;disable_LOGFILE&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;enable_LOGFILE&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Modifying the directory where the log files are saved, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;custom_LOGPATH&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;(I am not going to describe each method here but you can read more about them in the documentation of the project that you can find on the &lt;a href=&quot;https://github.com/gruvw/printbetter&quot; target=&quot;_blank&quot;&gt;project’s GitHub repository&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;h3 id=&quot;documentation&quot;&gt;Documentation&lt;/h3&gt;
+
+&lt;p&gt;At this time the coding part was pretty much done but I still needed to write an understandable documentation for futur users.
+I didn’t want something perfect, just something useful and that was capable of explaining how my package worked and how to use it.
+I stared by writing some comments inside my code in order to explain different parts of each method.
+After that I wrote a docstring for each method describing its purpose and its use.
+Then I wrote some basic examples of uses and explained how to initialise and exit the package.
+I also styled everything using &lt;a href=&quot;https://fr.wikipedia.org/wiki/Markdown&quot; target=&quot;_blank&quot;&gt;Markdown&lt;/a&gt;. That way, the documentation is nicely displayed in &lt;a href=&quot;https://code.visualstudio.com/&quot; target=&quot;_blank&quot;&gt;Visual Studio Code&lt;/a&gt; or any other text editor which supports Markdown documentation rendering.&lt;/p&gt;
+
+&lt;p&gt;After the documentation was written in the code, I still needed to write a &lt;em&gt;README.md&lt;/em&gt; file for the GitHub repository.
+I wrote it pretty fast just including:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A description of my package&lt;/li&gt;
+  &lt;li&gt;The features it brings&lt;/li&gt;
+  &lt;li&gt;A detailed documentation&lt;/li&gt;
+  &lt;li&gt;Example.s for each method&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;the-name&quot;&gt;The name&lt;/h3&gt;
+
+&lt;p&gt;I had a really cool name inside my head since the beginning of the project. That name was &lt;strong&gt;BetterPrint&lt;/strong&gt;.
+It was a good representation of what I was trying to achieve but unfortunately, it was already taken by another package.
+I could take another name for the package installation and still be able to import my module with the name BetterPrint but I was not really convinced by this idea.
+I don’t really like when other packages do that. For example the well known computer vision package called &lt;a href=&quot;https://pypi.org/project/opencv-python/&quot; target=&quot;_blank&quot;&gt;OpenCV&lt;/a&gt; needs to be install with the following command: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install opencv-python&lt;/code&gt;. However it needs to be imported inside a python script like this: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;import opencv&lt;/code&gt;.
+It is a small detail but I like the fact that when you look at someone’s code and there’s a package you don’t have, you can simply run the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pip install package_name&lt;/code&gt; command in order to get it.&lt;/p&gt;
+
+&lt;p&gt;This is why I wrote an email to the person who has the package called BetterPrint in order to see with him if he was ok to change his package name so I could use his.
+I thought that he would say yes because his package has not been updated for years but his answer was negative 😥.&lt;/p&gt;
+
+&lt;p&gt;At this time I needed to find another name to my package. There were many candidates such as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SimplePrint&lt;/li&gt;
+  &lt;li&gt;EasyPrint&lt;/li&gt;
+  &lt;li&gt;LogPrint&lt;/li&gt;
+  &lt;li&gt;BestPrint&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I was not fully satisfied by any of this names. At some point I realized that I could just invert the &lt;em&gt;Better&lt;/em&gt; and the &lt;em&gt;Print&lt;/em&gt; order in the name which, thankfully, was not already taken!
+That gave me the final name which is &lt;strong&gt;PrintBetter&lt;/strong&gt;.
+It was the most convincing name to me so I went with that one.&lt;/p&gt;
+
+&lt;h2 id=&quot;-the-new-way&quot;&gt;🎉 The New Way&lt;/h2&gt;
+
+&lt;p&gt;When I finished my package, I was pretty satisfied with the final result.
+My initial issue is fixed and I am definitely going to use this package in a large number of futur projects.
+This is the new way of printing things to the console:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;printbetter&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pb&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;pb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# initializes
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;information&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;variable debug&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;warning&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;error&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The first line is where my package is imported in my python script.
+On the third line I am initializing the module with the default parameters (no additional information).
+After that comes a series of method calls which each has their own purpose. They already have been described in the &lt;a href=&quot;#coding&quot;&gt;Coding&lt;/a&gt; paragraph.
+At the end, at line 10, I am terminating the module.&lt;/p&gt;
+
+&lt;h2 id=&quot;-publishing&quot;&gt;📤 Publishing&lt;/h2&gt;
+
+&lt;p&gt;Even thought I read all the explanations in the article (see &lt;a href=&quot;#pypi&quot;&gt;PyPi&lt;/a&gt; paragraph) about publishing my package to PyPi I ran into multiple difficulties durning this process.&lt;/p&gt;
+
+&lt;p&gt;I needed to create many different files in order to publish my packages:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;LICENCE.txt&lt;/li&gt;
+  &lt;li&gt;MANIFEST&lt;/li&gt;
+  &lt;li&gt;description.rst&lt;/li&gt;
+  &lt;li&gt;setup.cfg&lt;/li&gt;
+  &lt;li&gt;setup.py&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I was a bit confused when I wrote each of these files.
+The &lt;em&gt;LICENCE.txt&lt;/em&gt; was the easiest file because I just choose one of the basic licenses for my package and everything ran smoothly with it.
+The &lt;em&gt;MANIFEST&lt;/em&gt; was automatically generated so it was not an issue either.
+The &lt;em&gt;description.rst&lt;/em&gt; file was slightly more difficult but nothing crazy. It is the file used by PyPi to display a small description of the project on their website. It used the &lt;a href=&quot;https://fr.wikipedia.org/wiki/ReStructuredText&quot; target=&quot;_blank&quot;&gt;reStructuredText&lt;/a&gt; file formatting which is a bit like Markdown but using a different syntax.
+The &lt;em&gt;setup.cfg&lt;/em&gt; was a very small file so it was not hard to setup.&lt;/p&gt;
+
+&lt;p&gt;The only file which gave me lots of issues was the &lt;em&gt;setup.py&lt;/em&gt; file. I needed to modify it many times and my package became a mess because every time that I made a change to the file I needed to release my package and then upload it to PyPi in order to see if my changes worked.
+This is why there was six &lt;a href=&quot;https://github.com/gruvw/printbetter/releases&quot; target=&quot;_blank&quot;&gt;releases&lt;/a&gt; of my package till it was finally fully published like I wanted.&lt;/p&gt;
+
+&lt;h2 id=&quot;-conclusion&quot;&gt;📄 Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In the end, I am really happy with what I have done with this package.
+I use it in a lot of projects now as it is pretty helpful.
+I am also happy about the documentation that I wrote because even if I knew that probably no one will ever read it or even use my package I wanted to build it as if people would.
+This gave me the full experience behind building and publishing a python package and I learned a lot thought this process.
+The final result is clean enough for me so maybe I will update it in the futur if I have any additional ideas but not for the moment.&lt;/p&gt;
+
+&lt;p&gt;This was a fun and useful project and I would recommend to any python developer to do the same thing if they have any package idea as it is another side of coding we do not always think of.
+We often use lots of packages at the beginning of any python file but this was the first time I really saw the “behind the scenes” of those and it was very interesting.&lt;/p&gt;</content><author><name>Lucas Jung</name></author><category term="Python" /><summary type="html">I created my first Python package. It keeps track of what I am printing to the console in a log file along with the possibility to add a prefix to what I am printing.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gruvw.com/assets/images/posts/creating_a_python_package/main.png" /><media:content medium="image" url="https://gruvw.com/assets/images/posts/creating_a_python_package/main.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">AI in video games</title><link href="https://gruvw.com/2019/10/25/artificial-intelligence-in-video-games.html" rel="alternate" type="text/html" title="AI in video games" /><published>2019-10-25T00:00:00+00:00</published><updated>2019-10-25T00:00:00+00:00</updated><id>https://gruvw.com/2019/10/25/artificial-intelligence-in-video-games</id><content type="html" xml:base="https://gruvw.com/2019/10/25/artificial-intelligence-in-video-games.html">&lt;p&gt;I programmed a computer to learn how to play the game Snake on its own.&lt;/p&gt;
+
+&lt;h2 id=&quot;-a-high-school-project&quot;&gt;⭐ A High-School Project&lt;/h2&gt;
+
+&lt;p&gt;In my high school, I needed to create a graded project that I would submitted during my last year. We could choose any project we wanted but I already knew that I wanted something related to programming.
+I was watching the videos of a youtuber called &lt;a href=&quot;https://www.youtube.com/channel/UC0e3QhIYukixgh5VVpKHH9Q&quot; target=&quot;_blank&quot;&gt;CodeBullet&lt;/a&gt;. He is programming small artificial intelligence projects and that inspired me to program something similar for my project.&lt;/p&gt;
+
+&lt;h2 id=&quot;-the-concept&quot;&gt;📝 The Concept&lt;/h2&gt;
+
+&lt;p&gt;I decided to recreate two programs that CodeBullet did on his channel:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The first program that I coded was a way for me to get in touch with machine learning. The purpose is simple: you have a population of dots that need to find a way to reach a target located behind an obstacle. In the beginning the dots don’t know anything about their environnement so they move randomly. I wanted the dots to find a way to go around the obstacle and reach the goal. In order to achieve that, I used a genetic algorithm with natural selection.&lt;/li&gt;
+  &lt;li&gt;The second program is the more important one. I wanted to make a computer learn by itself how to play the famous game &lt;a href=&quot;https://en.wikipedia.org/wiki/Snake_(video_game_genre)&quot; target=&quot;_blank&quot;&gt;Snake&lt;/a&gt;. I did this by using artificial neural networks combined with a more advanced genetic algorithm (than the one in my first program) and natural selection.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I will not detail everything in this article because I already wrote a whole document (the one I needed to write in order to submit my project for school) explaining everything about how I did it.&lt;/p&gt;
+
+&lt;h2 id=&quot;-full-document&quot;&gt;📃 Full Document&lt;/h2&gt;
+
+&lt;p&gt;If you find this project interesting, I highly encourage you to read this document that I wrote about it.
+I didn’t want to write everything again here because there is too much for a web page and because I already wrote a clean document that explains the whole project in detail.
+It contains &lt;strong&gt;everything&lt;/strong&gt;, from the creation to the machine learning algorithm and the maths. It is written in french because I wrote it for school but there are many illustrations and code fences.&lt;/p&gt;
+
+&lt;!-- &gt; &lt;embed src=&quot;https://drive.google.com/viewerng/viewer?embedded=true&amp;url=https://github.com/gruvw/TM-AI-video-games/raw/main/TM_Jung_Lucas_3M6.pdf&quot; width=&quot;500&quot; height=&quot;375&quot;&gt; --&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/18cwXNYcJRHXCFUsAlBJro7pRDsxV4ysZ/preview&quot; target=&quot;_blank&quot;&gt;Full document (web viewer)&lt;/a&gt; &lt;em&gt;reload the page if needed&lt;/em&gt;&lt;br /&gt;
+&lt;a href=&quot;https://github.com/gruvw/TM-AI-video-games/blob/main/TM_Jung_Lucas_3M6.pdf&quot; target=&quot;_blank&quot;&gt;Full document (github)&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The pdf is written in &lt;a href=&quot;https://www.latex-project.org/&quot; target=&quot;_blank&quot;&gt;LaTeX&lt;/a&gt; which is a programming language that is used to write documents (like Microsoft Office word).
+As I knew nothing about LaTeX before writing this document, a part of my project was to learn how to code in that language.
+It was pretty hard when I began but I got used to it and I can write in LaTeX now.
+I am happy to have learned it because it is a very useful language that I will definitely use again when writing professional looking documents integrating maths and code.&lt;/p&gt;
+
+&lt;h2 id=&quot;️-the-result&quot;&gt;📽️ The Result&lt;/h2&gt;
+
+&lt;p&gt;There are three videos below that show the results that I achieved.&lt;/p&gt;
+
+&lt;h3 id=&quot;dots-ai&quot;&gt;Dots AI&lt;/h3&gt;
+
+&lt;p&gt;This is a video of my first program in action. It shows the dots learning how to get around an obstacle:&lt;/p&gt;
+
+&lt;div class=&quot;video-responsive&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/-AbSTfHwl3o?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;This video shows the learning of the dots.
+In the beginning they don’t know where to go and they explore the word randomly.
+As the number of generations and iterations increases, some of the dots will succeed more than others.
+The genetic algorithm selects the ones that did a better job based on a fitness function.
+That way, in the end we can see that they managed to achieve their goal with a low number of steps.&lt;/p&gt;
+
+&lt;p&gt;In the top left corner of the screen there are two informations displayed:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Gen: the number of generations&lt;/li&gt;
+  &lt;li&gt;Steps: the number of steps that the best dot did from the spawn point to the goal&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We can easily see that as the number of generations increases, the number of steps reduces. They learn how to get to the goal faster and faster.&lt;/p&gt;
+
+&lt;h3 id=&quot;snake-ai&quot;&gt;Snake AI&lt;/h3&gt;
+
+&lt;p&gt;The two following videos are about my second program.&lt;/p&gt;
+
+&lt;h4 id=&quot;snake-learning&quot;&gt;Snake learning&lt;/h4&gt;
+
+&lt;p&gt;This video shows the computer learning how to play Snake:&lt;/p&gt;
+
+&lt;div class=&quot;video-responsive&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/QtNxrumyY-E?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see, it takes more time to learn how to play snake well than how to get around an obstacle.
+In this video, I don’t display the whole population of snakes learning at the same time (like with the dots) because they would take the whole window and we would not be able to see what is going on.
+Instead, I only display the game of the best snake for each generation.
+We can see the computer trying to learn what makes him lose and adjust his model.&lt;/p&gt;
+
+&lt;p&gt;There are 4 informations displayed at the bottom of the screen:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Gen: the number of generations.&lt;/li&gt;
+  &lt;li&gt;Max steps: The maximum amount of steps allowed to the snakes of the current generation. This pushes the snakes to have a good score in few steps. It increases as the snakes get better.&lt;/li&gt;
+  &lt;li&gt;Score: the number of fruits eaten by the best snake.&lt;/li&gt;
+  &lt;li&gt;KB: means Killed By. Indicates what killed the snake. It could either be the wall, its tail or the maximum number of steps allowed.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;These informations help to understand the evolution of the computer a little bit better.&lt;/p&gt;
+
+&lt;h4 id=&quot;snake-score-81&quot;&gt;Snake score 81&lt;/h4&gt;
+
+&lt;p&gt;This is a video of a game of Snake played by the computer after about 700 generations:&lt;/p&gt;
+
+&lt;div class=&quot;video-responsive&quot;&gt;
+&lt;iframe src=&quot;https://www.youtube-nocookie.com/embed/mH_wvQgb-_o?rel=0&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;At this point we can see that the computer has really understood the rules of the game and is limited by its vision (see the &lt;a href=&quot;#-full-document&quot;&gt;Full document&lt;/a&gt;).
+It is even able to dodge its tail multiple times!&lt;/p&gt;
+
+&lt;p&gt;There are 3 informations displayed at the bottom of the screen:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Max steps: the maximum amount of steps allowed to the snake.&lt;/li&gt;
+  &lt;li&gt;Score: the number of fruits eaten.&lt;/li&gt;
+  &lt;li&gt;KB: means Killed By. Indicates what killed the snake. It could either be the wall, its tail or the maximum number of steps allowed.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It is really interesting to watch the snake forced to hit the wall because it got stuck by its tail. It could not avoid that due to the limitation of its vision (see the &lt;a href=&quot;#-full-document&quot;&gt;Full document&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&quot;-conclusion&quot;&gt;✅ Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I am very happy about this project.
+It is one of the most technical projects I have done so far and I am proud of myself for managing to achieve something like this considering I was only 17 at the time.
+I finished my project by giving a live presentation in front of my teacher, an expert along with a small public of interested people (mostly my friends that were here to encourage me ^^).
+I finally received the highest grade possible.
+I read and learned so much about AI, machine learning and genetic algorithms by doing this project and that is probably why I am most happy to have done it.
+I highly encourage you to take a look at the &lt;a href=&quot;#-full-document&quot;&gt;full document&lt;/a&gt; that I have written about it if you want to further understand theses programs.&lt;/p&gt;</content><author><name>Lucas Jung</name></author><category term="Python" /><summary type="html">I programmed a computer to learn how to play the game Snake on its own.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gruvw.com/assets/images/posts/ai_in_video_games/main.jpg" /><media:content medium="image" url="https://gruvw.com/assets/images/posts/ai_in_video_games/main.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Designing my own watch face</title><link href="https://gruvw.com/2019/07/31/own-smart-watch-home-screen.html" rel="alternate" type="text/html" title="Designing my own watch face" /><published>2019-07-31T00:00:00+00:00</published><updated>2019-07-31T00:00:00+00:00</updated><id>https://gruvw.com/2019/07/31/own-smart-watch-home-screen</id><content type="html" xml:base="https://gruvw.com/2019/07/31/own-smart-watch-home-screen.html">&lt;p&gt;I designed my own smart watch home screen and customized it the way I wanted it to be.&lt;/p&gt;
+
+&lt;h2 id=&quot;-the-desire&quot;&gt;💎 The Desire&lt;/h2&gt;
+
+&lt;p&gt;I just bought the &lt;a href=&quot;https://www.mi.com/en/mi-smart-band-4/&quot; target=&quot;_blank&quot;&gt;Xiaomi Band 4&lt;/a&gt; which was the very new smart watch model from Xiaomi at the time. As I already had bought the Xiaomi Band 2 and I was really happy about it, I knew that I would not be disappointed by the new one.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I received the watch and I liked it a lot. There is a whole community around this watch because with this model, you can customize the home screen the way you want. As many designs were very cool, I downloaded many of them and that inspired me to do create my very own watch face design. I thought that if so many people could create these designs, why couldn’t I?&lt;/p&gt;
+
+&lt;h2 id=&quot;-the-creation&quot;&gt;🛠 The Creation&lt;/h2&gt;
+
+&lt;h3 id=&quot;how-to-do-it&quot;&gt;How to do it&lt;/h3&gt;
+
+&lt;p&gt;I had never done this kind of thing before so I absolutely did not know where to start. This is why I did what everyone else would do: Google it. I did some quick research and I found &lt;a href=&quot;https://c.mi.com/thread-2281025-1-0.html&quot; target=&quot;_blank&quot;&gt;this tutorial&lt;/a&gt; posted on the Xiaomi forum. It described well what I wanted to do and seemed pretty easy.&lt;/p&gt;
+
+&lt;p&gt;What you need to do in order to create a watch face is to split your design idea into very small pieces (every numbers, every logos, etc). After that, you need to save all the images you have designed in the same folder and rename it with a number (first image 0, second image 2, …).&lt;/p&gt;
+
+&lt;p&gt;Once you have done that, there is a program to download which will convert everything into a single &lt;em&gt;.bin&lt;/em&gt; file. Then you can upload this &lt;em&gt;.bin&lt;/em&gt; file to your watch and you are done.&lt;/p&gt;
+
+&lt;h3 id=&quot;design&quot;&gt;Design&lt;/h3&gt;
+
+&lt;p&gt;For me, this project was more about image design than about actual coding.
+Even if there is a bit of &lt;a href=&quot;https://fr.wikipedia.org/wiki/JavaScript_Object_Notation&quot; target=&quot;_blank&quot;&gt;json&lt;/a&gt;, everything else is just image editing.&lt;/p&gt;
+
+&lt;p&gt;I wanted to use the well known Adobe PhotoShop editor but it was too expensive for the use I would make of it so I looked for an alternative.
+After some quick researches, I found &lt;a href=&quot;https://www.getpaint.net/&quot; target=&quot;_blank&quot;&gt;Paint.NET&lt;/a&gt;: a very easy to use PhotoShop like image editor. It was fine for what I wanted to do.&lt;/p&gt;
+
+&lt;p&gt;This is when I started to design my different elements. I started with the numbers (big ones and small ones) and the date. Then I drew them pixel by pixel. As the screen of the band is small, it did not take that long.
+Once I finished with the numbers and the date, I started to design the background. I wanted something colorful and fun so that is what I tried to achieve.
+After that, I designed the daily steps goal progress bar. Unfortunately we cannot see it in action in the generated images (white gauge filled with black) but as you get closer to your daily steps goal, the bar fills itself with some blue to green gradient.
+I finished the designing part with the small icons (lock, bluetooth, …) that I wanted as simple as possible.&lt;/p&gt;
+
+&lt;h3 id=&quot;export&quot;&gt;Export&lt;/h3&gt;
+
+&lt;p&gt;At this point, I was pretty satisfied by the design. I renamed every image (there were 101 images) with a number going from 0 to 100.&lt;/p&gt;
+
+&lt;p&gt;I was now ready for writing the json file. This is just a file that will tell the program that “compiles” the watch face where each image is and what is its purpose.&lt;/p&gt;
+
+&lt;p&gt;This is an example taken from the json file:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Background&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Image&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;X&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;Y&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ImageIndex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In the example, we can see that I indicate to the program that the background image has the index (file name) 0 and that it needs to be placed on the top left corner of the screen (x=0, y=0).&lt;/p&gt;
+
+&lt;p&gt;I did the exact same thing for each image (image index and position). Luckily sometimes you can define the index by ranges: for example the images representing the numbers from 0 to 9 are indexes 59 to 68.&lt;/p&gt;
+
+&lt;p&gt;When I designed the different images, I also made some weather related ones (temperature, …) but I finally decided not to put them into the watch face because it would make things much too close to each other and I preferred to have more room between each element.&lt;/p&gt;
+
+&lt;p&gt;After I had finished filling the entire json file, I executed the program (AmazfitBipTools_Mi4&lt;em&gt;1.0.3) in charge of converting all my work into a _.bin&lt;/em&gt;  file that could be read by my watch.&lt;/p&gt;
+
+&lt;p&gt;I highly encourage you to take a look into the (project’s GitHub repository) if you are interested in learning more about the files I described.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-it-looks&quot;&gt;How it looks&lt;/h3&gt;
+
+&lt;p&gt;This is a gif of the final result of my watch face:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/gruvw/rainbow-watch-face/master/Gruvw_en_wf_packed_animated.gif&quot; alt=&quot;Watch face animated gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It rotates between random hours and dates etc in order to show multiple configuration. The only problem with this gif is that the steps’ progress bar does not fill up and stays black.&lt;/p&gt;
+
+&lt;h2 id=&quot;-publication&quot;&gt;🚀 Publication&lt;/h2&gt;
+
+&lt;p&gt;Before publishing this watch face to make it available to anyone worldwide, I wanted to give it a simple name. I chose &lt;em&gt;Gruvw Rainbow&lt;/em&gt; because it has some kind of rainbow colors and I wanted my name in it.&lt;/p&gt;
+
+&lt;p&gt;I decided to publish my work on the same platform/site I used in the beginning when I was downloading and testing watch faces done by other users: &lt;a href=&quot;https://amazfitwatchfaces.com/mi-band-4/view/3018&quot; target=&quot;_blank&quot;&gt;https://amazfitwatchfaces.com/mi-band-4/view/3018&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It has (at the time I am writing this) over 810 views and over 290 downloads. I am very happy about that and it is pretty fun to think that someone could literally be looking at his watch right now and see the time on the watch face I designed.&lt;/p&gt;
+
+&lt;h2 id=&quot;-conclusion&quot;&gt;📄 Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In the end, I am very satisfied about what I have done in this project. Even though it is not a project that took me weeks to complete (it took me about 3 days), I am still very happy to have learned a way to customize my smart watch. On top of that, it is very satisfying to look at my wrist and see the design I created.&lt;/p&gt;</content><author><name>Lucas Jung</name></author><category term="Side Project" /><summary type="html">I designed my own smart watch home screen and customized it the way I wanted it to be.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://gruvw.com/assets/images/posts/own_smart_watch_home_screen/main.jpg" /><media:content medium="image" url="https://gruvw.com/assets/images/posts/own_smart_watch_home_screen/main.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

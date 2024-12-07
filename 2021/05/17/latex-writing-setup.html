@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<!--
+    Basically Basic Jekyll Theme 1.4.4
+    Copyright 2017-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/jekyll-theme-basically-basic/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>LaTeX writing setup | Gruvw</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="LaTeX writing setup" />
+<meta name="author" content="Lucas Jung" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I decided to take notes during lectures with LaTeX and this is how I set up my LaTeX writing environment." />
+<meta property="og:description" content="I decided to take notes during lectures with LaTeX and this is how I set up my LaTeX writing environment." />
+<link rel="canonical" href="https://gruvw.com/2021/05/17/latex-writing-setup.html" />
+<meta property="og:url" content="https://gruvw.com/2021/05/17/latex-writing-setup.html" />
+<meta property="og:site_name" content="Gruvw" />
+<meta property="og:image" content="https://gruvw.com/assets/images/posts/latex_writing_setup/main.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-17T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://gruvw.com/assets/images/posts/latex_writing_setup/main.png" />
+<meta property="twitter:title" content="LaTeX writing setup" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Lucas Jung"},"dateModified":"2021-05-17T00:00:00+00:00","datePublished":"2021-05-17T00:00:00+00:00","description":"I decided to take notes during lectures with LaTeX and this is how I set up my LaTeX writing environment.","headline":"LaTeX writing setup","image":"https://gruvw.com/assets/images/posts/latex_writing_setup/main.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://gruvw.com/2021/05/17/latex-writing-setup.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://gruvw.com/assets/images/main/gruvw_logo.png"},"name":"Lucas Jung"},"url":"https://gruvw.com/2021/05/17/latex-writing-setup.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,600,600i">
+  
+
+  
+    
+    <link rel="alternate" type="application/atom+xml" title="Gruvw" href="/atom.xml">
+  
+</head>
+
+
+  <body class="layout--post latex-writing-setup">
+
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+    <div class="sidebar-toggle-wrapper">
+      
+        <button class="search-toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <title>Search</title>
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+      
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">Menu</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+    <li class="menu-item">
+      <a href="/" itemprop="url">
+        <span itemprop="name">Home</span>
+      </a>
+    </li>
+
+    <!-- site.pages links -->
+    
+    
+
+    
+      
+      
+        <li class="menu-item">
+          <a href="/resume.html" itemprop="url">
+            <span itemprop="name">Resume</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/projects.html" itemprop="url">
+            <span itemprop="name">Projects</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/documents.html" itemprop="url">
+            <span itemprop="name">Documents</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/slides.html" itemprop="url">
+            <span itemprop="name">Slides</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/about.html" itemprop="url">
+            <span itemprop="name">About me</span>
+          </a>
+        </li>
+      
+    
+  </ul>
+</nav>
+
+        <ul class="contact-list">
+  
+    <li>
+      <a href="mailto:gruvw.dev@gmail.com">
+        <span class="icon icon--email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="313.1 3.7 16 16"><path d="M318.5 8.9c0-.2.2-.4.4-.4h4.5c.2 0 .4.2.4.4s-.2.4-.4.4h-4.5c-.3 0-.4-.2-.4-.4zm.4 2.1h4.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-4.5c-.2 0-.4.2-.4.4s.1.4.4.4zm3.5 1.2c0-.2-.2-.4-.4-.4h-3.1c-.2 0-.4.2-.4.4s.2.4.4.4h3.1c.2.1.4-.1.4-.4zm-1.5-8.4l-1.7 1.4c-.2.1-.2.4 0 .6s.4.2.6 0l1.4-1.2 1.4 1.2c.2.1.4.1.6 0s.1-.4 0-.6l-1.7-1.4c-.3-.1-.5-.1-.6 0zm7.8 6.2c.1.1.1.2.1.3v7.9c0 .8-.7 1.5-1.5 1.5h-12.5c-.8 0-1.5-.7-1.5-1.5v-7.9c0-.1.1-.2.1-.3l1.6-1.3c.2-.1.4-.1.6 0s.1.4 0 .6l-1.2 1 1.8 1.3v-4c0-.6.5-1.1 1.1-1.1h7.5c.6 0 1.1.5 1.1 1.1v4l1.8-1.3-1.2-1c-.2-.1-.2-.4 0-.6s.4-.2.6 0l1.6 1.3zm-11.6 2.2l4 2.8 4-2.8V7.6c0-.1-.1-.2-.2-.2h-7.5c-.1 0-.2.1-.2.2v4.6zm10.9-1l-4.7 3.4 3.4 2.6c.2.1.2.4.1.6-.1.2-.4.2-.6.1l-3.6-2.8-1.2.8c-.1.1-.3.1-.5 0l-1.2-.8-3.6 2.8c-.2.1-.4.1-.6-.1-.1-.2-.1-.4.1-.6l3.4-2.6-4.7-3.4v7.1c0 .4.3.6.6.6h12.5c.4 0 .6-.3.6-.6v-7.1z"/></svg></span>
+        <span class="label">Email</span>
+      </a>
+    </li>
+  
+
+  
+    <li><a href="https://github.com/gruvw" target="_blank">
+  <span class="icon icon--github"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>
+  <span class="label">GitHub</span>
+</a>
+</li>
+  
+
+  
+    <li><a href="https://www.linkedin.com/in/jung-lucas" target="_blank">
+  <span class="icon icon--linkedin"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51v1.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/></svg></span>
+  <span class="label">LinkedIn</span>
+</a>
+</li>
+  
+
+  
+</ul>
+
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+      
+        <p class="site-title">
+          <a href="/">
+            <img src="/assets/images/main/gruvw_logo.png" alt="" class="site-logo">
+            <span>Gruvw</span>
+          </a>
+        </p>
+      
+    </div>
+  </div>
+</header>
+
+        <div class="initial-content">
+          <header class="intro">
+  
+    
+    
+    
+    <div class="intro-image">
+      <img src="/assets/images/posts/latex_writing_setup/main.png" alt="LaTeX writing setup">
+    </div>
+  
+
+  <div class="inner">
+    <div class="intro-text">
+      <h1 id="page-title" class="intro-title">LaTeX writing setup
+</h1>
+      
+        <p class="intro-subtitle">Setting up a LaTeX writing environment designed to write LaTeX faster and easier.
+</p>
+      
+
+      
+        
+
+
+        <p class="entry-meta">
+          <span class="byline-item">by Lucas Jung</span><span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time datetime="2021-05-17T00:00:00+00:00">May 17, 2021</time></span> <span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="15 309.7 16 16"><g><path d="M23.9 315.1v3.6c0 .5-.4.9-.9.9s-.9-.4-.9-.9v-3.6h1.8z"/><path d="M30.1 317.7c.5 3.9-2.3 7.5-6.2 7.9-3.9.5-7.5-2.3-7.9-6.2-.5-3.9 2.3-7.5 6.2-7.9v-1.8H24v1.8c1.1.1 2.7.7 3.5 1.4l1.3-1.3 1.3 1.3-1.3 1.3c.5.9 1.2 2.5 1.3 3.5zm-1.8.9c0-2.9-2.4-5.3-5.3-5.3s-5.3 2.4-5.3 5.3 2.4 5.3 5.3 5.3 5.3-2.3 5.3-5.3z"/></g></svg></span>5 min read</span>
+        </p>
+      
+
+      
+        <div class="intro-more">
+          <p>You can access all my configuration files regarding my LaTeX writing environment on the following GitHub repository:</p>
+
+        </div>
+      
+
+      
+        <ul class="intro-actions">
+          
+            <li><a href="https://github.com/gruvw/latex-setup" target="_blank" class="btn"><span class="icon"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>Project's GitHub repository</a></li>
+          
+        </ul>
+      
+    </div>
+  </div>
+</header>
+
+
+<main id="main" class="page-content" aria-label="Content" style="width: 100%;">
+  <div class="inner" style="width: 100%;">
+    <article class="entry-wrap" style="width: 100%;">
+      <div class="entry-content" style="width: 100%;">
+        <h4 style="margin-bottom: 10px;">Table of contents:</h4>
+        <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#️-environment-decision">🗂️ Environment decision</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#markdown-note-taking">Markdown note taking</a></li>
+<li class="toc-entry toc-h3"><a href="#latex-on-vim">LaTeX on Vim</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#-vscode">🔵 VSCode</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#snippets">Snippets</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#-conclusion">📝 Conclusion</a></li>
+<li class="toc-entry toc-h2"><a href="#️-2023--09---edit">🖊️ 2023 / 09 - Edit</a></li>
+</ul><p>I decided to take notes during lectures with LaTeX and this is how I set up my LaTeX writing environment.</p>
+
+<h2 id="️-environment-decision">
+<a class="anchor" href="#%EF%B8%8F-environment-decision" aria-hidden="true"><span class="octicon octicon-link"></span></a>🗂️ Environment decision</h2>
+
+<p>I went through a lot of different writing environments before settling with LaTeX on VSCode.</p>
+
+<h3 id="markdown-note-taking">
+<a class="anchor" href="#markdown-note-taking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Markdown note taking</h3>
+
+<p>Before switching to <a href="https://www.latex-project.org/">LaTeX</a>, I was taking notes in <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> using the <a href="https://typora.io/">Typora</a> editor.
+Typora is, by far, the best Markdown editor available. I is a <a href="https://en.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a> application that has support for math equations preview, images copy-paste, code fences, diagrams, etc.
+I really liked taking notes in Markdown using Typora as it was easy to use and WYSIWYG was very convenient.</p>
+
+<p>One issue that I had with Typora is that it did not have a way to create and use snippets (textual shortcuts).
+As I were typing a lot of math during lectures, I needed a way to write math faster.
+I found the <a href="https://github.com/autokey/autokey">AutoKey</a> application which allowed me to define some snippets that I could use in any desktop application, Typora included.</p>
+
+<p>This markdown setup was great and I enjoyed using it for a while until some issues came up:</p>
+
+<ol>
+  <li>Files containing a lot of math or code fences were starting to lag, there was some delay when typing</li>
+  <li>I wanted to include some LaTeX packages but that was not possible due to the fact that Typora is using <a href="https://www.mathjax.org/">MathJax</a> to render equations.</li>
+  <li>I needed a better snippets support to write faster</li>
+</ol>
+
+<p>It is because of all these reasons that I decided to switch from Markdown to LaTeX even though I knew that I will not be able to have the same WYSIWYG quality as in Typora.</p>
+
+<h3 id="latex-on-vim">
+<a class="anchor" href="#latex-on-vim" aria-hidden="true"><span class="octicon octicon-link"></span></a>LaTeX on Vim</h3>
+
+<p>As I decided to take my notes in LaTeX, I needed an <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">IDE</a> to write LaTeX more easily.</p>
+
+<p>I already knew the blog post from Gilles Castel, <a href="https://castel.dev/post/lecture-notes-1/">How I’m able to take notes in mathematics lectures using LaTeX and Vim</a> (which I highly recommend you to read), so I decided to take notes in <a href="https://www.vim.org/">Vim</a>.
+I was familiar with Vim keybindings so that was not an issue at all for me.</p>
+
+<p>Vim was pretty hard to configure correctly.
+The “live” compilation mechanism took me a long time to set up and SyncTex was not working properly.</p>
+
+<p>I used <a href="https://pwmt.org/projects/zathura/">Zathura</a> as my pdf viewer.
+I used the <a href="https://github.com/SirVer/ultisnips">UltiSnips</a> plugin as my main snippet engine.
+This plugin is just amazing! It works perfectly and the possibilities are endless.</p>
+
+<p>After using Vim as my main LaTeX editor for a week, I was not really convinced about it…
+I think that I needed an IDE with more features than vim when working with LaTeX documents.
+LaTeX files can get long pretty fast and the whole compilation process was not as good as I wanted it to be.
+I was just not confortable enough with Vim so I decided to switch once again.</p>
+
+<h2 id="-vscode">
+<a class="anchor" href="#-vscode" aria-hidden="true"><span class="octicon octicon-link"></span></a>🔵 VSCode</h2>
+
+<p>I am pretty used to <a href="https://code.visualstudio.com/">Visual Studio Code</a> as it is my main IDE.
+I already wrote some LaTeX is VSCode so I had some idea about how to configure it the way I wanted it to be.</p>
+
+<p>I use two LaTeX specific extensions:</p>
+
+<ul>
+  <li>
+<a href="https://github.com/James-Yu/LaTeX-Workshop">LaTeX Workshop</a>: Providing core features for LaTeX typesetting</li>
+  <li>
+<a href="https://github.com/tecosaur/LaTeX-Utilities">LaTeX Utilities</a>: Providing fancy features that are less vital to the basic experience editing a LaTeX document</li>
+</ul>
+
+<p>I just needed to configure the <code class="language-plaintext highlighter-rouge">settings.json</code> to have the behaviors that I wanted.
+After that I was able to compile my LaTeX documents easily and the Math Preview Panel from LaTeX Workshop is really useful for writing math equations.
+SyncTex is working great out of the box too.</p>
+
+<p>I also use the <a href="https://github.com/VSCodeVim/Vim">Vim extension</a> for VSCode in order to use Vim keybindings.</p>
+
+<h3 id="snippets">
+<a class="anchor" href="#snippets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Snippets</h3>
+
+<p>The only thing that was not working great was snippets.
+VSCode provides a snippet engine but it was not exactly what I wanted as code interpolation was not possible and there was no way to trigger a snippet automatically.</p>
+
+<p>This is when I found the <a href="https://github.com/draivin/hsnips">HyperSnips extension</a>.
+I don’t know why this extension doesn’t have more downloads as it is a very powerful snippet engine for VSCode.
+It is very similar to UltiSnips on Vim so it did not take me too long to transfer my snippets.</p>
+
+<p>After creating and solving (creator was really active) some issues on the extension’s GitHub repository, I was really happy with the result.</p>
+
+<p>The extension even supports context matching which allows some snippets to work only when writing math for example.</p>
+
+<h2 id="-conclusion">
+<a class="anchor" href="#-conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>📝 Conclusion</h2>
+
+<p>It was really hard to set up a LaTeX writing environment that suited all my needs and I had enough of switching technologies or IDE once a week.
+Setting up environments and IDE are not things that I really enjoy doing, but now I am  happy about my writing environment.</p>
+
+<p>I am able to take notes fast enough thanks to snippets.
+The compilation is working well and I can preview the pdf to the side if needed.
+SyncTex makes it easy to navigate from code to pdf and vice versa.</p>
+
+<h2 id="️-2023--09---edit">
+<a class="anchor" href="#%EF%B8%8F-2023--09---edit" aria-hidden="true"><span class="octicon octicon-link"></span></a>🖊️ 2023 / 09 - Edit</h2>
+
+<p>After more than 2 years editing and writing LaTeX (and code) using VSCode, I finally took the leap and switched (back) to <a href="https://neovim.io">Neovim</a>.<br>
+This decision was motivated by multiple factors:</p>
+
+<ul>
+  <li>VSCode is proprietary. I know there is VSCodium out there but the whole application feels too proprietary to me.</li>
+  <li>VSCode is awfully slow. I hate more and more Electron based applications. I want fast and delay free typing especially in my code editor.</li>
+  <li>Bloated software. VSCode has way too many features and I don’t use (or even know) half of them. When it is not builtin, adding plugins is made so easy that I too often found myself installing plugins that I really don’t need.</li>
+  <li>Configuration as code. Neovim uses lua for configuration and it is awesome. I can extend my editor exactly the way I want.</li>
+  <li>Vim motions “emulation” in VSCode feels like a dirty workaround and not very much configurable.</li>
+  <li>GUI is not the right kind of tool for text editing. When writing code I live in the terminal so I was finding myself switching back and forth between a GUI and the terminal which is not ideal. This goes without saying that the builtin VSCode terminal is basically unusable.</li>
+</ul>
+
+<p>I replaced VSCode HyperSnips by Neovim <a href="https://github.com/L3MON4D3/LuaSnip">LuaSnips</a> and rewrote my snippets in lua (not too difficult to transition).<br>
+Two months into my Neovim config and I haven’t been happier writing code and LaTeX.<br>
+Really the best improvement is <strong>speed</strong>, I am so much faster and proficient in Neovim. The startup time is below 100ms and the snippets are triggering instantly.</p>
+
+<p>Configuring Neovim was however pretty difficult to learn at first, but there are good tutorials and documentations out there.</p>
+
+
+      </div>
+      
+    </article>
+  </div>
+</main>
+
+        </div>
+
+        <div class="search-content">
+          <div class="inner">
+  <label class="visually-hidden" for="search">Site Search</label>
+        <input type="text" id="search" class="search-input" aria-describedby="results-count" tabindex="-1" placeholder="Enter your search term..." />
+        <div id="results" class="results"></div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer" class="site-footer">
+  <div class="inner">
+    <div class="copyright">
+      
+        <p>&copy; 2024 Gruvw, All Rights Reserved.</p>
+      
+    </div>
+  </div>
+</footer>
+
+    
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-174941171-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<script async src="/assets/javascripts/main.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://gruvw.com/assets/javascripts/lunr/lunr.min.js"></script>
+  <script src="https://gruvw.com/assets/javascripts/lunr/lunr.store.js"></script>
+  <script>
+    var idx = lunr(function () {
+      
+      // the, the normal lunr index initialization
+      this.field('title')
+      this.field('excerpt')
+      this.field('categories')
+      this.field('tags')
+      this.ref('id')
+
+      this.pipeline.remove(lunr.trimmer)
+
+      // add documents to index
+      for (var item in store) {
+        this.add({
+          title: store[item].title,
+          excerpt: store[item].excerpt,
+          categories: store[item].categories,
+          tags: store[item].tags,
+          id: item
+        })
+      }
+    });
+
+    $(document).ready(function () {
+      $('input#search').on('keyup', function () {
+        var resultdiv = $('#results');
+        var query = $(this).val().toLowerCase();
+        var result =
+          idx.query(function (q) {
+            query.split(lunr.tokenizer.separator).forEach(function (term) {
+              q.term(term, { boost: 100 })
+              if (query.lastIndexOf(" ") != query.length - 1) {
+                q.term(term, { usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+              }
+              if (term != "") {
+                q.term(term, { usePipeline: false, editDistance: 1, boost: 1 })
+              }
+            })
+          });
+        resultdiv.empty();
+        resultdiv.prepend('<p id="results-count" class="results-found">' + result.length + ' Result(s) found</p>');
+        for (var item in result) {
+          var ref = result[item].ref;
+          var searchitem =
+            '<article class="entry">' +
+              '<h3 class="entry-title">' +
+                '<a href="' + store[ref].url + '">' + store[ref].title + '</a>' +
+              '</h3>' +
+              '<div class="entry-excerpt">' +
+                '<p>' + store[ref].excerpt.split(" ").splice(0, 20).join(" ") + '...</p>' +
+              '</div>' +
+            '</article>';
+          resultdiv.append(searchitem);
+        }
+      });
+    });
+  </script>
+
+
+
+  </body>
+
+</html>

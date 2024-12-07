@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<!--
+    Basically Basic Jekyll Theme 1.4.4
+    Copyright 2017-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/jekyll-theme-basically-basic/blob/master/LICENSE
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Creating a python package | Gruvw</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Creating a python package" />
+<meta name="author" content="Lucas Jung" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I created my first Python package. It keeps track of what I am printing to the console in a log file along with the possibility to add a prefix to what I am printing." />
+<meta property="og:description" content="I created my first Python package. It keeps track of what I am printing to the console in a log file along with the possibility to add a prefix to what I am printing." />
+<link rel="canonical" href="https://gruvw.com/2020/04/10/creating-a-python-package.html" />
+<meta property="og:url" content="https://gruvw.com/2020/04/10/creating-a-python-package.html" />
+<meta property="og:site_name" content="Gruvw" />
+<meta property="og:image" content="https://gruvw.com/assets/images/posts/creating_a_python_package/main.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-10T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://gruvw.com/assets/images/posts/creating_a_python_package/main.png" />
+<meta property="twitter:title" content="Creating a python package" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Lucas Jung"},"dateModified":"2020-04-10T00:00:00+00:00","datePublished":"2020-04-10T00:00:00+00:00","description":"I created my first Python package. It keeps track of what I am printing to the console in a log file along with the possibility to add a prefix to what I am printing.","headline":"Creating a python package","image":"https://gruvw.com/assets/images/posts/creating_a_python_package/main.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://gruvw.com/2020/04/10/creating-a-python-package.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://gruvw.com/assets/images/main/gruvw_logo.png"},"name":"Lucas Jung"},"url":"https://gruvw.com/2020/04/10/creating-a-python-package.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,600,600i">
+  
+
+  
+    
+    <link rel="alternate" type="application/atom+xml" title="Gruvw" href="/atom.xml">
+  
+</head>
+
+
+  <body class="layout--post creating-a-python-package">
+
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+    <div class="sidebar-toggle-wrapper">
+      
+        <button class="search-toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <title>Search</title>
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+      
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">Menu</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+    <li class="menu-item">
+      <a href="/" itemprop="url">
+        <span itemprop="name">Home</span>
+      </a>
+    </li>
+
+    <!-- site.pages links -->
+    
+    
+
+    
+      
+      
+        <li class="menu-item">
+          <a href="/resume.html" itemprop="url">
+            <span itemprop="name">Resume</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/projects.html" itemprop="url">
+            <span itemprop="name">Projects</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/documents.html" itemprop="url">
+            <span itemprop="name">Documents</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/slides.html" itemprop="url">
+            <span itemprop="name">Slides</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/about.html" itemprop="url">
+            <span itemprop="name">About me</span>
+          </a>
+        </li>
+      
+    
+  </ul>
+</nav>
+
+        <ul class="contact-list">
+  
+    <li>
+      <a href="mailto:gruvw.dev@gmail.com">
+        <span class="icon icon--email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="313.1 3.7 16 16"><path d="M318.5 8.9c0-.2.2-.4.4-.4h4.5c.2 0 .4.2.4.4s-.2.4-.4.4h-4.5c-.3 0-.4-.2-.4-.4zm.4 2.1h4.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-4.5c-.2 0-.4.2-.4.4s.1.4.4.4zm3.5 1.2c0-.2-.2-.4-.4-.4h-3.1c-.2 0-.4.2-.4.4s.2.4.4.4h3.1c.2.1.4-.1.4-.4zm-1.5-8.4l-1.7 1.4c-.2.1-.2.4 0 .6s.4.2.6 0l1.4-1.2 1.4 1.2c.2.1.4.1.6 0s.1-.4 0-.6l-1.7-1.4c-.3-.1-.5-.1-.6 0zm7.8 6.2c.1.1.1.2.1.3v7.9c0 .8-.7 1.5-1.5 1.5h-12.5c-.8 0-1.5-.7-1.5-1.5v-7.9c0-.1.1-.2.1-.3l1.6-1.3c.2-.1.4-.1.6 0s.1.4 0 .6l-1.2 1 1.8 1.3v-4c0-.6.5-1.1 1.1-1.1h7.5c.6 0 1.1.5 1.1 1.1v4l1.8-1.3-1.2-1c-.2-.1-.2-.4 0-.6s.4-.2.6 0l1.6 1.3zm-11.6 2.2l4 2.8 4-2.8V7.6c0-.1-.1-.2-.2-.2h-7.5c-.1 0-.2.1-.2.2v4.6zm10.9-1l-4.7 3.4 3.4 2.6c.2.1.2.4.1.6-.1.2-.4.2-.6.1l-3.6-2.8-1.2.8c-.1.1-.3.1-.5 0l-1.2-.8-3.6 2.8c-.2.1-.4.1-.6-.1-.1-.2-.1-.4.1-.6l3.4-2.6-4.7-3.4v7.1c0 .4.3.6.6.6h12.5c.4 0 .6-.3.6-.6v-7.1z"/></svg></span>
+        <span class="label">Email</span>
+      </a>
+    </li>
+  
+
+  
+    <li><a href="https://github.com/gruvw" target="_blank">
+  <span class="icon icon--github"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>
+  <span class="label">GitHub</span>
+</a>
+</li>
+  
+
+  
+    <li><a href="https://www.linkedin.com/in/jung-lucas" target="_blank">
+  <span class="icon icon--linkedin"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M13.632 13.635h-2.37V9.922c0-.886-.018-2.025-1.234-2.025-1.235 0-1.424.964-1.424 1.96v3.778h-2.37V6H8.51v1.04h.03c.318-.6 1.092-1.233 2.247-1.233 2.4 0 2.845 1.58 2.845 3.637v4.188zM3.558 4.955c-.762 0-1.376-.617-1.376-1.377 0-.758.614-1.375 1.376-1.375.76 0 1.376.617 1.376 1.375 0 .76-.617 1.377-1.376 1.377zm1.188 8.68H2.37V6h2.376v7.635zM14.816 0H1.18C.528 0 0 .516 0 1.153v13.694C0 15.484.528 16 1.18 16h13.635c.652 0 1.185-.516 1.185-1.153V1.153C16 .516 15.467 0 14.815 0z" fill-rule="nonzero"/></svg></span>
+  <span class="label">LinkedIn</span>
+</a>
+</li>
+  
+
+  
+</ul>
+
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+      
+        <p class="site-title">
+          <a href="/">
+            <img src="/assets/images/main/gruvw_logo.png" alt="" class="site-logo">
+            <span>Gruvw</span>
+          </a>
+        </p>
+      
+    </div>
+  </div>
+</header>
+
+        <div class="initial-content">
+          <header class="intro">
+  
+    
+    
+    
+    <div class="intro-image">
+      <img src="/assets/images/posts/creating_a_python_package/main.png" alt="Creating a python package">
+    </div>
+  
+
+  <div class="inner">
+    <div class="intro-text">
+      <h1 id="page-title" class="intro-title">Creating a python package
+</h1>
+      
+        <p class="intro-subtitle">The creation of my first python package: PrintBetter
+</p>
+      
+
+      
+        
+
+
+        <p class="entry-meta">
+          <span class="byline-item">by Lucas Jung</span><span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time datetime="2020-04-10T00:00:00+00:00">April 10, 2020</time></span> <span class="byline-item"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="15 309.7 16 16"><g><path d="M23.9 315.1v3.6c0 .5-.4.9-.9.9s-.9-.4-.9-.9v-3.6h1.8z"/><path d="M30.1 317.7c.5 3.9-2.3 7.5-6.2 7.9-3.9.5-7.5-2.3-7.9-6.2-.5-3.9 2.3-7.5 6.2-7.9v-1.8H24v1.8c1.1.1 2.7.7 3.5 1.4l1.3-1.3 1.3 1.3-1.3 1.3c.5.9 1.2 2.5 1.3 3.5zm-1.8.9c0-2.9-2.4-5.3-5.3-5.3s-5.3 2.4-5.3 5.3 2.4 5.3 5.3 5.3 5.3-2.3 5.3-5.3z"/></g></svg></span>9 min read</span>
+        </p>
+      
+
+      
+        <div class="intro-more">
+          <p>You can access the source code and the documentation regarding this package on the following GitHub repository:</p>
+
+        </div>
+      
+
+      
+        <ul class="intro-actions">
+          
+            <li><a href="https://github.com/gruvw/printbetter" target="_blank" class="btn"><span class="icon"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>Project's GitHub repository</a></li>
+          
+        </ul>
+      
+    </div>
+  </div>
+</header>
+
+
+<main id="main" class="page-content" aria-label="Content" style="width: 100%;">
+  <div class="inner" style="width: 100%;">
+    <article class="entry-wrap" style="width: 100%;">
+      <div class="entry-content" style="width: 100%;">
+        <h4 style="margin-bottom: 10px;">Table of contents:</h4>
+        <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#-the-idea">💡 The Idea</a></li>
+<li class="toc-entry toc-h2"><a href="#-the-old-way">💽 The Old Way</a></li>
+<li class="toc-entry toc-h2"><a href="#-the-creation">🛠 The Creation</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h3"><a href="#pypi">PyPi</a></li>
+<li class="toc-entry toc-h3"><a href="#coding">Coding</a></li>
+<li class="toc-entry toc-h3"><a href="#customisation">Customisation</a></li>
+<li class="toc-entry toc-h3"><a href="#documentation">Documentation</a></li>
+<li class="toc-entry toc-h3"><a href="#the-name">The name</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#-the-new-way">🎉 The New Way</a></li>
+<li class="toc-entry toc-h2"><a href="#-publishing">📤 Publishing</a></li>
+<li class="toc-entry toc-h2"><a href="#-conclusion">📄 Conclusion</a></li>
+</ul><p>I created my first Python package.
+It keeps track of what I am printing to the console in a log file along with the possibility to add a prefix to what I am printing.</p>
+
+<h2 id="-the-idea">
+<a class="anchor" href="#-the-idea" aria-hidden="true"><span class="octicon octicon-link"></span></a>💡 The Idea</h2>
+
+<p>As I coded multiple python programs that were running on a <a href="https://www.raspberrypi.org/" target="_blank">Raspberry Pi</a> all day long, I always wanted to keep track of what my program was doing and when it was doing it. In order to do so, every time that my program received a piece of information or was actually doing something, I printed a text to the console explaining what was going on.
+This way, it was easy to debug after a problem occurred on some part of a project as I knew if the server received the information or not and if it took the correct actions based on it.</p>
+
+<p>I was obviously not constantly watching the console feed all the time so I also needed to print the time before any statement. Therefore, I was easily able to debug what went wrong at a certain time based on the console feed.</p>
+
+<p>I was still facing two issues:</p>
+
+<ol>
+  <li>When a bug would cause my python program to crash, I would loose all the console feed containing the precious debugging data.</li>
+  <li>When I would restart my program, I would not be able to get back the previous console feed. I only had the currently running console feed and no history of the previous runs.</li>
+</ol>
+
+<p>This is when I had the idea of creating a python package which could print out statements directly with a prefix containing the current date and time. The package could also save the console feed inside a log file. I would then be able to see the console feed after closing the program and access any past run output.</p>
+
+<h2 id="-the-old-way">
+<a class="anchor" href="#-the-old-way" aria-hidden="true"><span class="octicon octicon-link"></span></a>💽 The Old Way</h2>
+
+<p>Before the creation of this package, I was printing out statements this way:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td>
+<td class="code"><pre><span class="kn">import</span> <span class="nn">time</span>  <span class="c1"># one time only
+</span>
+<span class="n">hour</span> <span class="o">=</span> <span class="n">time</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%d.%m %H:%M:%S |  "</span><span class="p">)</span>
+<span class="n">statement</span> <span class="o">=</span> <span class="s">"-&gt; Data sent successfully"</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hour</span> <span class="o">+</span> <span class="n">statement</span><span class="p">)</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<p>Every time I needed to print out something I was creating a prefix using the <a href="https://docs.python.org/fr/3/library/time.html#time.strftime" target="_blank">strftime</a> method of the <a href="https://docs.python.org/fr/3/library/time.html" target="_blank">time</a> package (line 3).
+After that I concatenated the prefix with the statement before printing the result (line 5).</p>
+
+<p>Doing it in that way let me to have the prefix before the statement but didn’t store anything in a log file.</p>
+
+<h2 id="-the-creation">
+<a class="anchor" href="#-the-creation" aria-hidden="true"><span class="octicon octicon-link"></span></a>🛠 The Creation</h2>
+
+<h3 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
+
+<p>Although I coded a lot in Python, I had never wrote a package or anything close to it. I took it like a good opportunity to learn a new skill in this language.
+I wanted my package to be easily installed on any computer with a <a href="https://packaging.python.org/key_projects/#pip" target="_blank">pip</a> command like the other packages I installed in the past.
+This is where I stared.</p>
+
+<h3 id="pypi">
+<a class="anchor" href="#pypi" aria-hidden="true"><span class="octicon octicon-link"></span></a>PyPi</h3>
+
+<p>I first needed to understand where and how to make my future package available to anyone using the pip command. That led me to search where the different python packages are stored. I found out that they were stored on <a href="https://pypi.org/" target="_blank">PyPi</a>, the <strong>Python Package Index</strong>.
+Once I knew that, I searched a way to publish a package on PyPi. I found <a href="https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56" target="_blank">this</a> tutorial on <a href="https://medium.com/" target="_blank">Medium</a> wrote by <a href="https://medium.com/@joel.barmettler" target="_blank">joelbarmettlerUZH</a>.
+It was really helpful and it covered everything from the point where you finished writing your code to the <code class="language-plaintext highlighter-rouge">pip install your_package</code> command.
+I read this article so that I knew how to write my code in order to make it easier to publish on PyPi once I would finish coding my package.</p>
+
+<h3 id="coding">
+<a class="anchor" href="#coding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coding</h3>
+
+<p>Now that I knew how to write my package in a way that would make it accessible to anyone, I needed to actually code it.
+I started my reflection by asking myself which categories of statements I wanted my package to be able to display. I found 3 main categories:</p>
+
+<ol>
+  <li>An information</li>
+  <li>A warning</li>
+  <li>An error</li>
+</ol>
+
+<p>I did some research about log files in python and this is where I found the <a href="https://docs.python.org/3/library/logging.html" target="_blank">logging</a> package. This discovery made my work a lot simpler because it almost perfectly matched my goal of keeping track of what I was printing inside a log file.
+I learned a bit about how to use this package and ran some tests. I was pretty satisfied about it and I started implementing it inside my own package.
+It wasn’t an issue to use it inside my package because it is part of the <a href="https://docs.python.org/3/library/index.html" target="_blank">Python Standard Library</a>. That meant that I didn’t need to mess with requirements or anything like that because (almost) everyone already had the logging package installed on their machines.</p>
+
+<p>I coded the main methods of my package which were:</p>
+
+<ul>
+  <li>The initialisation method, <code class="language-plaintext highlighter-rouge">init</code>
+</li>
+  <li>The exit method, <code class="language-plaintext highlighter-rouge">exit</code>
+</li>
+  <li>The info method, <code class="language-plaintext highlighter-rouge">info</code>
+</li>
+  <li>The warning method, <code class="language-plaintext highlighter-rouge">warn</code>
+</li>
+  <li>The error method, <code class="language-plaintext highlighter-rouge">err</code>
+</li>
+  <li>I also added a new category which was the debug method, <code class="language-plaintext highlighter-rouge">debug</code>
+</li>
+</ul>
+
+<p>(I am not going to describe each method here but you can read more about them in the documentation of the project that you can find on the <a href="https://github.com/gruvw/printbetter" target="_blank">project’s GitHub repository</a>.)</p>
+
+<h3 id="customisation">
+<a class="anchor" href="#customisation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customisation</h3>
+
+<p>I wanted my package to be as customizable as possible. In order to let the users customise the package, I created the following methods:</p>
+
+<ol>
+  <li>Customizing the printing prefix the way they want, <code class="language-plaintext highlighter-rouge">custom_PRINTPREFIXFORMAT</code>
+</li>
+  <li>Customizing the logging prefix the way they want, <code class="language-plaintext highlighter-rouge">custom_LOGFORMAT</code>
+</li>
+  <li>Disabling or enabling the printing on the console, <code class="language-plaintext highlighter-rouge">disable_PRINTOUT</code> <code class="language-plaintext highlighter-rouge">enable_PRINTOUT</code>
+</li>
+  <li>Disabling or enabling the record of the statements on a log file, <code class="language-plaintext highlighter-rouge">disable_LOGFILE</code> <code class="language-plaintext highlighter-rouge">enable_LOGFILE</code>
+</li>
+  <li>Modifying the directory where the log files are saved, <code class="language-plaintext highlighter-rouge">custom_LOGPATH</code>
+</li>
+</ol>
+
+<p>(I am not going to describe each method here but you can read more about them in the documentation of the project that you can find on the <a href="https://github.com/gruvw/printbetter" target="_blank">project’s GitHub repository</a>.)</p>
+
+<h3 id="documentation">
+<a class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h3>
+
+<p>At this time the coding part was pretty much done but I still needed to write an understandable documentation for futur users.
+I didn’t want something perfect, just something useful and that was capable of explaining how my package worked and how to use it.
+I stared by writing some comments inside my code in order to explain different parts of each method.
+After that I wrote a docstring for each method describing its purpose and its use.
+Then I wrote some basic examples of uses and explained how to initialise and exit the package.
+I also styled everything using <a href="https://fr.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a>. That way, the documentation is nicely displayed in <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> or any other text editor which supports Markdown documentation rendering.</p>
+
+<p>After the documentation was written in the code, I still needed to write a <em>README.md</em> file for the GitHub repository.
+I wrote it pretty fast just including:</p>
+
+<ul>
+  <li>A description of my package</li>
+  <li>The features it brings</li>
+  <li>A detailed documentation</li>
+  <li>Example.s for each method</li>
+</ul>
+
+<h3 id="the-name">
+<a class="anchor" href="#the-name" aria-hidden="true"><span class="octicon octicon-link"></span></a>The name</h3>
+
+<p>I had a really cool name inside my head since the beginning of the project. That name was <strong>BetterPrint</strong>.
+It was a good representation of what I was trying to achieve but unfortunately, it was already taken by another package.
+I could take another name for the package installation and still be able to import my module with the name BetterPrint but I was not really convinced by this idea.
+I don’t really like when other packages do that. For example the well known computer vision package called <a href="https://pypi.org/project/opencv-python/" target="_blank">OpenCV</a> needs to be install with the following command: <code class="language-plaintext highlighter-rouge">pip install opencv-python</code>. However it needs to be imported inside a python script like this: <code class="language-plaintext highlighter-rouge">import opencv</code>.
+It is a small detail but I like the fact that when you look at someone’s code and there’s a package you don’t have, you can simply run the <code class="language-plaintext highlighter-rouge">pip install package_name</code> command in order to get it.</p>
+
+<p>This is why I wrote an email to the person who has the package called BetterPrint in order to see with him if he was ok to change his package name so I could use his.
+I thought that he would say yes because his package has not been updated for years but his answer was negative 😥.</p>
+
+<p>At this time I needed to find another name to my package. There were many candidates such as:</p>
+
+<ul>
+  <li>SimplePrint</li>
+  <li>EasyPrint</li>
+  <li>LogPrint</li>
+  <li>BestPrint</li>
+  <li>…</li>
+</ul>
+
+<p>I was not fully satisfied by any of this names. At some point I realized that I could just invert the <em>Better</em> and the <em>Print</em> order in the name which, thankfully, was not already taken!
+That gave me the final name which is <strong>PrintBetter</strong>.
+It was the most convincing name to me so I went with that one.</p>
+
+<h2 id="-the-new-way">
+<a class="anchor" href="#-the-new-way" aria-hidden="true"><span class="octicon octicon-link"></span></a>🎉 The New Way</h2>
+
+<p>When I finished my package, I was pretty satisfied with the final result.
+My initial issue is fixed and I am definitely going to use this package in a large number of futur projects.
+This is the new way of printing things to the console:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><table class="rouge-table"><tbody><tr>
+<td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+<td class="code"><pre><span class="kn">import</span> <span class="nn">printbetter</span> <span class="k">as</span> <span class="n">pb</span>
+
+<span class="n">pb</span><span class="p">.</span><span class="n">init</span><span class="p">()</span>  <span class="c1"># initializes
+</span>
+<span class="n">pb</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"information"</span><span class="p">)</span>
+<span class="n">pb</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="s">"variable debug"</span><span class="p">)</span>
+<span class="n">pb</span><span class="p">.</span><span class="n">warn</span><span class="p">(</span><span class="s">"warning"</span><span class="p">)</span>
+<span class="n">pb</span><span class="p">.</span><span class="n">err</span><span class="p">(</span><span class="s">"error"</span><span class="p">)</span>
+</pre></td>
+</tr></tbody></table></code></pre></figure>
+
+<p>The first line is where my package is imported in my python script.
+On the third line I am initializing the module with the default parameters (no additional information).
+After that comes a series of method calls which each has their own purpose. They already have been described in the <a href="#coding">Coding</a> paragraph.
+At the end, at line 10, I am terminating the module.</p>
+
+<h2 id="-publishing">
+<a class="anchor" href="#-publishing" aria-hidden="true"><span class="octicon octicon-link"></span></a>📤 Publishing</h2>
+
+<p>Even thought I read all the explanations in the article (see <a href="#pypi">PyPi</a> paragraph) about publishing my package to PyPi I ran into multiple difficulties durning this process.</p>
+
+<p>I needed to create many different files in order to publish my packages:</p>
+
+<ul>
+  <li>LICENCE.txt</li>
+  <li>MANIFEST</li>
+  <li>description.rst</li>
+  <li>setup.cfg</li>
+  <li>setup.py</li>
+</ul>
+
+<p>I was a bit confused when I wrote each of these files.
+The <em>LICENCE.txt</em> was the easiest file because I just choose one of the basic licenses for my package and everything ran smoothly with it.
+The <em>MANIFEST</em> was automatically generated so it was not an issue either.
+The <em>description.rst</em> file was slightly more difficult but nothing crazy. It is the file used by PyPi to display a small description of the project on their website. It used the <a href="https://fr.wikipedia.org/wiki/ReStructuredText" target="_blank">reStructuredText</a> file formatting which is a bit like Markdown but using a different syntax.
+The <em>setup.cfg</em> was a very small file so it was not hard to setup.</p>
+
+<p>The only file which gave me lots of issues was the <em>setup.py</em> file. I needed to modify it many times and my package became a mess because every time that I made a change to the file I needed to release my package and then upload it to PyPi in order to see if my changes worked.
+This is why there was six <a href="https://github.com/gruvw/printbetter/releases" target="_blank">releases</a> of my package till it was finally fully published like I wanted.</p>
+
+<h2 id="-conclusion">
+<a class="anchor" href="#-conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>📄 Conclusion</h2>
+
+<p>In the end, I am really happy with what I have done with this package.
+I use it in a lot of projects now as it is pretty helpful.
+I am also happy about the documentation that I wrote because even if I knew that probably no one will ever read it or even use my package I wanted to build it as if people would.
+This gave me the full experience behind building and publishing a python package and I learned a lot thought this process.
+The final result is clean enough for me so maybe I will update it in the futur if I have any additional ideas but not for the moment.</p>
+
+<p>This was a fun and useful project and I would recommend to any python developer to do the same thing if they have any package idea as it is another side of coding we do not always think of.
+We often use lots of packages at the beginning of any python file but this was the first time I really saw the “behind the scenes” of those and it was very interesting.</p>
+
+      </div>
+      
+    </article>
+  </div>
+</main>
+
+        </div>
+
+        <div class="search-content">
+          <div class="inner">
+  <label class="visually-hidden" for="search">Site Search</label>
+        <input type="text" id="search" class="search-input" aria-describedby="results-count" tabindex="-1" placeholder="Enter your search term..." />
+        <div id="results" class="results"></div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer" class="site-footer">
+  <div class="inner">
+    <div class="copyright">
+      
+        <p>&copy; 2024 Gruvw, All Rights Reserved.</p>
+      
+    </div>
+  </div>
+</footer>
+
+    
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-174941171-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+<script async src="/assets/javascripts/main.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://gruvw.com/assets/javascripts/lunr/lunr.min.js"></script>
+  <script src="https://gruvw.com/assets/javascripts/lunr/lunr.store.js"></script>
+  <script>
+    var idx = lunr(function () {
+      
+      // the, the normal lunr index initialization
+      this.field('title')
+      this.field('excerpt')
+      this.field('categories')
+      this.field('tags')
+      this.ref('id')
+
+      this.pipeline.remove(lunr.trimmer)
+
+      // add documents to index
+      for (var item in store) {
+        this.add({
+          title: store[item].title,
+          excerpt: store[item].excerpt,
+          categories: store[item].categories,
+          tags: store[item].tags,
+          id: item
+        })
+      }
+    });
+
+    $(document).ready(function () {
+      $('input#search').on('keyup', function () {
+        var resultdiv = $('#results');
+        var query = $(this).val().toLowerCase();
+        var result =
+          idx.query(function (q) {
+            query.split(lunr.tokenizer.separator).forEach(function (term) {
+              q.term(term, { boost: 100 })
+              if (query.lastIndexOf(" ") != query.length - 1) {
+                q.term(term, { usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+              }
+              if (term != "") {
+                q.term(term, { usePipeline: false, editDistance: 1, boost: 1 })
+              }
+            })
+          });
+        resultdiv.empty();
+        resultdiv.prepend('<p id="results-count" class="results-found">' + result.length + ' Result(s) found</p>');
+        for (var item in result) {
+          var ref = result[item].ref;
+          var searchitem =
+            '<article class="entry">' +
+              '<h3 class="entry-title">' +
+                '<a href="' + store[ref].url + '">' + store[ref].title + '</a>' +
+              '</h3>' +
+              '<div class="entry-excerpt">' +
+                '<p>' + store[ref].excerpt.split(" ").splice(0, 20).join(" ") + '...</p>' +
+              '</div>' +
+            '</article>';
+          resultdiv.append(searchitem);
+        }
+      });
+    });
+  </script>
+
+
+
+  </body>
+
+</html>
